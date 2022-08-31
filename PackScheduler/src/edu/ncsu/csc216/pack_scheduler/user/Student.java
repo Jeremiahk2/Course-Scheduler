@@ -4,6 +4,7 @@ package edu.ncsu.csc216.pack_scheduler.user;
  * Student class
  * @author Geigh Neill
  * @author Jeremiah Knizley
+ * @author Sahil Kanchan
  */
 public class Student {
 	
@@ -21,6 +22,8 @@ public class Student {
 	private int maxCredits;
 	/** The max credits a student can have */
 	public static final int MAX_CREDITS = 18;
+	/** The min credits a student can have */
+	public static final int MIN_CREDITS = 3;
 
 	/**
 	 * Student constructor
@@ -83,6 +86,7 @@ public class Student {
 	}
 
 	/**
+	 * Returns the student's email
 	 * @return the email
 	 */
 	public String getEmail() {
@@ -90,9 +94,37 @@ public class Student {
 	}
 
 	/**
+	 * Sets the student's email
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
+		
+		if (email == null || "".equals(email)) {
+			throw new IllegalArgumentException("Invalid email.");
+		}
+		
+		boolean hasAt = false;
+		boolean hasPeriod = false;
+		int atIndex = 0;
+		int periodIndex = 0;
+		for (int i = 0; i < email.length(); i++) {
+			if (email.charAt(i) == '@') {
+				hasAt = true;
+				atIndex = i;
+			}
+			else if (email.charAt(i) == '.') {
+				hasPeriod = true;
+				periodIndex = i;
+			}
+		}
+		
+		if (!hasAt || !hasPeriod) {
+			throw new IllegalArgumentException("Invalid email.");
+		}
+		if (atIndex - periodIndex < 0) {
+			throw new IllegalArgumentException("Invalid email.");
+		}
+		
 		this.email = email;
 	}
 
@@ -107,6 +139,11 @@ public class Student {
 	 * @param hashPw the hashPw to set
 	 */
 	public void setHashPw(String hashPw) {
+		
+		if (hashPw == null || "".equals(hashPw)) {
+			throw new IllegalArgumentException("Invalid password.");
+		}
+		
 		this.hashPw = hashPw;
 	}
 
@@ -121,27 +158,50 @@ public class Student {
 	 * @param maxCredits the maxCredits to set
 	 */
 	public void setMaxCredits(int maxCredits) {
+		
+		if (maxCredits < MIN_CREDITS || maxCredits > MAX_CREDITS) {
+			throw new IllegalArgumentException("Invalid credits.");
+		}
+		
 		this.maxCredits = maxCredits;
 	}
 
 	/**
+	 * Sets the student's first name
 	 * @param firstName the firstName to set
 	 */
 	public void setFirstName(String firstName) {
+		
+		if (firstName == null || "".equals(firstName)) {
+			throw new IllegalArgumentException("Invalid first name.");
+		}
+		
 		this.firstName = firstName;
 	}
 
 	/**
+	 * Sets the student's last name
 	 * @param lastName the lastName to set
 	 */
 	public void setLastName(String lastName) {
+		
+		if (lastName == null || "".equals(lastName)) {
+			throw new IllegalArgumentException("Invalid last name.");
+		}
+		
 		this.lastName = lastName;
 	}
 
 	/**
+	 * Sets the student's id number
 	 * @param id the id to set
 	 */
 	private void setId(String id) {
+		
+		if (id == null || "".equals(id)) {
+			throw new IllegalArgumentException("Invalid id.");
+		}
+		
 		this.id = id;
 	}
 	
