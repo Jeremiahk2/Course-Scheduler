@@ -133,7 +133,7 @@ public class Student {
 	 * Returns the student's password
 	 * @return the hashPw
 	 */
-	public String getHashPw() {
+	public String getPassword() {
 		return hashPw;
 	}
 
