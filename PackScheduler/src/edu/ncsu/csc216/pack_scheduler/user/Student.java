@@ -101,7 +101,7 @@ public class Student {
 	public void setEmail(String email) {
 		
 		if (email == null || "".equals(email)) {
-			throw new IllegalArgumentException("Invalid email.");
+			throw new IllegalArgumentException("Invalid email");
 		}
 		
 		boolean hasAt = false;
@@ -120,10 +120,10 @@ public class Student {
 		}
 		
 		if (!hasAt || !hasPeriod) {
-			throw new IllegalArgumentException("Invalid email.");
+			throw new IllegalArgumentException("Invalid email");
 		}
 		if (atIndex - periodIndex > 0) {
-			throw new IllegalArgumentException("Invalid email.");
+			throw new IllegalArgumentException("Invalid email");
 		}
 		
 		this.email = email;
@@ -144,7 +144,7 @@ public class Student {
 	public void setPassword(String hashPw) {
 		
 		if (hashPw == null || "".equals(hashPw)) {
-			throw new IllegalArgumentException("Invalid password.");
+			throw new IllegalArgumentException("Invalid password");
 		}
 		
 		this.hashPw = hashPw;
@@ -165,7 +165,7 @@ public class Student {
 	public void setMaxCredits(int maxCredits) {
 		
 		if (maxCredits < MIN_CREDITS || maxCredits > MAX_CREDITS) {
-			throw new IllegalArgumentException("Invalid credits.");
+			throw new IllegalArgumentException("Invalid max credits");
 		}
 		
 		this.maxCredits = maxCredits;
@@ -178,7 +178,7 @@ public class Student {
 	public void setFirstName(String firstName) {
 		
 		if (firstName == null || "".equals(firstName)) {
-			throw new IllegalArgumentException("Invalid first name.");
+			throw new IllegalArgumentException("Invalid first name");
 		}
 		
 		this.firstName = firstName;
@@ -191,7 +191,7 @@ public class Student {
 	public void setLastName(String lastName) {
 		
 		if (lastName == null || "".equals(lastName)) {
-			throw new IllegalArgumentException("Invalid last name.");
+			throw new IllegalArgumentException("Invalid last name");
 		}
 		
 		this.lastName = lastName;
@@ -204,7 +204,7 @@ public class Student {
 	private void setId(String id) {
 		
 		if (id == null || "".equals(id)) {
-			throw new IllegalArgumentException("Invalid id.");
+			throw new IllegalArgumentException("Invalid id");
 		}
 		
 		this.id = id;
