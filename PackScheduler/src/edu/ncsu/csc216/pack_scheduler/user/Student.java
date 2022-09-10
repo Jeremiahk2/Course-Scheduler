@@ -234,12 +234,15 @@ public class Student {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Student other = (Student) obj;
 		if (email == null) {
 			if (other.email != null)
@@ -262,14 +265,13 @@ public class Student {
 		} else if (!id.equals(other.id))
 			return false;
 		if (lastName == null) {
-			if (other.lastName != null)
+			if (other.lastName != null) {
 				return false;
-		} else if (!lastName.equals(other.lastName))
-			return false;
-		if (maxCredits != other.maxCredits) {
+			}
+		} else if (!lastName.equals(other.lastName)) {
 			return false;
 		}
-		return true;
+		return maxCredits == other.maxCredits;
 	}
 
 	/**
