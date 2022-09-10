@@ -40,7 +40,7 @@ public class Student {
 		setLastName(lastName);
 		setId(id);
 		setMaxCredits(maxCredits);
-		setHashPw(hashPW);
+		setPassword(hashPW);
 		setEmail(email);
 		
 	}
@@ -58,7 +58,7 @@ public class Student {
 		setLastName(lastName);
 		setId(id);
 		setMaxCredits(MAX_CREDITS);
-		setHashPw(hashPW);
+		setPassword(hashPW);
 		setEmail(email);
 	}
 	
@@ -141,7 +141,7 @@ public class Student {
 	 * Sets the student's password
 	 * @param hashPw the hashPw to set
 	 */
-	public void setHashPw(String hashPw) {
+	public void setPassword(String hashPw) {
 		
 		if (hashPw == null || "".equals(hashPw)) {
 			throw new IllegalArgumentException("Invalid password.");
