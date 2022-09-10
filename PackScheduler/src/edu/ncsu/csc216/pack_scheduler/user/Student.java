@@ -122,7 +122,7 @@ public class Student {
 		if (!hasAt || !hasPeriod) {
 			throw new IllegalArgumentException("Invalid email.");
 		}
-		if (atIndex - periodIndex < 0) {
+		if (atIndex - periodIndex > 0) {
 			throw new IllegalArgumentException("Invalid email.");
 		}
 		
@@ -266,8 +266,9 @@ public class Student {
 				return false;
 		} else if (!lastName.equals(other.lastName))
 			return false;
-		if (maxCredits != other.maxCredits)
+		if (maxCredits != other.maxCredits) {
 			return false;
+		}
 		return true;
 	}
 
