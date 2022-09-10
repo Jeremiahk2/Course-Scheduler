@@ -281,7 +281,7 @@ public class Student {
 	@Override
 	public String toString() {
 		String returnString = "";
-		returnString = String.format("%s,%s,%s,%s,%s,%d", firstName, lastName, email, id, hashPw,
+		returnString = String.format("%s,%s,%s,%s,%s,%d", firstName, lastName, id, email, hashPw,
 				maxCredits);
 		
 		return returnString;
