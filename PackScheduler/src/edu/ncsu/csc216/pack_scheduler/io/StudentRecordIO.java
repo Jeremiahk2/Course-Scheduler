@@ -16,7 +16,6 @@ import edu.ncsu.csc216.pack_scheduler.user.Student;
  * A class for creating StudentRecordIO objects, which keep track of students.
  * @author Sahil Kanchan
  * @author Jeremiah Knizley
- *
  */
 public class StudentRecordIO {
 
