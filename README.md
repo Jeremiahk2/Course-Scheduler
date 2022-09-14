@@ -2,10 +2,10 @@
 
 Roles:
 
-gdneill: Completed student.java and did the java doc for the same.
+- **JUNIT for Student.java** | **Owner:** Sahil Kanchan, **Due:** 9/17 , **Status:** Pending
 
-skancha6: Completed methods readStudentRecords() and writeStudentRecords() of StudentRecordIO.java
+- **JUNIT for StudentRecordIO.java** | **Owner:** Jeremiah Knizley, **Due: *9/18* , **Status:** Pending
 
-jdknizle: Completed method processStudent of StudentRecordIO.java and help fix bugs with both Student.java and StudentRecordIO.java
+- **JUNIT for StudentDirectory.java** | **Owner:** Geigh Neill, **Due:** 9/19, **Status:** Pending
 
-Internal Deadline: Complete the entire lab by 9/10/2022 at 11:59pm.
+- **System test plan** | **Owner:** Mostly Geigh Neill, help as needed, **Due:** 9/21, **Status:** Pending
