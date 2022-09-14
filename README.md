@@ -1,7 +1,5 @@
 # csc217-LR1-223-02
-
-Roles:
-
+TASKS:
 - **JUNIT for Student.java** | **Owner:** Sahil Kanchan, **Due:** 9/17 , **Status:** Pending
 
 - **JUNIT for StudentRecordIO.java** | **Owner:** Jeremiah Knizley, **Due: *9/18* , **Status:** Pending
