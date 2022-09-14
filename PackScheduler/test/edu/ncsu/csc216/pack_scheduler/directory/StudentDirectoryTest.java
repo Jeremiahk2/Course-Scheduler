@@ -21,6 +21,8 @@ public class StudentDirectoryTest {
 	
 	/** Valid course records */
 	private final String validTestFile = "test-files/student_records.txt";
+	
+	private final String nonexistentTestFile = "";
 	/** Test first name */
 	private static final String FIRST_NAME = "Stu";
 	/** Test last name */
@@ -88,6 +90,10 @@ public class StudentDirectoryTest {
 		//Test valid file
 		sd.loadStudentsFromFile(validTestFile);
 		assertEquals(10, sd.getStudentDirectory().length);
+		//Test throws IAE statement
+		Exception exception = assertThrows(IllegalArgumentException.class,
+				() -> sd.loadStudentsFromFile(nonexistentTestFile));
+		assertEquals("Unable to read file ", exception.getMessage(), "Incorrect exception thrown with invalid file " + nonexistentTestFile);
 	}
 
 	/**
