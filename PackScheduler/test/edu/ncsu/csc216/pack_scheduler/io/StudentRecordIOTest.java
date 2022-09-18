@@ -20,8 +20,8 @@ import org.junit.jupiter.api.Test;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 
 /**
- * @author Jerry
- *
+ * Tests StudentRecordIO
+ * @author Jeremiah Knizley
  */
 class StudentRecordIOTest {
 
@@ -93,7 +93,7 @@ class StudentRecordIOTest {
 		
 		try {
 			ArrayList<Student> invalidRecords = StudentRecordIO.readStudentRecords(invalidTestFile);
-			assertEquals(true, invalidRecords.isEmpty());
+			assertTrue(invalidRecords.isEmpty());
 		} catch (FileNotFoundException e) {
 			fail("Unexpected error reading " + invalidTestFile);
 		}
