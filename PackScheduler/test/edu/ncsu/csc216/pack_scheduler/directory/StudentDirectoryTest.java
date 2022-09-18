@@ -13,6 +13,8 @@ import java.util.Scanner;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
+import edu.ncsu.csc216.pack_scheduler.user.Student;
+
 /**
  * Tests StudentDirectory.
  * @author Sarah Heckman
@@ -21,7 +23,7 @@ public class StudentDirectoryTest {
 	
 	/** Valid course records */
 	private final String validTestFile = "test-files/student_records.txt";
-	
+	/** Invalid course records file */
 	private final String nonexistentTestFile = "";
 	/** Test first name */
 	private static final String FIRST_NAME = "Stu";
@@ -33,8 +35,24 @@ public class StudentDirectoryTest {
 	private static final String EMAIL = "sdent@ncsu.edu";
 	/** Test password */
 	private static final String PASSWORD = "pw";
+	/** Test first name */
+	private static final String FIRST_NAME_1 = "Larry";
+	/** Test last name */
+	private static final String LAST_NAME_1 = "Burt";
+	/** Test id */
+	private static final String ID_1 = "lburt";
+	/** Test email */
+	private static final String EMAIL_1 = "lburt@ncsu.edu";
+	/** Test password */
+	private static final String PASSWORD_1 = "wp";
+	/** Wrong test password */
+	private static final String WRONG_PW = "PW";
 	/** Test max credits */
 	private static final int MAX_CREDITS = 15;
+	/** Test low max credits */
+	private static final int MAX_CREDITS_LOW = 2;
+	/** Test high max credits */
+	private static final int MAX_CREDITS_HIGH = 19;
 	
 	/**
 	 * Resets course_records.txt for use in other tests.
@@ -105,11 +123,38 @@ public class StudentDirectoryTest {
 		
 		//Test valid Student
 		sd.addStudent(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, PASSWORD, MAX_CREDITS);
+		sd.addStudent(FIRST_NAME_1, LAST_NAME_1, ID_1, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_CREDITS_LOW);
+		sd.addStudent(FIRST_NAME_1, LAST_NAME_1, ID_1, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_CREDITS_HIGH);
 		String [][] studentDirectory = sd.getStudentDirectory();
-		assertEquals(1, studentDirectory.length);
+		assertEquals(2, studentDirectory.length);
 		assertEquals(FIRST_NAME, studentDirectory[0][0]);
 		assertEquals(LAST_NAME, studentDirectory[0][1]);
 		assertEquals(ID, studentDirectory[0][2]);
+		assertFalse(sd.addStudent(FIRST_NAME_1, LAST_NAME_1, ID, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_CREDITS_LOW));
+	}
+	
+	/**
+	 * Tests StudentDirect.addStudent() Exception messages.
+	 */
+	@Test
+	public void testAddStudentExceptions() {
+		StudentDirectory sd = new StudentDirectory();
+		
+		Exception nullPwException = assertThrows(IllegalArgumentException.class,
+				() -> sd.addStudent(FIRST_NAME, LAST_NAME, ID, EMAIL, null, PASSWORD, MAX_CREDITS));
+		assertEquals("Invalid password", nullPwException.getMessage(), "Incorrect exception thrown with null password");
+		Exception nullPwException1 = assertThrows(IllegalArgumentException.class,
+				() -> sd.addStudent(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, null, MAX_CREDITS));
+		assertEquals("Invalid password", nullPwException1.getMessage(), "Incorrect exception thrown with null password");
+		Exception emptyPwException = assertThrows(IllegalArgumentException.class,
+				() -> sd.addStudent(FIRST_NAME, LAST_NAME, ID, EMAIL, "", PASSWORD, MAX_CREDITS));
+		assertEquals("Invalid password", emptyPwException.getMessage(), "Incorrect exception thrown with empty password");
+		Exception emptyPwException1 = assertThrows(IllegalArgumentException.class,
+				() -> sd.addStudent(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, "", MAX_CREDITS));
+		assertEquals("Invalid password", emptyPwException1.getMessage(), "Incorrect exception thrown with empty password");
+		Exception diffPwException = assertThrows(IllegalArgumentException.class,
+				() -> sd.addStudent(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, WRONG_PW, MAX_CREDITS));
+		assertEquals("Passwords do not match", diffPwException.getMessage(), "Incorrect exception thrown with different passwords");
 	}
 
 	/**
@@ -142,6 +187,10 @@ public class StudentDirectoryTest {
 		assertEquals(1, sd.getStudentDirectory().length);
 		sd.saveStudentDirectory("test-files/actual_student_records.txt");
 		checkFiles("test-files/expected_student_records.txt", "test-files/actual_student_records.txt");
+		Exception saveException = assertThrows(IllegalArgumentException.class,
+				() -> sd.saveStudentDirectory(nonexistentTestFile));
+		assertEquals("Unable to write to file " + nonexistentTestFile, saveException.getMessage(), 
+				"Incorrect exception thrown for invalid save file");
 	}
 	
 	/**
