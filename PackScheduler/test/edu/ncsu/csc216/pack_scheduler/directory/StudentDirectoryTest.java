@@ -13,18 +13,16 @@ import java.util.Scanner;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
-import edu.ncsu.csc216.pack_scheduler.user.Student;
-
 /**
  * Tests StudentDirectory.
- * @author Sarah Heckman
+ * @author Geigh Neill
  */
 public class StudentDirectoryTest {
 	
 	/** Valid course records */
 	private final String validTestFile = "test-files/student_records.txt";
 	/** Invalid course records file */
-	private final String nonexistentTestFile = "";
+	private final String nonExistentTestFile = "";
 	/** Test first name */
 	private static final String FIRST_NAME = "Stu";
 	/** Test last name */
@@ -110,8 +108,8 @@ public class StudentDirectoryTest {
 		assertEquals(10, sd.getStudentDirectory().length);
 		//Test throws IAE statement
 		Exception exception = assertThrows(IllegalArgumentException.class,
-				() -> sd.loadStudentsFromFile(nonexistentTestFile));
-		assertEquals("Unable to read file ", exception.getMessage(), "Incorrect exception thrown with invalid file " + nonexistentTestFile);
+				() -> sd.loadStudentsFromFile(nonExistentTestFile));
+		assertEquals("Unable to read file ", exception.getMessage(), "Incorrect exception thrown with invalid file " + nonExistentTestFile);
 	}
 
 	/**
@@ -123,14 +121,28 @@ public class StudentDirectoryTest {
 		
 		//Test valid Student
 		sd.addStudent(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, PASSWORD, MAX_CREDITS);
-		sd.addStudent(FIRST_NAME_1, LAST_NAME_1, ID_1, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_CREDITS_LOW);
-		sd.addStudent(FIRST_NAME_1, LAST_NAME_1, ID_1, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_CREDITS_HIGH);
 		String [][] studentDirectory = sd.getStudentDirectory();
-		assertEquals(2, studentDirectory.length);
+		assertEquals(1, studentDirectory.length);
 		assertEquals(FIRST_NAME, studentDirectory[0][0]);
 		assertEquals(LAST_NAME, studentDirectory[0][1]);
 		assertEquals(ID, studentDirectory[0][2]);
+		
+		//Test invalid Student because of duplicate ID
 		assertFalse(sd.addStudent(FIRST_NAME_1, LAST_NAME_1, ID, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_CREDITS_LOW));
+	}
+	
+	/**
+	 * Tests StudentDirectory.addStudent() for Students with high/low max credits.
+	 */
+	@Test
+	public void testAddStudentHighLowCredits() {
+		StudentDirectory sd = new StudentDirectory();
+		
+		//Tests if students with high/low credits are added with separate constructor
+		sd.addStudent(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, PASSWORD, MAX_CREDITS_LOW);
+		sd.addStudent(FIRST_NAME_1, LAST_NAME_1, ID_1, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_CREDITS_HIGH);
+		String [][] studentDirectory = sd.getStudentDirectory();
+		assertEquals(2, studentDirectory.length);
 	}
 	
 	/**
@@ -188,8 +200,8 @@ public class StudentDirectoryTest {
 		sd.saveStudentDirectory("test-files/actual_student_records.txt");
 		checkFiles("test-files/expected_student_records.txt", "test-files/actual_student_records.txt");
 		Exception saveException = assertThrows(IllegalArgumentException.class,
-				() -> sd.saveStudentDirectory(nonexistentTestFile));
-		assertEquals("Unable to write to file " + nonexistentTestFile, saveException.getMessage(), 
+				() -> sd.saveStudentDirectory(nonExistentTestFile));
+		assertEquals("Unable to write to file " + nonExistentTestFile, saveException.getMessage(), 
 				"Incorrect exception thrown for invalid save file");
 	}
 	
