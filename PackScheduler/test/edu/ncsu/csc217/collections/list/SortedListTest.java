@@ -4,16 +4,27 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * Tests SortedList.
+ * @author Geigh Neill
+ * @author Jeremiah Knizley
+ * @author Sahil Kanchan
+ *
+ */
 public class SortedListTest {
 
+	/**
+	 * Tests SortedList size and order after changes. Tests list capacity grows accordingly.
+	 */
 	@Test
 	public void testSortedList() {
 		SortedList<String> list = new SortedList<String>();
 		assertEquals(0, list.size());
 		assertFalse(list.contains("apple"));
+		assertTrue(list.isEmpty());
 		
-		list.add("a");
 		list.add("b");
+		list.add("a");
 		list.add("c");
 		list.add("d");
 		list.add("e");
@@ -24,20 +35,21 @@ public class SortedListTest {
 		list.add("j");
 		list.add("k");
 		
-		String s = list.toString();
+		String s = "";
+		for (int i = 0; i < list.size(); i++) {
+			s += list.get(i);
+		}
+		
 		String equals = "abcdefghijk";
 
-		
 		assertEquals(11, list.size());
-		
-		
-		
-		
-		//TODO Test that the list grows by adding at least 11 elements
-		//Remember the list's initial capacity is 10
-		
+		assertEquals(s, equals);
+	
 	}
 
+	/**
+	 * Tests add()
+	 */
 	@Test
 	public void testAdd() {
 		SortedList<String> list = new SortedList<String>();
