@@ -1,6 +1,7 @@
 package edu.ncsu.csc217.collections.list;
 
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeNoException;
 
 import org.junit.Test;
 
@@ -23,8 +24,8 @@ public class SortedListTest {
 		assertFalse(list.contains("apple"));
 		assertTrue(list.isEmpty());
 		
-		list.add("b");
 		list.add("a");
+		list.add("b");
 		list.add("c");
 		list.add("d");
 		list.add("e");
@@ -41,7 +42,7 @@ public class SortedListTest {
 		}
 		
 		String equals = "abcdefghijk";
-
+		System.out.println(s);
 		assertEquals(11, list.size());
 		assertEquals(s, equals);
 	
@@ -57,12 +58,24 @@ public class SortedListTest {
 		list.add("banana");
 		assertEquals(1, list.size());
 		assertEquals("banana", list.get(0));
-		
-		//TODO Test adding to the front, middle and back of the list
-		
-		//TODO Test adding a null element
-		
-		//TODO Test adding a duplicate element
+		//test adding to the front
+		list.add("apple");
+		list.add("coconut");
+		//test adding to the middle
+		list.add("cherry");
+		//test adding to the end
+		list.add("pineapple");
+		//testing null and duplicate
+		Exception e1 = assertThrows(NullPointerException.class, () -> list.add(null));
+		assertEquals(null, e1.getMessage());
+		Exception e2 = assertThrows(IllegalArgumentException.class, () -> list.add("coconut"));
+		assertEquals("Element already in list.", e2.getMessage());
+		//test fist element is correct
+		assertEquals(list.get(0), "apple");
+		//test middle element is correct
+		assertEquals(list.get(2), "cherry");
+		//test last element is correct
+		assertEquals(list.get(list.size() - 1), "pineapple");
 	}
 	
 	@Test
