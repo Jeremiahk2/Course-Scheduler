@@ -42,6 +42,7 @@ public class StudentDirectory {
 	 * from the given file.  Throws an IllegalArgumentException if the 
 	 * file cannot be found.
 	 * @param fileName file containing list of students
+	 * @throws IllegalArgumentException if FileNotFoundException is caught
 	 */
 	public void loadStudentsFromFile(String fileName) {
 		try {
@@ -152,6 +153,7 @@ public class StudentDirectory {
 	/**
 	 * Saves all students in the directory to a file.
 	 * @param fileName name of file to save students to.
+	 * @throws IllegalArgumentException if unable to save file to given file name
 	 */
 	public void saveStudentDirectory(String fileName) {
 		try {
