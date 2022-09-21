@@ -16,4 +16,4 @@ Lab 2 Tasks:
 
 - **JUNIT for StudentDirectory.java** | **Owner:** Geigh Neill, **Due:** 9/19, **Status:** Complete
 
-- **System test plan** | **Owner:** Mostly Geigh Neill, help as needed, **Due:** 9/21, **Status:** Pending
+- **System test plan** | **Owner:** Mostly Geigh Neill, help as needed, **Due:** 9/21, **Status:** Complete
