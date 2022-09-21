@@ -67,6 +67,7 @@ public class StudentRecordIO {
 	 * into Student objects using the details on the line.
 	 * @param line the line to be parsed
 	 * @return Student the student object that results from parsing the line.
+	 * @throws IllegalArgumentException if there is an error reading the line (like invalid format of the line)
 	 */
 	private static Student processStudent(String line) {
 		Scanner lineScanner = new Scanner(line);

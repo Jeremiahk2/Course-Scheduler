@@ -1,7 +1,7 @@
 package edu.ncsu.csc216.pack_scheduler.user;
 
 /**
- * Student class
+ * A class for creating Student objects, which hold information about the student
  * @author Geigh Neill
  * @author Jeremiah Knizley
  * @author Sahil Kanchan
@@ -95,8 +95,11 @@ public class Student {
 	}
 
 	/**
-	 * Sets the student's email
+	 * Sets the student's email. An email is invalid if it is null or empty.
+	 * It is also invalid if the email does not contain an @ or a period. 
+	 * It is also invalid if the period comes before the @ in the string
 	 * @param email The student's email address
+	 * @throws IllegalArgumentException if the email is invalid
 	 */
 	public void setEmail(String email) {
 		
@@ -140,6 +143,7 @@ public class Student {
 	/**
 	 * Sets the student's password
 	 * @param hashPw The student's hashed password
+	 * @throws IllegalArgumentException if the password is null or empty
 	 */
 	public void setPassword(String hashPw) {
 		
@@ -161,6 +165,7 @@ public class Student {
 	/**
 	 * Sets the max credits the student can have
 	 * @param maxCredits the max credits of the student
+	 * @throws IllegalArgumentException if maxCredits is less than the minimum credits or greater than the maximum credits
 	 */
 	public void setMaxCredits(int maxCredits) {
 		
@@ -174,6 +179,7 @@ public class Student {
 	/**
 	 * Sets the student's first name
 	 * @param firstName Student's first name
+	 * @throws IllegalArgumentException if firstName is null or empty
 	 */
 	public void setFirstName(String firstName) {
 		
@@ -187,6 +193,7 @@ public class Student {
 	/**
 	 * Sets the student's last name
 	 * @param lastName Student's last name
+	 * @throws IllegalArgumentException if the last name is null or empty
 	 */
 	public void setLastName(String lastName) {
 		
@@ -200,6 +207,7 @@ public class Student {
 	/**
 	 * Sets the student's id number
 	 * @param id Student's id
+	 * @throws IllegalArgumentException if the id is null or empty
 	 */
 	private void setId(String id) {
 		
