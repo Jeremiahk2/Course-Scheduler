@@ -17,3 +17,12 @@ Lab 2 Tasks:
 - **JUNIT for StudentDirectory.java** | **Owner:** Geigh Neill, **Due:** 9/19, **Status:** Complete
 
 - **System test plan** | **Owner:** Mostly Geigh Neill, help as needed, **Due:** 9/21, **Status:** Complete
+
+Lab 3 Tasks:
+- **Task** | **Owner:** Sahil Kanchan, Jeremiah Knizley **Due:** 9/17 , **Status:** Complete
+
+- **Task** | **Owner:** Jeremiah Knizley, **Due: *9/18* , **Status:** Complete
+
+- **Task** | **Owner:** Geigh Neill, **Due:** 9/19, **Status:** Complete
+
+- **Task** | **Owner:NA **Due:** 9/21, **Status:** Complete
