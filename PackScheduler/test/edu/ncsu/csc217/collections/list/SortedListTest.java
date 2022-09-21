@@ -12,6 +12,27 @@ public class SortedListTest {
 		assertEquals(0, list.size());
 		assertFalse(list.contains("apple"));
 		
+		list.add("a");
+		list.add("b");
+		list.add("c");
+		list.add("d");
+		list.add("e");
+		list.add("f");
+		list.add("g");
+		list.add("h");
+		list.add("i");
+		list.add("j");
+		list.add("k");
+		
+		String s = list.toString();
+		String equals = "abcdefghijk";
+
+		
+		assertEquals(11, list.size());
+		
+		
+		
+		
 		//TODO Test that the list grows by adding at least 11 elements
 		//Remember the list's initial capacity is 10
 		
