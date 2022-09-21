@@ -12,35 +12,36 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 
 /**
- * @author Sahil Kanchan
- *
+ * Tests the Student class and all it's methods
+ * @author Sahil Kanchan 
+ * @author Jeremiah Knizley
  */
 class StudentTest {
 
 	
-	/** */
+	/** a valid first name for a student*/
 	private static final String FIRST_NAME = "firstname";
 	
-	/** */
+	/** a valid last name for a student*/
 	private static final String LAST_NAME = "lastname";
 	
-	/** */
+	/** a valid ID for a student*/
 	private static final String ID = "id";
 	
-	/** */
+	/** a valid email for a student*/
 	private static final String EMAIL = "firstlast@ncsu.edu";
 	
-	/** */
+	/** a valid password for a student */
 	private static final String PASSWORD = "Password123";
 	
-	/** */
+	/** the default max credits for a student */
 	private static final int MAX_CRED = 18;
 
-	/** */
+	/** a manually inputed student's max credits*/
 	private static final int STU_MAX_CRED = 16;
 	
 	/**
-	 * Test method for {@link edu.ncsu.csc216.pack_scheduler.user.Student#hashCode()}.
+	 * Tests hashCode for student.java
 	 */
 	@Test
 	void testHashCode() {
@@ -50,7 +51,7 @@ class StudentTest {
 		Student c3 = new Student("testfirstname", LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
 		Student c4 = new Student(FIRST_NAME, "testlastname", ID, EMAIL, PASSWORD, MAX_CRED);
 		Student c5 = new Student(FIRST_NAME, LAST_NAME, "ttest", EMAIL, PASSWORD, MAX_CRED);
-		Student c6 = new Student(FIRST_NAME, LAST_NAME, ID, "firstlast@ncsu.edu", PASSWORD, MAX_CRED);
+		Student c6 = new Student(FIRST_NAME, LAST_NAME, ID, "test@ncsu.edu", PASSWORD, MAX_CRED);
 		Student c7 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, "Testpassword123", MAX_CRED);
 		Student c8 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, 12);
 		
@@ -65,7 +66,7 @@ class StudentTest {
 	}
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.pack_scheduler.user.Student#Student(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int)}.
+	 * Tests Student constructor when max credits are given
 	 */
 	@Test
 	void testStudentCredits() {
@@ -81,7 +82,7 @@ class StudentTest {
 	}
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.pack_scheduler.user.Student#Student(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)}.
+	 * tests the Student constructor when max credits are not entered
 	 */
 	@Test
     void testStudentNoCredits() {
@@ -93,16 +94,16 @@ class StudentTest {
 							 () -> assertEquals(ID, c.getId(), "incorrect id"),
 							 () -> assertEquals(EMAIL, c.getEmail(), "incorrect email"),
 							 () -> assertEquals(PASSWORD, c.getPassword(), "incorrect password"),
-							 () -> assertEquals(STU_MAX_CRED, c.getMaxCredits(), "incorrect max credits"));
+							 () -> assertEquals(MAX_CRED, c.getMaxCredits(), "incorrect max credits"));
 	}
 	
 	/**
-	 * Tests setSection with invalid input.
-	 * @param invalid invalid input for the test
+	 * Tests setEmail with invalid input
+	 * @param mail an invalid email
 	 */
 	@ParameterizedTest
 	@NullAndEmptySource
-	@ValueSource(strings = {"test@gmail..com", "test@yahoocom", "testtestoutlookcom"})
+	@ValueSource(strings = {"test.gmail@com", "test@yahoocom", "testtestoutlookcom"})
 	public void testSetEmailInvalid(String mail) {
 		Student student = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
 
@@ -112,11 +113,10 @@ class StudentTest {
 	}
 	
 	/**
-	 * Tests setSection with invalid input.
-	 * @param invalid invalid input for the test
+	 * Tests setEmail with valid input.
+	 * @param mail an email that is valid
 	 */
 	@ParameterizedTest
-	@NullAndEmptySource
 	@ValueSource(strings = {"test@gmail.com", "test2@ncsu.edu", "test3@hotmail.com"})
 	public void testSetEmailValid(String mail) {
 		Student student = assertDoesNotThrow(
@@ -126,8 +126,8 @@ class StudentTest {
 	}
 
 	/**
-	 * Tests setSection with invalid input.
-	 * @param invalid invalid input for the test
+	 * Tests Tests setPassword with invalid input
+	 * @param pass an invalid password
 	 */
 	@ParameterizedTest
 	@NullAndEmptySource
@@ -141,11 +141,10 @@ class StudentTest {
 	}
 	
 	/**
-	 * Tests setSection with invalid input.
-	 * @param invalid invalid input for the test
+	 * Tests setPassword with valid input
+	 * @param pass a valid password
 	 */
 	@ParameterizedTest
-	@NullAndEmptySource
 	@ValueSource(strings = {"password123", "PASS123", "Password!@321"})
 	public void testSetPasswordValid(String pass) {
 		Student student = assertDoesNotThrow(
@@ -155,11 +154,10 @@ class StudentTest {
 	}
 
 	/**
-	 * Tests setSection with invalid input.
-	 * @param invalid invalid input for the test
+	 * Tests setMaxCredits with invalid input
+	 * @param cred an invalid credit number
 	 */
 	@ParameterizedTest
-	@NullAndEmptySource
 	@ValueSource(ints = {0, 2, 1, 19, 20})
 	void testSetMaxCreditsInvalid(int cred) {
 		
@@ -167,15 +165,14 @@ class StudentTest {
 
 		Exception exception = assertThrows(IllegalArgumentException.class,
 				() -> student.setMaxCredits(cred));
-		assertEquals("Invalid credits", exception.getMessage(), "Incorrect exception thrown with invalid credits - " + cred);
+		assertEquals("Invalid max credits", exception.getMessage(), "Incorrect exception thrown with invalid credits - " + MAX_CRED);
 	}
 	
 	/**
-	 * Tests setSection with invalid input.
-	 * @param invalid invalid input for the test
+	 * Tests setMaxCredits with invalid input
+	 * @param cred an invalid max credit value
 	 */
 	@ParameterizedTest
-	@NullAndEmptySource
 	@ValueSource(ints = {4, 6, 10, 16, 17})
 	public void testSetCreditsValid(int cred) {
 		Student student = assertDoesNotThrow(
@@ -185,19 +182,19 @@ class StudentTest {
 	}
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.pack_scheduler.user.Student#setFirstName(java.lang.String)}.
+	 * tests setFirstName with invalid input
 	 */
 	@Test
-	void testSetFirstNameInvalid(String firstName) {
+	void testSetFirstNameInvalid() {
 		
-		Exception e1 = assertThrows(IllegalArgumentException.class, () -> new Student(firstName, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED));
+		Exception e1 = assertThrows(IllegalArgumentException.class, () -> new Student("", LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED));
 		
-		assertEquals("Invalid first name", e1.getMessage(), "Incorrect exception thrown with invalid first name - " + firstName);
+		assertEquals("Invalid first name", e1.getMessage(), "Incorrect exception thrown with invalid first name - " + FIRST_NAME);
 	}
 	
 	/**
-	 * 
-	 * @param 
+	 * Tests setFirstName with valid input
+	 * @param firstName a valid first name
 	 */
 	@ParameterizedTest
 	@ValueSource(strings = {"Max", "John", "Jhonson", "Paul", "Bart"})
@@ -210,32 +207,42 @@ class StudentTest {
 	}
 
 	/**
-	 * Test method for {@link edu.ncsu.csc216.pack_scheduler.user.Student#setLastName(java.lang.String)}.
+	 * Tests setLastName with invalid input
 	 */
 	@Test
-	void testSetLastNameInvalid(String lastName) {
+	void testSetLastNameInvalid() {
 		
-		Exception e1 = assertThrows(IllegalArgumentException.class, () -> new Student(FIRST_NAME, lastName, ID, EMAIL, PASSWORD, MAX_CRED));
+		Exception e1 = assertThrows(IllegalArgumentException.class, () -> new Student(FIRST_NAME, "", ID, EMAIL, PASSWORD, MAX_CRED));
 		
-		assertEquals("Invalid last name", e1.getMessage(), "Incorrect exception thrown with invalid last name - " + lastName);
+		assertEquals("Invalid last name", e1.getMessage(), "Incorrect exception thrown with invalid last name - " + LAST_NAME);
 	}
 	
 	/**
-	 * 
-	 * @param lastName
+	 * tests setLastName with valid input
+	 * @param lastName a valid last name
 	 */
 	@ParameterizedTest
 	@ValueSource(strings = {"Byers", "Mayson", "Davis", "Jones", "Garcia"})
 	public void testSetLastNameValid(String lastName) {
 
 		Student student = assertDoesNotThrow(
-				() -> new Student(FIRST_NAME, lastName, ID, EMAIL, PASSWORD, MAX_CRED),
+				() -> new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED),
 				"Should not throw exception");
-		assertEquals(lastName, student.getLastName(), "Failed test with valid student last name - " + lastName);
+		assertEquals(LAST_NAME, student.getLastName(), "Failed test with valid student last name - " + LAST_NAME);
 	}
-
+	
 	/**
-	 * Test method for {@link edu.ncsu.csc216.pack_scheduler.user.Student#equals(java.lang.Object)}.
+	 * Tests setId with invalid input
+	 */
+	@Test
+	public void testSetIdInvalid() {
+		Exception e1 = assertThrows(IllegalArgumentException.class, () -> new Student(FIRST_NAME, LAST_NAME, null, EMAIL, PASSWORD, MAX_CRED));
+		assertEquals("Invalid id", e1.getMessage());
+		Exception e2 = assertThrows(IllegalArgumentException.class, () -> new Student(FIRST_NAME, LAST_NAME, "", EMAIL, PASSWORD, MAX_CRED));
+		assertEquals("Invalid id", e2.getMessage());
+	}
+	/**
+	 * tests equals() method
 	 */
 	@Test
 	void testEqualsObject() {
@@ -262,16 +269,16 @@ class StudentTest {
 	}
 
 	/**
-	 * Tests that toString returns the correct comma-separated value.
+	 * Tests that toString returns the correct comma-separated value list.
 	 */
 	@Test
 	public void testToString() {
-		Student c1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
-		String s1 = "firstname,lastname, testid, test@ncsu.edu, Password123, 18";
+		Student c1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, STU_MAX_CRED);
+		String s1 = "firstname,lastname,id,firstlast@ncsu.edu,Password123,16";
 		assertEquals(s1, c1.toString());
 
 		Student c2 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD);
-		String s2 = "firstname,lastname, testid, test@ncsu.edu, Password123";
+		String s2 = "firstname,lastname,id,firstlast@ncsu.edu,Password123,18";
 		assertEquals(s2, c2.toString());
 	}
 
