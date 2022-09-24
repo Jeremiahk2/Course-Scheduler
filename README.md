@@ -12,16 +12,16 @@ Internal Deadline: Complete the entire lab by 9/10/2022 at 11:59pm.
 Lab 2 Tasks:
 - **JUNIT for Student.java** | **Owner:** Sahil Kanchan, Jeremiah Knizley **Due:** 9/17 , **Status:** Complete
 
-- **JUNIT for StudentRecordIO.java** | **Owner:** Jeremiah Knizley, **Due: *9/18* , **Status:** Complete
+- **JUNIT for StudentRecordIO.java** | **Owner:** Jeremiah Knizley, **Due: 9/18 , **Status:** Complete
 
 - **JUNIT for StudentDirectory.java** | **Owner:** Geigh Neill, **Due:** 9/19, **Status:** Complete
 
 - **System test plan** | **Owner:** Mostly Geigh Neill, help as needed, **Due:** 9/21, **Status:** Complete
 
 Lab 3 Tasks:
-- **Task** | **Owner:** Sahil Kanchan, Jeremiah Knizley **Due:** 9/17 , **Status:** Complete
+- **Finish testing imported library SortedList** | **Owner:** Jeremiah Knizley **Due:** 9/26, **Status:** Pending
 
-- **Task** | **Owner:** Jeremiah Knizley, **Due: *9/18* , **Status:** Complete
+- **Task** | **Owner:** Sahil Kanchan, **Due:** 9/18 , **Status:** Complete
 
 - **Task** | **Owner:** Geigh Neill, **Due:** 9/19, **Status:** Complete
 
