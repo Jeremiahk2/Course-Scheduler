@@ -281,5 +281,35 @@ class StudentTest {
 		String s2 = "firstname,lastname,id,firstlast@ncsu.edu,Password123,18";
 		assertEquals(s2, c2.toString());
 	}
+	
+	/**
+	 * Tests Student.compareTo() correctly compares Student's for sorting. Tests made using
+	 * Comparable.compareTo() API documentation.
+	 */
+	@Test
+	public void testCompareTo() {
+		Student c1 = new Student("John", "Apple", ID, EMAIL, PASSWORD);
+		Student c2 = new Student("John", "Butter", ID, EMAIL, PASSWORD);
+		Student c3 = new Student("Jack", "Butter", ID, EMAIL, PASSWORD);
+		Student c4 = new Student("Jack", "Butter", "aid", EMAIL, PASSWORD);
+		Student c5 = new Student("Jack", "Butter", "aid", EMAIL, PASSWORD);
+		Student c6 = new Student("Jack", "Butter", "aid", EMAIL, "pw");
+		Student cNull = null;
+		
+		assertEquals(1, c1.compareTo(c3));
+		assertEquals(-1 * c1.compareTo(c3), c3.compareTo(c1));
+		assertEquals(1, c3.compareTo(c2));
+		assertEquals(-1 * c3.compareTo(c2), c2.compareTo(c3));
+		assertEquals(1, c1.compareTo(c2));
+		assertEquals(1, c4.compareTo(c3));
+		assertEquals(-1 * c4.compareTo(c3), c3.compareTo(c4));
+		assertEquals(0, c5.compareTo(c4));
+		assertEquals(0, c6.compareTo(c5));
+		assertEquals(c5.compareTo(c1), c4.compareTo(c1));
+		
+		Exception e1 = assertThrows(NullPointerException.class, 
+				() -> c1.compareTo(cNull));
+		assertEquals("Object is null.", e1.getMessage());
+	}
 
 }

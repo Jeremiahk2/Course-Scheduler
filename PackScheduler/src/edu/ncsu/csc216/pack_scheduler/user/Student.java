@@ -1,12 +1,14 @@
 package edu.ncsu.csc216.pack_scheduler.user;
 
+import edu.ncsu.csc217.collections.list.SortedList;
+
 /**
  * A class for creating Student objects, which hold information about the student
  * @author Geigh Neill
  * @author Jeremiah Knizley
  * @author Sahil Kanchan
  */
-public class Student {
+public class Student implements Comparable<Student> {
 	
 	/** The first name of a student */
 	private String firstName;
@@ -293,6 +295,64 @@ public class Student {
 				maxCredits);
 		
 		return returnString;
+	}
+
+	/**
+	 * Compares parameter Student object s to caller and returns -1, 0, or 1 depending on whether
+	 * the caller is less than s, equal to s, or greater than s, respectively. Order is determined 
+	 * first by alphabetical order of the Student's last names, then by first name, and lastly by
+	 * their unity id's. Alphabetical ordering is implemented through use of the imported SortedList
+	 * java library.
+	 * @param s Student object being compared to the caller.
+	 * @return Integer value determining the ordering of the two objects.
+	 * @throws NullPointerException if the parameter object s is null.
+	 * @throws ClassCastException if the parameter is not a student object.
+	 */
+	@Override
+	public int compareTo(Student s) {
+		if (s == null) {
+			throw new NullPointerException("Object is null.");
+		}
+		if (getClass() != s.getClass()) {
+			throw new ClassCastException("Object is not student.");
+		}
+		
+		SortedList<String> list = new SortedList<String>();
+		
+		if (this.equals(s) ) {
+			return 0;
+		}
+		else if (!getLastName().equals(s.getLastName())) {
+			list.add(getLastName());
+			list.add(s.getLastName());
+			if (list.get(0).equals(getLastName())) {
+				return 1;
+			}
+			else if (list.get(1).equals(getLastName())){
+				return -1;
+			}
+		}
+		else if (!getFirstName().equals(s.getFirstName())) {
+			list.add(getFirstName());
+			list.add(s.getFirstName());
+			if (list.get(0).equals(getFirstName())) {
+				return 1;
+			}
+			else if (list.get(1).equals(getFirstName())){
+				return -1;
+			}
+		}
+		else if (!getId().equals(s.getId())) {
+			list.add(getId());
+			list.add(s.getId());
+			if (list.get(0).equals(getId())) {
+				return 1;
+			}
+			else if (list.get(1).equals(getId())) {
+				return -1;
+			}
+		}
+		return 0;
 	}
 
 }
