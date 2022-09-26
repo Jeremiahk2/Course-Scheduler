@@ -23,6 +23,6 @@ Lab 3 Tasks:
 
 - **Task** | **Owner:** Sahil Kanchan, **Due:** 9/18 , **Status:** Complete
 
-- **Task** | **Owner:** Geigh Neill, **Due:** 9/19, **Status:** Complete
+- **Implement comparable interface in Student** | **Owner:** Geigh Neill, **Due:** 9/26, **Status:** Working on it
 
 - **Task** | **Owner:NA **Due:** 9/21, **Status:** Complete
