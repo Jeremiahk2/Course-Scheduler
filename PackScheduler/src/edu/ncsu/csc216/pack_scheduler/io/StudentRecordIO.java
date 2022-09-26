@@ -5,12 +5,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 //import edu.ncsu.csc216.wolf_scheduler.course.Course;
+import edu.ncsu.csc217.collections.list.SortedList;
 
 /**
  * A class for creating StudentRecordIO objects, which keep track of students.
@@ -27,9 +27,9 @@ public class StudentRecordIO {
 	 * @return newStudent contains a list of all valid students
 	 * @throws FileNotFoundException if the file cannot be found
 	 */
-	public static ArrayList<Student> readStudentRecords(String fileName) throws FileNotFoundException {
+	public static SortedList<Student> readStudentRecords(String fileName) throws FileNotFoundException {
 		Scanner fileReader = new Scanner(new FileInputStream(fileName));
-		ArrayList<Student> newStudent = new ArrayList<Student>();
+		SortedList<Student> newStudent = new SortedList<Student>();
 		while (fileReader.hasNextLine()) {
 			try {
 				Student student = processStudent(fileReader.nextLine());
@@ -50,7 +50,7 @@ public class StudentRecordIO {
 	 * @param studentDirectory the list of current students
 	 * @throws IOException if the file cannot be found 
 	 */
-	public static void writeStudentRecords(String fileName, ArrayList<Student> studentDirectory) throws IOException {
+	public static void writeStudentRecords(String fileName, SortedList<Student> studentDirectory) throws IOException {
 		PrintStream fileWriter = new PrintStream(new File(fileName));
 		
 		for (int i = 0; i < studentDirectory.size(); i++) {

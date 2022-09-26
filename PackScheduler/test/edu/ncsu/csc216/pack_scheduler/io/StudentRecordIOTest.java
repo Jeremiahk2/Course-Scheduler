@@ -18,6 +18,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.pack_scheduler.user.Student;
+import edu.ncsu.csc217.collections.list.SortedList;
 
 /**
  * Tests StudentRecordIO
@@ -81,7 +82,7 @@ class StudentRecordIOTest {
 		String validTestFile = "test-files/student_records.txt";
 		String invalidTestFile = "test-files/invalid_student_records.txt";
 		try {
-			ArrayList<Student> records = new ArrayList<Student>();
+			SortedList<Student> records = new SortedList<Student>();
 			records = StudentRecordIO.readStudentRecords(validTestFile);
 			assertEquals(10, records.size());
 			for (int i = 0; i < records.size(); i++) {
@@ -92,7 +93,7 @@ class StudentRecordIOTest {
 		}
 		
 		try {
-			ArrayList<Student> invalidRecords = StudentRecordIO.readStudentRecords(invalidTestFile);
+			SortedList<Student> invalidRecords = StudentRecordIO.readStudentRecords(invalidTestFile);
 			assertTrue(invalidRecords.isEmpty());
 		} catch (FileNotFoundException e) {
 			fail("Unexpected error reading " + invalidTestFile);
@@ -105,7 +106,7 @@ class StudentRecordIOTest {
 	//Test method for writeStudentRecords for writing to a valid file
 	@Test
 	void testWriteStudentRecordsValid() {
-		ArrayList<Student> records = new ArrayList<Student>();
+		SortedList<Student> records = new SortedList<Student>();
 		records.add(new Student("Zahir", "King", "zking", "orci.Donec@ametmassaQuisque.com", hashPW, 15));
 		try {
 			StudentRecordIO.writeStudentRecords("test-files/actual_student_records.txt", records);
@@ -120,7 +121,7 @@ class StudentRecordIOTest {
 	 */
 	@Test
 	void testWriteStudentRecordsInvalid() {
-		ArrayList<Student> records = new ArrayList<Student>();
+		SortedList<Student> records = new SortedList<Student>();
 		records.add(new Student("Zahir", "King", "zking", "orci.Donec@ametmassaQuisque.com", hashPW, 15));
 		//Try writing to a file it doesn't have access to
 		Exception exception = assertThrows(IOException.class, 
