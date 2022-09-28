@@ -19,10 +19,11 @@ Lab 2 Tasks:
 - **System test plan** | **Owner:** Mostly Geigh Neill, help as needed, **Due:** 9/21, **Status:** Complete
 
 Lab 3 Tasks:
-- **Finish testing imported library SortedList** | **Owner:** Jeremiah Knizley **Due:** 9/26, **Status:** Pending
+- **Finish testing imported library SortedList** | **Owner:** Jeremiah Knizley **Due:** 9/26, **Status:** Complete
 
-- **Task** | **Owner:** Sahil Kanchan, **Due:** 9/18 , **Status:** Complete
+- **Implement SortedList in StudentDirectory and StudentRecordIO** | **Owner:** Sahil Kanchan, **Due:** 9/27 , **Status:** Complete
 
 - **Implement comparable interface in Student** | **Owner:** Geigh Neill, **Due:** 9/26, **Status:** Complete
 
-- **Task** | **Owner:NA **Due:** 9/21, **Status:** Complete
+- **Complete System test plan** | **Anyone** Due: 9/28 class time, **Status:** Complete
+- Updates: Geigh and Jeremiah completed system test plan. Jeremiah helped debug compareTo.
