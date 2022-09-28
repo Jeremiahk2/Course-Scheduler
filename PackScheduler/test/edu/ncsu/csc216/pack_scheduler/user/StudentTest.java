@@ -301,7 +301,7 @@ class StudentTest {
 		assertEquals(1, c3.compareTo(c2));
 		assertEquals(-1 * c3.compareTo(c2), c2.compareTo(c3));
 		assertEquals(1, c2.compareTo(c1));
-		assertEquals(1, c4.compareTo(c3));
+		assertEquals(1, c3.compareTo(c4));
 		assertEquals(-1 * c4.compareTo(c3), c3.compareTo(c4));
 		assertEquals(0, c5.compareTo(c4));
 		assertEquals(0, c6.compareTo(c5));
