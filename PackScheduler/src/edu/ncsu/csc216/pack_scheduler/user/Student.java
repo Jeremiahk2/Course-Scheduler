@@ -326,30 +326,30 @@ public class Student implements Comparable<Student> {
 			list.add(getLastName());
 			list.add(s.getLastName());
 			if (list.get(0).equals(getLastName())) {
-				return 1;
+				return -1;
 			}
 			else if (list.get(1).equals(getLastName())){
-				return -1;
+				return 1;
 			}
 		}
 		else if (!getFirstName().equals(s.getFirstName())) {
 			list.add(getFirstName());
 			list.add(s.getFirstName());
 			if (list.get(0).equals(getFirstName())) {
-				return 1;
+				return -1;
 			}
 			else if (list.get(1).equals(getFirstName())){
-				return -1;
+				return 1;
 			}
 		}
 		else if (!getId().equals(s.getId())) {
 			list.add(getId());
 			list.add(s.getId());
 			if (list.get(0).equals(getId())) {
-				return 1;
+				return -1;
 			}
 			else if (list.get(1).equals(getId())) {
-				return -1;
+				return 1;
 			}
 		}
 		return 0;

@@ -10,7 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Scanner;
 
@@ -50,6 +49,9 @@ class StudentRecordIOTest {
 	/** An array containing all valid students used for testing purposes */
 	private String [] validStudents = {validStudent0, validStudent1, validStudent2, validStudent3, validStudent4, validStudent5,
 	        validStudent6, validStudent7, validStudent8, validStudent9};
+	/** An alphabetized version of validStudents */
+	private String [] sortedValidStudents = {validStudent3, validStudent6, validStudent4, validStudent5, validStudent2, validStudent8, 
+			validStudent0, validStudent9, validStudent1, validStudent7};
 
 	/** A string containing the hashed password for a student */
 	private String hashPW;
@@ -69,6 +71,7 @@ class StudentRecordIOTest {
 	        
 	        for (int i = 0; i < validStudents.length; i++) {
 	            validStudents[i] = validStudents[i].replace(",pw,", "," + hashPW + ",");
+	            sortedValidStudents[i] = sortedValidStudents[i].replace(",pw,", "," + hashPW + ",");
 	        }
 	    } catch (NoSuchAlgorithmException e) {
 	        fail("Unable to create hash during setup");
@@ -87,6 +90,7 @@ class StudentRecordIOTest {
 			records = StudentRecordIO.readStudentRecords(validTestFile);
 			assertEquals(10, records.size());
 			for (int i = 0; i < records.size(); i++) {
+				assertEquals(sortedValidStudents[i], records.get(i).toString());
 			}
 		} catch (FileNotFoundException e) {
 			fail("Unexpected error reading " + validTestFile);

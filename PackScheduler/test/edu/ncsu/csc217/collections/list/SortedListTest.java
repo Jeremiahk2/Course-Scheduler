@@ -163,7 +163,6 @@ public class SortedListTest {
 		list.add("pear");
 		list.add("pretzel"); 
 		list.add("strawberry"); 
-		list.add("pear");
 		//Test various calls to indexOf for elements in the list
 		assertEquals(0, list.indexOf("apple"));
 		assertEquals(1, list.indexOf("banana"));
@@ -191,7 +190,6 @@ public class SortedListTest {
 		list.add("pear");
 		list.add("pretzel"); 
 		list.add("strawberry"); 
-		list.add("pear");
 		//Clear the list
 		list.clear();
 		//Test that the list is empty
@@ -230,7 +228,6 @@ public class SortedListTest {
 		list.add("pear");
 		list.add("pretzel"); 
 		list.add("strawberry"); 
-		list.add("pear");
 		//Test some true and false cases
 		assertTrue(list.contains("apple"));
 		assertTrue(list.contains("cherry"));
@@ -254,14 +251,12 @@ public class SortedListTest {
 		list1.add("pear");
 		list1.add("pretzel"); 
 		list1.add("strawberry"); 
-		list1.add("pear");
 		//create identical list
 		list2.add("apple");
 		list2.add("banana");
 		list2.add("pear");
 		list2.add("pretzel"); 
 		list2.add("strawberry"); 
-		list2.add("pear");
 		//create different list
 		list3.add("apple");
 		list3.add("banana");
@@ -270,7 +265,6 @@ public class SortedListTest {
 		list3.add("pear");
 		list3.add("pretzel"); 
 		list3.add("strawberry"); 
-		list3.add("pear");
 		//Test for equality and non-equality
 		assertTrue(list1.equals(list2));
 		assertTrue(list2.equals(list1));
@@ -298,14 +292,12 @@ public class SortedListTest {
 		list1.add("pear");
 		list1.add("pretzel"); 
 		list1.add("strawberry"); 
-		list1.add("pear");
 		//create identical list
 		list2.add("apple");
 		list2.add("banana");
 		list2.add("pear");
 		list2.add("pretzel"); 
 		list2.add("strawberry"); 
-		list2.add("pear");
 		//create different list
 		list3.add("apple");
 		list3.add("banana");
@@ -314,7 +306,6 @@ public class SortedListTest {
 		list3.add("pear");
 		list3.add("pretzel"); 
 		list3.add("strawberry"); 
-		list3.add("pear");
 		//Test for the same and different hashCodes
 		assertEquals(list1.hashCode(), list2.hashCode());
 		assertNotEquals(list1.hashCode(), list3.hashCode());
