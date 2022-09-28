@@ -346,10 +346,10 @@ public class Student implements Comparable<Student> {
 			list.add(getId());
 			list.add(s.getId());
 			if (list.get(0).equals(getId())) {
-				return 1;
+				return -1;
 			}
 			else if (list.get(1).equals(getId())) {
-				return -1;
+				return 1;
 			}
 		}
 		return 0;
