@@ -296,11 +296,11 @@ class StudentTest {
 		Student c6 = new Student("Jack", "Butter", "aid", EMAIL, "pw");
 		Student cNull = null;
 		
-		assertEquals(1, c1.compareTo(c3));
-		assertEquals(-1 * c1.compareTo(c3), c3.compareTo(c1));
+		assertEquals(1, c3.compareTo(c1));
+		assertEquals(-1 * c3.compareTo(c1), c1.compareTo(c3));
 		assertEquals(1, c3.compareTo(c2));
 		assertEquals(-1 * c3.compareTo(c2), c2.compareTo(c3));
-		assertEquals(1, c1.compareTo(c2));
+		assertEquals(1, c2.compareTo(c1));
 		assertEquals(1, c4.compareTo(c3));
 		assertEquals(-1 * c4.compareTo(c3), c3.compareTo(c4));
 		assertEquals(0, c5.compareTo(c4));

@@ -182,15 +182,15 @@ public class StudentDirectoryTest {
 		String [][] studentDirectory = sd.getStudentDirectory();
 		assertEquals(10, studentDirectory.length);
 		//System.out.println(studentDirectory[9][0]);
-		assertEquals("Lane", studentDirectory[5][0]);
-		assertEquals("Berg", studentDirectory[5][1]);
-		assertEquals("lberg", studentDirectory[5][2]);
+		assertEquals("Althea", studentDirectory[5][0]);
+		assertEquals("Hicks", studentDirectory[5][1]);
+		assertEquals("ahicks", studentDirectory[5][2]);
 		assertTrue(sd.removeStudent("efrost"));
 		studentDirectory = sd.getStudentDirectory();
 		assertEquals(9, studentDirectory.length);
-		assertEquals("Lane", studentDirectory[5][0]);
-		assertEquals("Berg", studentDirectory[5][1]);
-		assertEquals("lberg", studentDirectory[5][2]);
+		assertEquals("Zahir", studentDirectory[5][0]);
+		assertEquals("King", studentDirectory[5][1]);
+		assertEquals("zking", studentDirectory[5][2]);
 	}
 
 	/**
