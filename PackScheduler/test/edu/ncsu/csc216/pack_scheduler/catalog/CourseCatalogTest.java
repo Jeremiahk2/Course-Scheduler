@@ -23,38 +23,6 @@ import edu.ncsu.csc216.pack_scheduler.course.Course;
  *
  */
 public class CourseCatalogTest {
-	/** Valid course records */
-	private final String validTestFile = "test-files/course_records.txt";
-	/** Invalid course records */
-	private final String invalidTestFile = "test-files/invalid_course_records.txt";
-	
-	/** Course name */
-	private static final String NAME = "CSC 216";
-	/** Course title */
-	private static final String TITLE = "Software Development Fundamentals";
-	/** Course section */
-	private static final String SECTION = "001";
-	/** Course credits */
-	private static final int CREDITS = 3;
-	/** Course instructor id */
-	private static final String INSTRUCTOR_ID = "sesmith5";
-	/** Course meeting days */
-	private static final String MEETING_DAYS = "TH";
-	/** Course start time */
-	private static final int START_TIME = 1330;
-	/** Course end time */
-	private static final int END_TIME = 1445;
-	
-	/** Event title */
-	private static final String EVENT_TITLE = "Exercise";
-	/** Event meeting days */
-	private static final String EVENT_MEETING_DAYS = "MTWHF";
-	/** Event start time */
-	private static final int EVENT_START_TIME = 800;
-	/** Event end time */
-	private static final int EVENT_END_TIME = 900;
-	/** Event details */
-	private static final String EVENT_DETAILS = "Cardio Time!";
 	/**
 	 * Resets course_records.txt for use in other tests.
 	 */
