@@ -14,6 +14,7 @@ import edu.ncsu.csc217.collections.list.SortedList;
  * Maintains a directory of all students enrolled at NC State.
  * All students have a unique id.
  * @author Sarah Heckman
+ * @author Jerry Knizley
  */
 public class StudentDirectory {
 	

@@ -13,9 +13,12 @@ import java.util.Scanner;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
+import edu.ncsu.csc216.pack_scheduler.user.Student;
+
 /**
  * Tests StudentDirectory.
  * @author Geigh Neill
+ * @author Spencer Grattan
  */
 public class StudentDirectoryTest {
 	
@@ -212,6 +215,33 @@ public class StudentDirectoryTest {
 	}
 	
 	/**
+	 * Tests getStudentById()
+	 */
+	@Test
+	public void testGetStudentById() {
+		StudentDirectory sd = new StudentDirectory();
+		
+		Student student1 = new Student("Tim", "Thalamander", "ttthal", "tinytim@yahoo.com", "pw", 13);
+		//Add some students
+		sd.addStudent("Zahir", "King", "zking", "orci.Donec@ametmassaQuisque.com", "pw", "pw", 15);
+		sd.addStudent("Soap", "Sussy", "smsussy", "bigsoap@ncsu.edu", "pw", "pw", 14);
+		sd.addStudent("Tim", "Thalamander", "ttthal", "tinytim@yahoo.com", "pw", "pw", 13);
+		
+		//tests for a valid case 
+		assertEquals(student1.getFirstName(), sd.getStudentById("ttthal").getFirstName());
+		assertEquals(student1.getLastName(), sd.getStudentById("ttthal").getLastName());
+		assertEquals(student1.getId(), sd.getStudentById("ttthal").getId());
+		assertEquals(student1.getEmail(), sd.getStudentById("ttthal").getEmail());
+		assertEquals(student1.getMaxCredits(), sd.getStudentById("ttthal").getMaxCredits());
+		
+		
+		//tests for invalid case
+		Exception ee = assertThrows(IllegalArgumentException.class,
+				() -> sd.getStudentById("finger"));
+		assertEquals("Invalid id.", ee.getMessage());
+	}
+	
+	/**
 	 * Helper method to compare two files for the same contents
 	 * @param expFile expected output
 	 * @param actFile actual output
@@ -231,5 +261,7 @@ public class StudentDirectoryTest {
 			fail("Error reading files.");
 		}
 	}
+	
+	
 
 }
