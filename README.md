@@ -2,11 +2,11 @@
 
 Lab 5: 
 
-- Task: Make Registrar inner class --> Owner: Jerry
-- Task: Configure Properties file --> Owner: Jerry
-- Task: Configure git properties --> Owner: Jerry
-- Task: Inspect RegistrationManager --> Owner: Jerry
-- Task: Test RegistrationManager --> Owner: Spencer 
-- Task: Replace GUI --> Owner: Spencer
-- Task: Run system tests and record results --> Owner: Spencer
-- Task: Generate Javadoc --> Owner: Spencer
+- Task: Make Registrar inner class --> Owner: Jerry   Due - Friday, October 14th
+- Task: Configure Properties file --> Owner: Jerry    Due - Friday, October 14th
+- Task: Configure git properties --> Owner: Jerry     Due - Friday, October 14th
+- Task: Inspect RegistrationManager --> Owner: Jerry  Due - Friday, October 14th
+- Task: Test RegistrationManager --> Owner: Spencer   Due - Friday, October 14th
+- Task: Replace GUI --> Owner: Spencer                Due - Friday, October 14th
+- Task: Run system tests --> Owner: Spencer           Due - Friday, October 14th
+- Task: Generate Javadoc --> Owner: Spencer           Due - Friday, October 14th
