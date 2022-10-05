@@ -162,5 +162,26 @@ public class StudentDirectory {
 			throw new IllegalArgumentException("Unable to write to file " + fileName);
 		}
 	}
+	
+	/**
+	 * Parses the studentDirectory for a student with the specified ID, returning said student
+	 * @param id							the id of the desired student
+	 * @return Student						the student with the matching ID
+	 * @throws IllegalArgumentException 	if the id was not found
+	 */
+	public Student getStudentById(String id) {
+		int index = -1;
+		for (int i = 0; i < studentDirectory.size(); i++) {
+			if (studentDirectory.get(i).getId() == id) {
+				index = i;
+			}
+		}
+		if (index != -1) {
+			return studentDirectory.get(index);
+		}
+		else {
+			throw new IllegalArgumentException("Invalid id.");
+		}
+	}
 
 }
