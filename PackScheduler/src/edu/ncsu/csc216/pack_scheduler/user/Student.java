@@ -1,5 +1,7 @@
 package edu.ncsu.csc216.pack_scheduler.user;
 
+import java.util.Objects;
+
 import edu.ncsu.csc217.collections.list.SortedList;
 
 /**
@@ -28,13 +30,8 @@ public class Student extends User implements Comparable<Student> {
 	 */
 	public Student(String firstName, String lastName, String id, String email, String hashPW, 
 			int maxCredits) {
-		super();
-		setFirstName(firstName);
-		setLastName(lastName);
-		setId(id);
+		super(firstName, lastName, id, email, hashPW);
 		setMaxCredits(maxCredits);
-		setPassword(hashPW);
-		setEmail(email);
 		
 	}
 	
@@ -47,13 +44,8 @@ public class Student extends User implements Comparable<Student> {
 	 * @param hashPW  The student's hashed password
 	 */
 	public Student(String firstName, String lastName, String id, String email, String hashPW) {
-		super();
-		setFirstName(firstName);
-		setLastName(lastName);
-		setId(id);
+		super(firstName, lastName, id, email, hashPW);
 		setMaxCredits(MAX_CREDITS);
-		setPassword(hashPW);
-		setEmail(email);
 	}
 	
 	/**
@@ -148,6 +140,32 @@ public class Student extends User implements Comparable<Student> {
 			}
 		}
 		return 0;
+	}
+	
+	/**
+	 * default override for hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(maxCredits);
+		return result;
+	}
+	
+	/**
+	 * default override for equals()
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return maxCredits == other.maxCredits;
 	}
 
 }

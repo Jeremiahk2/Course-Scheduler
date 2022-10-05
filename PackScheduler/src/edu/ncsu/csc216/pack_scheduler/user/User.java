@@ -1,7 +1,10 @@
 package edu.ncsu.csc216.pack_scheduler.user;
 
+import java.util.Objects;
+
+//TODO: Add abstraction
 /**
- * 
+ * Class for creating Users who operate pack scheduler
  * @author Spencer Grattan
  * @author Jerry Knizley
  */
@@ -17,9 +20,14 @@ public abstract class User {
 	private String email;
 	/** The student's password */
 	private String hashPw;
-
+	
 	/**
-	 * 
+	 * Constructor for User objects. Only needs first name, last name, id, email and password
+	 * @param firstName		the person's first name
+	 * @param lastName		the person's last name
+	 * @param id			the person's ID
+	 * @param email			the person's email address
+	 * @param pw			the person's password
 	 */
 	public User(String firstName, String lastName, String id, String email, String pw) {
 		this.setFirstName(firstName);
@@ -161,6 +169,31 @@ public abstract class User {
 		}
 		
 		this.id = id;
+	}
+
+	/**
+	 * Default override for hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, firstName, hashPw, id, lastName);
+	}
+
+	/**
+	 * Default override for equals()
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(hashPw, other.hashPw) && Objects.equals(id, other.id)
+				&& Objects.equals(lastName, other.lastName);
 	}
 
 }
