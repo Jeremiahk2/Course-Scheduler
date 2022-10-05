@@ -27,3 +27,14 @@ Lab 3 Tasks:
 
 - **Complete System test plan** | **Anyone** Due: 9/28 class time, **Status:** Complete
 - Updates: Geigh and Jeremiah completed system test plan. Jeremiah helped debug compareTo.
+
+Lab 4 Tasks:
+- **Design Comparison** | **Owner:** All **Due: 9/28** , **Status:** Complete
+
+- **Implement CourseIO and Course into PackScheduler** | **Owner:** Geigh Neill, **Due:** 10/3 , **Status:** Complete
+
+- **Implement catalog into PackScheduler** | **Owner:** Sahil Kanchan and Jeremiah Knizley, **Due:** 10/3, **Status:** Complete
+
+- **Complete Faculty Design** | **Anyone** Due: 10/4, **Status:** Complete
+
+- Updates: Design comparison was complete by all during class time. Task 2 was completed in majority by Geigh Neill. A small part of the beginning of that was pair programmed by all since we had extra time. Task 3 was completed by Jeremiah Knizley. Complete Faculty Design was completed by Jeremiah Knizley.
