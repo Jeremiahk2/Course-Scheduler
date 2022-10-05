@@ -46,14 +46,14 @@ class StudentTest {
 	@Test
 	void testHashCode() {
 		
-		Student c1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
-		Student c2 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
-		Student c3 = new Student("testfirstname", LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
-		Student c4 = new Student(FIRST_NAME, "testlastname", ID, EMAIL, PASSWORD, MAX_CRED);
-		Student c5 = new Student(FIRST_NAME, LAST_NAME, "ttest", EMAIL, PASSWORD, MAX_CRED);
-		Student c6 = new Student(FIRST_NAME, LAST_NAME, ID, "test@ncsu.edu", PASSWORD, MAX_CRED);
-		Student c7 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, "Testpassword123", MAX_CRED);
-		Student c8 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, 12);
+		User c1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
+		User c2 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
+		User c3 = new Student("testfirstname", LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
+		User c4 = new Student(FIRST_NAME, "testlastname", ID, EMAIL, PASSWORD, MAX_CRED);
+		User c5 = new Student(FIRST_NAME, LAST_NAME, "ttest", EMAIL, PASSWORD, MAX_CRED);
+		User c6 = new Student(FIRST_NAME, LAST_NAME, ID, "test@ncsu.edu", PASSWORD, MAX_CRED);
+		User c7 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, "Testpassword123", MAX_CRED);
+		User c8 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, 12);
 		
 		assertEquals(c1.hashCode(), c2.hashCode());
 		
@@ -105,7 +105,7 @@ class StudentTest {
 	@NullAndEmptySource
 	@ValueSource(strings = {"test.gmail@com", "test@yahoocom", "testtestoutlookcom"})
 	public void testSetEmailInvalid(String mail) {
-		Student student = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
+		User student = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
 
 		Exception exception = assertThrows(IllegalArgumentException.class,
 				() -> student.setEmail(mail));
@@ -119,7 +119,7 @@ class StudentTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"test@gmail.com", "test2@ncsu.edu", "test3@hotmail.com"})
 	public void testSetEmailValid(String mail) {
-		Student student = assertDoesNotThrow(
+		User student = assertDoesNotThrow(
 				() -> new Student(FIRST_NAME, LAST_NAME, ID, mail, PASSWORD, MAX_CRED),
 				"Should not throw exception");
 		assertEquals(mail, student.getEmail(), "Failed test with valid email - " + mail);
@@ -133,7 +133,7 @@ class StudentTest {
 	@NullAndEmptySource
 	void testSetPasswordInvalid(String pass) {
 		
-		Student student = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
+		User student = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
 
 		Exception exception = assertThrows(IllegalArgumentException.class,
 				() -> student.setPassword(pass));
@@ -147,7 +147,7 @@ class StudentTest {
 	@ParameterizedTest
 	@ValueSource(strings = {"password123", "PASS123", "Password!@321"})
 	public void testSetPasswordValid(String pass) {
-		Student student = assertDoesNotThrow(
+		User student = assertDoesNotThrow(
 				() -> new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, pass, MAX_CRED),
 				"Should not throw exception");
 		assertEquals(pass, student.getPassword(), "Failed test with valid password - " + pass);
@@ -200,7 +200,7 @@ class StudentTest {
 	@ValueSource(strings = {"Max", "John", "Jhonson", "Paul", "Bart"})
 	public void testSetFirstNameValid(String firstName) {
 
-		Student student = assertDoesNotThrow(
+		User student = assertDoesNotThrow(
 				() -> new Student(firstName, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED),
 				"Should not throw exception");
 		assertEquals(firstName, student.getFirstName(), "Failed test with valid student first name - " + firstName);
@@ -225,7 +225,7 @@ class StudentTest {
 	@ValueSource(strings = {"Byers", "Mayson", "Davis", "Jones", "Garcia"})
 	public void testSetLastNameValid(String lastName) {
 
-		Student student = assertDoesNotThrow(
+		User student = assertDoesNotThrow(
 				() -> new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED),
 				"Should not throw exception");
 		assertEquals(LAST_NAME, student.getLastName(), "Failed test with valid student last name - " + LAST_NAME);
@@ -247,15 +247,15 @@ class StudentTest {
 	@Test
 	void testEqualsObject() {
 		
-		Student c1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
-		Student c2 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
+		User c1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
+		User c2 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
 		
-		Student c3 = new Student("testfirstname", LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
-		Student c4 = new Student(FIRST_NAME, "testlastname", ID, EMAIL, PASSWORD, MAX_CRED);
-		Student c5 = new Student(FIRST_NAME, LAST_NAME, "testid", EMAIL, PASSWORD, MAX_CRED);
-		Student c6 = new Student(FIRST_NAME, LAST_NAME, ID, "test@ncsu.edu", PASSWORD, MAX_CRED);
-		Student c7 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, "password123", MAX_CRED);
-		Student c8 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, 12);
+		User c3 = new Student("testfirstname", LAST_NAME, ID, EMAIL, PASSWORD, MAX_CRED);
+		User c4 = new Student(FIRST_NAME, "testlastname", ID, EMAIL, PASSWORD, MAX_CRED);
+		User c5 = new Student(FIRST_NAME, LAST_NAME, "testid", EMAIL, PASSWORD, MAX_CRED);
+		User c6 = new Student(FIRST_NAME, LAST_NAME, ID, "test@ncsu.edu", PASSWORD, MAX_CRED);
+		User c7 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, "password123", MAX_CRED);
+		User c8 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, 12);
 		
 		assertTrue(c1.equals(c2));
 		assertTrue(c2.equals(c1));
@@ -273,11 +273,11 @@ class StudentTest {
 	 */
 	@Test
 	public void testToString() {
-		Student c1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, STU_MAX_CRED);
+		User c1 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, STU_MAX_CRED);
 		String s1 = "firstname,lastname,id,firstlast@ncsu.edu,Password123,16";
 		assertEquals(s1, c1.toString());
 
-		Student c2 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD);
+		User c2 = new Student(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD);
 		String s2 = "firstname,lastname,id,firstlast@ncsu.edu,Password123,18";
 		assertEquals(s2, c2.toString());
 	}

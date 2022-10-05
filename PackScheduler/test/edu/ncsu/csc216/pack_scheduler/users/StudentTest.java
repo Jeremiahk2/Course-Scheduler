@@ -10,6 +10,7 @@ import java.util.Base64;
 import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.pack_scheduler.user.Student;
+import edu.ncsu.csc216.pack_scheduler.user.User;
 
 /**
  * Tests the Student object.
@@ -52,7 +53,7 @@ public class StudentTest {
 	 */
 	@Test
 	public void testToString() {
-		Student s1 = new Student(firstName, lastName, id, email, hashPW);
+		User s1 = new Student(firstName, lastName, id, email, hashPW);
 		assertEquals("first,last,flast,first_last@ncsu.edu," + hashPW + ",18", s1.toString());
 	}
 
