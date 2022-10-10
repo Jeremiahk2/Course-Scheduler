@@ -12,22 +12,40 @@ import edu.ncsu.csc216.pack_scheduler.catalog.CourseCatalog;
 import edu.ncsu.csc216.pack_scheduler.directory.StudentDirectory;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 import edu.ncsu.csc216.pack_scheduler.user.User;
-
+/**
+ * Class for handling Registration information. Will accept a Registrar
+ * user and will allow a logged-in Registrar to manage the course catalog
+ * and the student directory.
+ * @author Jeremiah Knizley
+ *
+ */
 public class RegistrationManager {
 
+	/** an instance of a RegistrationManager */
 	private static RegistrationManager instance;
+	/** The current list of Courses in the catalog */
 	private CourseCatalog courseCatalog;
+	/** The current list of Students in the Directory */
 	private StudentDirectory studentDirectory;
+	/** The User that corresponds to the Registrar */
 	private User registrar;
+	/** The user that is currently using the manager */
 	private User currentUser;
 	/** Hashing algorithm */
 	private static final String HASH_ALGORITHM = "SHA-256";
+	/** The name of the file where the login information is stored (STORED LOCALLY). */
 	private static final String PROP_FILE = "registrar.properties";
 
+	/**
+	 * Constructor for RegistrationManager, creates a new Registrar user using createRegistrar()
+	 */
 	private RegistrationManager() {
 		createRegistrar();
 	}
 
+	/**
+	 * creates a new Registrar user using information from PROP_FILE
+	 */
 	private void createRegistrar() {
 		Properties prop = new Properties();
 
@@ -42,6 +60,11 @@ public class RegistrationManager {
 		}
 	}
 
+	/**
+	 * Hashes the password of the current user
+	 * @param 	pw the password of the user
+	 * @return 	the password of the user in hashed form
+	 */
 	private String hashPW(String pw) {
 		try {
 			MessageDigest digest1 = MessageDigest.getInstance(HASH_ALGORITHM);
@@ -52,6 +75,10 @@ public class RegistrationManager {
 		}
 	}
 
+	/**
+	 * Returns the instance of this registration manager
+	 * @return instance the instance of the current RegistrationManager object
+	 */
 	public static RegistrationManager getInstance() {
 		if (instance == null) {
 			instance = new RegistrationManager();
@@ -59,14 +86,31 @@ public class RegistrationManager {
 		return instance;
 	}
 
+	/**
+	 * Returns the current courseCatalog
+	 * @return courseCatalog the current courseCatalog
+	 */
 	public CourseCatalog getCourseCatalog() {
 		return courseCatalog;
 	}
 
+	/**
+	 * returns the current StudentDirectory
+	 * @return studentDirectory the Student Directory
+	 */
 	public StudentDirectory getStudentDirectory() {
 		return studentDirectory;
 	}
 
+	/**
+	 * Logs in a student or Registrar to the Registration Manager
+	 * stores currentUser as s if the user is a student, "registrar" if the login information
+	 * matches that of the registrar
+	 * 
+	 * @param 		id the ID of the user to be logged in
+	 * @param 		password the password of the user to be logged in (NOT hashed)
+	 * @return 		true if the user was successfully loggedin, false if not
+	 */
 	public boolean login(String id, String password) {
 		Student s = studentDirectory.getStudentById(id);
 
@@ -88,26 +132,45 @@ public class RegistrationManager {
 		return false;
 	}
 
+	/** logs out the current user */
 	public void logout() {
 		currentUser = registrar; 
 	}
 
 	/**
-	 * @return 
+	 * returns the current user
+	 * 
+	 * @return User the current user as a User object
 	 */
 	public User getCurrentUser() {
-		//TODO implement method
-		return null;
+		return currentUser;
 	}
 
+	/**
+	 * clears the data stored in the courseCatalog and studentDirectory
+	 */
 	public void clearData() {
 		courseCatalog.newCourseCatalog();
 		studentDirectory.newStudentDirectory();
 	}
 
+	/**
+	 * Class for creating Registrar users that are responsible for 
+	 * managing the courseCatalog and studentDirectory
+	 * 
+	 * @author Jeremiah Knizley
+	 *
+	 */
 	private static class Registrar extends User {
+		
 		/**
-		 * Create a registrar user.
+		 * Constructor for Registrars, parameters follow the same constraints as any User
+		 * 
+		 * @param firstName 	the first name of the Registrar user
+		 * @param lastName 		the last name of the Registrar user
+		 * @param id 			the ID of the Registrar user
+		 * @param email 		the email of the Registrar user
+		 * @param hashPW 		the hashed password of the Registrar user
 		 */
 		public Registrar(String firstName, String lastName, String id, String email, String hashPW) {
 			super(firstName, lastName, id, email, hashPW);
