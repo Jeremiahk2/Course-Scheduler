@@ -17,6 +17,7 @@ import edu.ncsu.csc216.pack_scheduler.user.User;
  * user and will allow a logged-in Registrar to manage the course catalog
  * and the student directory.
  * @author Jeremiah Knizley
+ * @author Spencer Grattan
  *
  */
 public class RegistrationManager {
@@ -41,6 +42,8 @@ public class RegistrationManager {
 	 */
 	private RegistrationManager() {
 		createRegistrar();
+		this.studentDirectory = new StudentDirectory();
+		this.courseCatalog = new CourseCatalog();
 	}
 
 	/**
@@ -109,18 +112,13 @@ public class RegistrationManager {
 	 * 
 	 * @param 		id the ID of the user to be logged in
 	 * @param 		password the password of the user to be logged in (NOT hashed)
-	 * @return 		true if the user was successfully loggedin, false if not
+	 * @return 		true if the user was successfully logged in, false if not
 	 */
 	public boolean login(String id, String password) {
-		Student s = studentDirectory.getStudentById(id);
-
-
+		//hash the given password
 		String localHashPW = hashPW(password);
-		if (s.getPassword().equals(localHashPW)) {
-			currentUser = s;
-			return true;
-		}	
-
+	
+		//if the id and password match the registrar, log in
 		if (registrar.getId().equals(id)) {
 
 			if (registrar.getPassword().equals(localHashPW)) {
@@ -128,13 +126,28 @@ public class RegistrationManager {
 				return true;
 			}
 		}
+		
+		//check if there is a student that matches the given id
+		Student s;
+		try {
+			s = studentDirectory.getStudentById(id);
+		} catch (IllegalArgumentException e) {
+			return false;
+		}
+		
+		//if there is a student, check if their password is correct
+		if (s.getPassword().equals(localHashPW)) {
+			currentUser = s;
+			return true;
+		}	
 
+		//if none of the information is correct, return false
 		return false;
 	}
 
 	/** logs out the current user */
 	public void logout() {
-		currentUser = registrar; 
+		currentUser = null;
 	}
 
 	/**
