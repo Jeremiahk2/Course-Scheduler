@@ -147,7 +147,8 @@ public class RegistrationManager {
 		}	
 
 		//if none of the information is correct, return false
-		throw new IllegalArgumentException("User doesn't exist.");
+		//throw new IllegalArgumentException("User doesn't exist.");
+		return false;
 	}
 
 	/** logs out the current user */
