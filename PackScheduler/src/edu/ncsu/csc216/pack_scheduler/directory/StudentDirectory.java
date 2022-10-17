@@ -174,7 +174,7 @@ public class StudentDirectory {
 	public Student getStudentById(String id) {
 		int index = -1;
 		for (int i = 0; i < studentDirectory.size(); i++) {
-			if (studentDirectory.get(i).getId().equals(id)) {
+			if (studentDirectory.get(i).getId() == id) {
 				index = i;
 			}
 		}
