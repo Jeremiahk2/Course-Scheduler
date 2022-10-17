@@ -118,6 +118,11 @@ public class RegistrationManager {
 		//hash the given password
 		String localHashPW = hashPW(password);
 	
+		//if someone is logged in return false
+		if (this.currentUser != null) {
+			return false;
+		}
+		
 		//if the id and password match the registrar, log in
 		if (registrar.getId().equals(id)) {
 
