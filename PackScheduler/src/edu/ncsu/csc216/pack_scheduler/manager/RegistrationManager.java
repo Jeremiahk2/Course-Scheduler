@@ -115,13 +115,14 @@ public class RegistrationManager {
 	 * @return 		true if the user was successfully logged in, false if not
 	 */
 	public boolean login(String id, String password) {
-		//hash the given password
-		String localHashPW = hashPW(password);
 	
 		//if someone is logged in return false
 		if (this.currentUser != null) {
 			return false;
 		}
+		
+		//hash the given password
+				String localHashPW = hashPW(password);
 		
 		//if the id and password match the registrar, log in
 		if (registrar.getId().equals(id)) {
@@ -137,8 +138,7 @@ public class RegistrationManager {
 		try {
 			s = studentDirectory.getStudentById(id);
 		} catch (IllegalArgumentException e) {
-			return false;
-			//throw new IllegalArgumentException("User doesn't exist.");
+			throw new IllegalArgumentException("User doesn't exist");
 		}
 		
 		//if there is a student, check if their password is correct
