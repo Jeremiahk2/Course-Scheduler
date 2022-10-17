@@ -138,7 +138,7 @@ public class RegistrationManager {
 		try {
 			s = studentDirectory.getStudentById(id);
 		} catch (IllegalArgumentException e) {
-			throw new IllegalArgumentException("User doesn't exist.");
+			throw new IllegalArgumentException("Invalid id or password");
 		}
 		
 		//if there is a student, check if their password is correct
