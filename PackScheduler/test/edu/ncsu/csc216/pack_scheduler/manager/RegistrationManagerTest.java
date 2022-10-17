@@ -61,6 +61,11 @@ public class RegistrationManagerTest {
 				() -> manager.getStudentDirectory().addStudent("Spencer", "Grattan", "goomba", "dsgratta@ncsu.edu", "12345", "12345", 16));
 
 		assertTrue(manager.login("goomba", "12345"));
+		assertEquals("goomba", manager.getCurrentUser().getId());
+		assertEquals("Spencer", manager.getCurrentUser().getFirstName());
+		assertEquals("Grattan", manager.getCurrentUser().getLastName());
+		assertEquals("dsgratta@ncsu.edu", manager.getCurrentUser().getEmail());
+		
 
 		//test for a case where the registrar logs in 
 		Properties prop = new Properties();
@@ -77,7 +82,9 @@ public class RegistrationManagerTest {
 		assertTrue(manager.login(id, pw));
 		
 		//test for a case where the student id is invalid
-		assertFalse(manager.login("bad_id", "bad_password"));
+		Exception e1 = assertThrows(IllegalArgumentException.class, 
+				() -> manager.login("bad_id", "bad_password"));
+		assertEquals("User doesn't exist.", e1.getMessage());
 		
 		//test for a case where the student id is valid but the password is invalid
 		assertFalse(manager.login("goomba", "bad_password"));

@@ -15,6 +15,7 @@ import edu.ncsu.csc217.collections.list.SortedList;
  * All students have a unique id.
  * @author Sarah Heckman
  * @author Jerry Knizley
+ * @author Spencer Grattan
  */
 public class StudentDirectory {
 	
@@ -173,7 +174,7 @@ public class StudentDirectory {
 	public Student getStudentById(String id) {
 		int index = -1;
 		for (int i = 0; i < studentDirectory.size(); i++) {
-			if (studentDirectory.get(i).getId() == id) {
+			if (studentDirectory.get(i).getId().equals(id)) {
 				index = i;
 			}
 		}
