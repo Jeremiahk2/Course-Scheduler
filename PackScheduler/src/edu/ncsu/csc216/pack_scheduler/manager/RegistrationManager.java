@@ -142,7 +142,7 @@ public class RegistrationManager {
 		}	
 
 		//if none of the information is correct, return false
-		return false;
+		throw new IllegalArgumentException("User doesn't exist.");
 	}
 
 	/** logs out the current user */

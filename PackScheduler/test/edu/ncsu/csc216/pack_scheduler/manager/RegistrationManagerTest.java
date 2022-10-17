@@ -87,7 +87,9 @@ public class RegistrationManagerTest {
 		assertEquals("User doesn't exist.", e1.getMessage());
 		
 		//test for a case where the student id is valid but the password is invalid
-		assertFalse(manager.login("goomba", "bad_password"));
+		Exception e2 = assertThrows(IllegalArgumentException.class, 
+				() -> manager.login("goomba", "bad_password"));
+		assertEquals("User doesn't exist.", e2.getMessage());
 	}
 
 	/**
