@@ -218,7 +218,7 @@ public class Course extends Activity implements Comparable<Course> {
 	@Override
 	public void setMeetingDaysAndTime(String meetingDays, int startTime, int endTime) {
 		if ("A".equals(meetingDays)) {
-			if (startTime != 0 || endTime != 0) {
+			if (!(startTime == 0 && endTime == 0)) {
 				throw new IllegalArgumentException("Invalid meeting days and times.");
 			}
 			super.setMeetingDaysAndTime(meetingDays, 0, 0);
