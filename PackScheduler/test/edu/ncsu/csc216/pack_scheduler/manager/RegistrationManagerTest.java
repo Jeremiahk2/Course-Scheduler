@@ -66,6 +66,8 @@ public class RegistrationManagerTest {
 		assertEquals("Grattan", manager.getCurrentUser().getLastName());
 		assertEquals("dsgratta@ncsu.edu", manager.getCurrentUser().getEmail());
 		
+		assertDoesNotThrow(
+				() -> manager.logout());
 
 		//test for a case where the registrar logs in 
 		Properties prop = new Properties();
@@ -80,6 +82,9 @@ public class RegistrationManagerTest {
 		
 		
 		assertTrue(manager.login(id, pw));
+		
+		assertDoesNotThrow(
+				() -> manager.logout());
 		
 		//test for a case where the student id is invalid
 		Exception e1 = assertThrows(IllegalArgumentException.class, 
