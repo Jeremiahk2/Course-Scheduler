@@ -132,20 +132,21 @@ public class RegistrationManager {
 				return true;
 			}
 		}
-		
-		//check if there is a student that matches the given id
-		Student s;
-		try {
-			s = studentDirectory.getStudentById(id);
-		} catch (IllegalArgumentException e) {
-			throw new IllegalArgumentException("User doesn't exist.");
+		else {
+			//check if there is a student that matches the given id
+			Student s;
+			try {
+				s = studentDirectory.getStudentById(id);
+			} catch (IllegalArgumentException e) {
+				throw new IllegalArgumentException("User doesn't exist.");
+			}
+			
+			//if there is a student, check if their password is correct
+			if (s.getPassword().equals(localHashPW)) {
+				currentUser = s;
+				return true;
+			}	
 		}
-		
-		//if there is a student, check if their password is correct
-		if (s.getPassword().equals(localHashPW)) {
-			currentUser = s;
-			return true;
-		}	
 
 		//if none of the information is correct, return false
 		//throw new IllegalArgumentException("User doesn't exist.");
