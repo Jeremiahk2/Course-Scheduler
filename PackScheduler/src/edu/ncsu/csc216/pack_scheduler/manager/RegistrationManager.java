@@ -134,10 +134,8 @@ public class RegistrationManager {
 		}
 		else {
 			//check if there is a student that matches the given id
-			Student s;
-			try {
-				s = studentDirectory.getStudentById(id);
-			} catch (IllegalArgumentException e) {
+			Student s = studentDirectory.getStudentById(id);
+			if (s == null) {
 				throw new IllegalArgumentException("User doesn't exist.");
 			}
 			

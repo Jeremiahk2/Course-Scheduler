@@ -188,7 +188,8 @@ public class StudentDirectory {
 			throw new IllegalArgumentException("Invalid id.");
 		}
 		*/
-		throw new IllegalArgumentException("Invalid id.");
+		//throw new IllegalArgumentException("Invalid id.");
+		return null;
 	}
 
 }

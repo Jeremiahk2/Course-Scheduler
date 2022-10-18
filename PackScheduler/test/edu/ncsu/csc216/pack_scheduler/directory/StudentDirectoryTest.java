@@ -236,9 +236,7 @@ public class StudentDirectoryTest {
 		
 		
 		//tests for invalid case
-		Exception ee = assertThrows(IllegalArgumentException.class,
-				() -> sd.getStudentById("finger"));
-		assertEquals("Invalid id.", ee.getMessage());
+		assertEquals(null, sd.getStudentById("finger"));
 	}
 	
 	/**
