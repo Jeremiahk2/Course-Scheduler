@@ -2,7 +2,7 @@ package edu.ncsu.csc216.pack_scheduler.user;
 
 import java.util.Objects;
 
-//TODO: Add abstraction
+
 /**
  * Class for creating Users who operate pack scheduler
  * @author Spencer Grattan
