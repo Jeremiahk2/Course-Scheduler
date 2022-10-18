@@ -98,7 +98,7 @@ public class RegistrationManagerTest {
 
 	/**
 	 * tests the logout method
-	 * login method & getCurrentUser method must be working in order to test logout method
+	 * login method and getCurrentUser method must be working in order to test logout method
 	 */
 	@Test
 	public void testLogout() {
