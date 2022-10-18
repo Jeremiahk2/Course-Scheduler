@@ -173,6 +173,9 @@ public class StudentDirectory {
 	 */
 	public Student getStudentById(String id) {
 		//int index = -1;
+		if (id == null) {
+			throw new IllegalArgumentException("Invalid id.");
+		}
 		for (int i = 0; i < studentDirectory.size(); i++) {
 			if (studentDirectory.get(i).getId().equals(id)) {
 				//index = i;
