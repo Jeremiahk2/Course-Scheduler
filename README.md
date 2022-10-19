@@ -6,7 +6,7 @@ Lab 5:
 - Task: Configure Properties file --> Owner: Jerry    Due - Friday, October 14th   Status: Complete
 - Task: Configure git properties --> Owner: Jerry     Due - Friday, October 14th   Status: Complete
 - Task: Inspect RegistrationManager --> Owner: Jerry  Due - Friday, October 14th   Status: Complete
-- Task: Test RegistrationManager --> Owner: Spencer   Due - Friday, October 14th
-- Task: Replace GUI --> Owner: Spencer                Due - Friday, October 14th
-- Task: Run system tests --> Owner: Spencer           Due - Friday, October 14th
-- Task: Generate Javadoc --> Owner: Spencer           Due - Friday, October 14th
+- Task: Test RegistrationManager --> Owner: Spencer   Due - Friday, October 14th   Status: Complete
+- Task: Replace GUI --> Owner: Spencer                Due - Friday, October 14th   Status: Complete
+- Task: Run system tests --> Owner: Spencer           Due - Friday, October 14th   Status: Complete
+- Task: Generate Javadoc --> Owner: Spencer           Due - Friday, October 14th   Status: Complete
