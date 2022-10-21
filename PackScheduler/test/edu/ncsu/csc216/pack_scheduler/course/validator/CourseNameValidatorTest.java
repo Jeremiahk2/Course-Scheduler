@@ -22,16 +22,16 @@ class CourseNameValidatorTest {
 	@Test 
 	void testStateL() {
 		CourseNameValidator validator = new CourseNameValidator();
-		assertDoesNotThrow(() -> assertTrue(validator.isValid("a345")));
 		assertDoesNotThrow(() -> assertTrue(validator.isValid("a859c")));
+		assertDoesNotThrow(() -> assertTrue(validator.isValid("a345")));
 //		assertFalse(validator.isValid("a28"));
 	}
 	
 	@Test
 	void testStateLL()   {
 		CourseNameValidator validator = new CourseNameValidator();
-		assertDoesNotThrow(() -> assertTrue(validator.isValid("ah155")));
 		assertDoesNotThrow(() -> assertTrue(validator.isValid("rn493d")));
+		assertDoesNotThrow(() -> assertTrue(validator.isValid("ah155")));
 //		assertFalse(validator.isValid("as3"));
 	}
 	@Test
@@ -50,16 +50,16 @@ class CourseNameValidatorTest {
 	@Test
 	void testInvalidStrings() {
 		CourseNameValidator validator = new CourseNameValidator();
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("l@"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("9"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("abcdp"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("a4c"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("ai3p"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("aosf0s"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("sjfm6f"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("b52l"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("s2052"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("f294p5"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("s203gg"));
+		assertFalse(validator.isValid("l@"));
+		assertFalse(validator.isValid("9"));
+		assertFalse(validator.isValid("abcdp"));
+		assertFalse(validator.isValid("a4c"));
+		assertFalse(validator.isValid("ai3p"));
+		assertFalse(validator.isValid("aosf0s"));
+		assertFalse(validator.isValid("sjfm6f"));
+		assertFalse(validator.isValid("b52l"));
+		assertFalse(validator.isValid("s2052"));
+		assertFalse(validator.isValid("f294p5"));
+		assertFalse(validator.isValid("s203gg"));
 	}
 }
