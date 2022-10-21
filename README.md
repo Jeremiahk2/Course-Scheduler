@@ -14,13 +14,13 @@ Lab 5:
 
 Lab 6:
 
-- Task: Implement State Class --> Owner: Jerry                            Due - Saturday, October 22  Status: Incomplete
-- Task: Implement Concrete States --> Owner: Jerry                        Due - Saturday, October 22  Status: Incomplete
-	- Task: InitialState --> Owner: Jerry                                   Due - Saturday, October 22  Status: Incomplete
-	- Task: LetterState --> Owner: Jerry                                    Due - Saturday, October 22  Status: Incomplete
-	- Task: DigitState --> Owner: Jerry                                     Due - Saturday, October 22  Status: Incomplete
-	- Task: SuffixState --> Owner: Jerry                                    Due - Saturday, October 22  Status: Incomplete
-- Task: Implement CourseNameValidator (Context Class) --> Owner: Jerry    Due - Saturday, October 22  Status: Incomplete
+- Task: Implement State Class --> Owner: Jerry                            Due - Saturday, October 22  Status: Complete
+- Task: Implement Concrete States --> Owner: Jerry                        Due - Saturday, October 22  Status: Complete
+	- Task: InitialState --> Owner: Jerry                                   Due - Saturday, October 22  Status: Complete
+	- Task: LetterState --> Owner: Jerry                                    Due - Saturday, October 22  Status: Complete
+	- Task: DigitState --> Owner: Jerry                                     Due - Saturday, October 22  Status: Complete
+	- Task: SuffixState --> Owner: Jerry                                    Due - Saturday, October 22  Status: Complete
+- Task: Implement CourseNameValidator (Context Class) --> Owner: Jerry    Due - Saturday, October 22  Status: Complete
 - Task: Test CourseNameValidator --> Owner: Spencer                       Due - Saturday, October 22  Status: Incomplete
 - Task: Integrate CourseNameValidator into Course --> Owner: Spencer      Due - Monday, October 24  Status: Incomplete
 - Task: Update unit tests in project --> Owner: Spencer                   Due - Monday, October 24  Status: Incomplete
