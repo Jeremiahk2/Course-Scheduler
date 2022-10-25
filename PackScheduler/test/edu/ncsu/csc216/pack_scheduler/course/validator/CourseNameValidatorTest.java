@@ -22,6 +22,7 @@ class CourseNameValidatorTest {
 		CourseNameValidator validator = new CourseNameValidator();
 		assertDoesNotThrow(() -> assertTrue(validator.isValid("a859c")));
 		assertDoesNotThrow(() -> assertTrue(validator.isValid("a345")));
+		assertDoesNotThrow(() -> assertTrue(validator.isValid("E115")));
 //		assertFalse(validator.isValid("a28"));
 	}
 	

@@ -18,11 +18,12 @@ import org.junit.jupiter.params.provider.ValueSource;
  * as we test other methods.
  * 
  * @author Sarah Heckman
+ * @author Spencer Grattan
  */
 public class CourseTest {
 
 	/** Course name */
-	private static final String NAME = "CSC 216";
+	private static final String NAME = "CSC216";
 	/** Course title */
 	private static final String TITLE = "Software Development Fundamentals";
 	/** Course section */
@@ -85,7 +86,7 @@ public class CourseTest {
 	 * @param courseName valid course name to test
 	 */
 	@ParameterizedTest
-	@ValueSource(strings = {"CSC 216", "E 115", "MA 141", "HESF 101", "CSC 116"})
+	@ValueSource(strings = {"CSC216", "E115", "MA141", "HESF101", "CSC116"})
 	public void testSetNameValid(String courseName) {
 
 		// Testing valid names
@@ -102,7 +103,7 @@ public class CourseTest {
 	 */
 	@ParameterizedTest
 	@NullAndEmptySource
-	@ValueSource(strings = {"E 11", "HESFQ 101", "101", "CSC216", "101ext", "HESFQ101", "HSEF01", "CSC 2167", " CSC 216", "CSC\t216", "C!C 216", "CSC 21!"})
+	@ValueSource(strings = {"E11", "HESFQ101", "101", "CSC 216", "101ext", "HESFQ101", "HSEF01", "CSC2167", " CSC216", "CSC\t216", "C!C216", "CSC21!"})
 	public void testSetNameInvalid(String invalidCourseName) {
 		// Testing for null name - IAE should be thrown
 		Exception e1 = assertThrows(IllegalArgumentException.class,
@@ -433,7 +434,7 @@ public class CourseTest {
 		Activity c7 = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, "TH", START_TIME, END_TIME);
 		Activity c8 = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, 830, END_TIME);
 		Activity c9 = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, 1400);
-		Activity c10 = new Course("CSC 217", TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, END_TIME);
+		Activity c10 = new Course("CSC217", TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, END_TIME);
 
 		// Test for equality in both directions
 		assertTrue(c1.equals(c2));
@@ -464,7 +465,7 @@ public class CourseTest {
 		Activity c7 = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, "TH", START_TIME, END_TIME);
 		Activity c8 = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, 830, END_TIME);
 		Activity c9 = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, 1400);
-		Activity c10 = new Course("CSC 217", TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, END_TIME);
+		Activity c10 = new Course("CSC217", TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, END_TIME);
 
 
 		// Test for the same hash code for the same values
@@ -487,11 +488,11 @@ public class CourseTest {
 	@Test
 	public void testToString() {
 		Activity c1 = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, MEETING_DAYS, START_TIME, END_TIME);
-		String s1 = "CSC 216,Software Development Fundamentals,001,3,sesmith5,MW,1330,1445";
+		String s1 = "CSC216,Software Development Fundamentals,001,3,sesmith5,MW,1330,1445";
 		assertEquals(s1, c1.toString());
 
 		Activity c2 = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, "A");
-		String s2 = "CSC 216,Software Development Fundamentals,001,3,sesmith5,A";
+		String s2 = "CSC216,Software Development Fundamentals,001,3,sesmith5,A";
 		assertEquals(s2, c2.toString());
 	}
 	
@@ -505,13 +506,13 @@ public class CourseTest {
 		assertEquals(0, c1.compareTo(c2));
 		assertEquals(0, c2.compareTo(c1));
 		
-		Course c3 = new Course("CSC 217", "Computer Science Lab", "069", 1, "sesmith5", "A");
-		Course c4 = new Course("BIO 350", "Bio Lab", "003", 1, "cdhank3", "A");
+		Course c3 = new Course("CSC217", "Computer Science Lab", "069", 1, "sesmith5", "A");
+		Course c4 = new Course("BIO350", "Bio Lab", "003", 1, "cdhank3", "A");
 		assertEquals(1, c3.compareTo(c4));
 		assertEquals(-1, c4.compareTo(c3));
 		
-		Course c5 = new Course("CSC 217", "Computer Science Lab", "069", 1, "sesmith5", "A");
-		Course c6 = new Course("CSC 217", "Computer Science Lab", "070", 1, "sesmith5", "A");
+		Course c5 = new Course("CSC217", "Computer Science Lab", "069", 1, "sesmith5", "A");
+		Course c6 = new Course("CSC217", "Computer Science Lab", "070", 1, "sesmith5", "A");
 		assertEquals(-1, c5.compareTo(c6));
 		assertEquals(1, c6.compareTo(c5));
 	}

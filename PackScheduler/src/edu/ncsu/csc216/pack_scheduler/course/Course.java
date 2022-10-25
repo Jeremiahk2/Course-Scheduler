@@ -3,6 +3,8 @@
  */
 package edu.ncsu.csc216.pack_scheduler.course;
 
+import edu.ncsu.csc216.pack_scheduler.course.validator.CourseNameValidator;
+import edu.ncsu.csc216.pack_scheduler.course.validator.InvalidTransitionException;
 import edu.ncsu.csc217.collections.list.SortedList;
 
 /**
@@ -10,11 +12,12 @@ import edu.ncsu.csc217.collections.list.SortedList;
  * meeting days, start time, and end time as private fields with their getters and setters.
  * Child of Activity class.
  * @author Geigh Neill
+ * @author Spencer Grattan
  */
 public class Course extends Activity implements Comparable<Course> {
 	
 	/** Minimum length of Course name */
-	private static final int MIN_NAME_LENGTH = 5;
+	private static final int MIN_NAME_LENGTH = 4;
 	/** Maximum length of Course name */
 	private static final int MAX_NAME_LENGTH = 8;
 	/** Minimum letter count */
@@ -95,41 +98,17 @@ public class Course extends Activity implements Comparable<Course> {
 			throw new IllegalArgumentException("Invalid course name.");
 		}
 		
-		int letterCount = 0;
-		int digitCount = 0;
-		boolean hasSpace = false;
-		
-		for (int i = 0; i < name.length(); i++) {
-			if (!hasSpace) {
-				if (Character.isLetter(name.charAt(i))) {
-					letterCount++;
-				}
-				else if (name.charAt(i) == ' ') {
-					hasSpace = true;
-				}
-				else {
-					throw new IllegalArgumentException("Invalid course name.");
-				}
+		CourseNameValidator validator = new CourseNameValidator();
+		try {
+			if (validator.isValid(name)) {
+				this.name = name;
 			}
-			else if (hasSpace) {
-				if (Character.isDigit(name.charAt(i))) {
-					digitCount++;
-				}
-				else {
-					throw new IllegalArgumentException("Invalid course name.");
-				}
+			else {
+				throw new IllegalArgumentException("Invalid course name.");
 			}
-		}
-		
-		if (letterCount < MIN_LETTER_COUNT || letterCount > MAX_LETTER_COUNT) {
+		} catch (InvalidTransitionException e) {
 			throw new IllegalArgumentException("Invalid course name.");
 		}
-		
-		if (digitCount != DIGIT_COUNT) {
-			throw new IllegalArgumentException("Invalid course name.");
-		}
-		
-		this.name = name;
 	}
 
 	/**
