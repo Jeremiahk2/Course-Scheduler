@@ -49,19 +49,16 @@ class CourseNameValidatorTest {
 	void testInvalidSuffix()	{
 		CourseNameValidator validator = new CourseNameValidator();
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("ahfq2958"));
-		assertThrows(InvalidTransitionException.class,
-				() -> validator.isValid("ahfq295!"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("ahfq295!"));
 	}
 	
 	@Test
 	void testInvalidStrings() {
 		CourseNameValidator validator = new CourseNameValidator();
-		Exception e0 = assertThrows(InvalidTransitionException.class, () -> validator.isValid("l@"));
-		Exception e1 = assertThrows(InvalidTransitionException.class, () -> validator.isValid("&%%$"));
 		Exception e2 = assertThrows(InvalidTransitionException.class, () -> validator.isValid("9hiya"));
 		assertEquals("First character cannot be a digit", e2.getMessage());
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("abcdp"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("E11"));
+		assertDoesNotThrow(() -> assertFalse(validator.isValid("E11")));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("ai3p"));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("aosf0s"));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("sjfm6f"));
@@ -69,5 +66,13 @@ class CourseNameValidatorTest {
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("s2052"));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("f294p5"));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("s203gg"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("le@"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("sjf!"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("p492df"));
+	} 
+	@Test
+	void testInvalidStrings1() {
+		CourseNameValidator validator = new CourseNameValidator();
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("9hiya"));
 	}
 }

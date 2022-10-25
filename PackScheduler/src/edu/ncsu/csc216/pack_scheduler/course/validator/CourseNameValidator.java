@@ -6,8 +6,8 @@ package edu.ncsu.csc216.pack_scheduler.course.validator;
  *
  */
 public class CourseNameValidator {
-	
-	
+
+
 	/** boolean stating if the ending state is valid or not. */
 	private boolean validEndState;
 	/** the letter count of the course string */
@@ -17,20 +17,20 @@ public class CourseNameValidator {
 	/** the current state of the course name */
 	private State currentState;
 	/** The state of the course name in its initial state */
-	private InitialState initialState = new InitialState();
+	private final InitialState initialState = new InitialState();
 	/** The state of the course name in its suffix state */
-	private SuffixState suffixState = new SuffixState();
+	private final SuffixState suffixState = new SuffixState();
 	/** The state of the course name in its letter state */
-	private LetterState letterState = new LetterState();
+	private final LetterState letterState = new LetterState();
 	/** The state of the course name in its number state */
-	private NumberState numberState = new NumberState();
+	private final NumberState numberState = new NumberState();
 	/**
 	 * Constructor for CourseNameValidator, initializes currentState to initialState.
 	 */
 	public CourseNameValidator() {
 		currentState = initialState;
 	}
-	
+
 	/**
 	 * determines whether or not a course name is valid.
 	 * @param name the name of the course
@@ -43,50 +43,49 @@ public class CourseNameValidator {
 		currentState = initialState;
 		digitCount = 0;
 		letterCount = 0;
-
 		for (int i = 0; i < characters.length; i++) {
 			if (currentState == initialState) {
 				if (Character.isDigit(characters[i])) {
-					currentState.onDigit();
+					currentState.onDigit(); 
 				}
 				else if (Character.isLetter(characters[i])) {
-					currentState.onLetter();
+					currentState.onLetter(); 
 				}
 				else {
-					currentState.onOther();
+					currentState.onOther(); 
 				}
 			}
 			else if (currentState == suffixState) {
 				if (Character.isDigit(characters[i])) {
-					currentState.onDigit();
+					currentState.onDigit(); 
 				}
 				else if (Character.isLetter(characters[i])) {
-					currentState.onLetter();
+					currentState.onLetter(); 
 				}
 				else {
-					currentState.onOther();
+					currentState.onOther(); 
 				}
 			}
 			else if (currentState == letterState) {
 				if (Character.isDigit(characters[i])) {
-					currentState.onDigit();
+					currentState.onDigit(); 
 				}
 				else if (Character.isLetter(characters[i])) {
-					currentState.onLetter();
+					currentState.onLetter(); 
 				}
 				else {
-					currentState.onOther();
+					currentState.onOther(); 
 				}
 			}
 			else if (currentState == numberState) {
 				if (Character.isDigit(characters[i])) {
-					currentState.onDigit();
+					currentState.onDigit(); 
 				}
 				else if (Character.isLetter(characters[i])) {
-					currentState.onLetter();
+					currentState.onLetter(); 
 				}
 				else {
-					currentState.onOther();
+					currentState.onOther(); 
 				}
 			}
 		}
@@ -102,7 +101,7 @@ public class CourseNameValidator {
 		letterCount = 0;
 		return false;
 	}
-	
+
 	/**
 	 * An abstract class that is used for different states a string's characters can be in. All classes behave the same for non-alphanumeric characters, so onOther is concrete
 	 * All classes require onDigit and onLetter, though implementation may vary.
@@ -115,13 +114,13 @@ public class CourseNameValidator {
 		 * @throws InvalidTransitionException  if a letter is not valid for the current state.
 		 */
 		public abstract void onLetter() throws InvalidTransitionException;
-		
+
 		/**
 		 * an abstract method for what should be done for digits in the course string for the current state
 		 * @throws InvalidTransitionException if the state does not accept digits
 		 */
 		public abstract  void onDigit() throws InvalidTransitionException;
-		
+
 		/**
 		 * throws an exception.
 		 * @throws InvalidTransitionException because the course cannot contain characters other than numbers or letters.
@@ -129,15 +128,15 @@ public class CourseNameValidator {
 		public void onOther() throws InvalidTransitionException {
 			throw new InvalidTransitionException("Course name can only contain letters and digits.");
 		}
-		
+
 	}
-	
+
 	/**
 	 * Class for if the current state is a letter.
 	 * @author Jeremiah Knizley
 	 *
 	 */
-	public class LetterState extends State {
+	private class LetterState extends State {
 
 		/**
 		 * If there are already four letters present, an exception is thrown.
@@ -152,7 +151,7 @@ public class CourseNameValidator {
 				letterCount++;
 				currentState = letterState;
 			}
-			
+
 		}
 		/**
 		 * sets current state to NumberState
@@ -162,17 +161,17 @@ public class CourseNameValidator {
 		public void onDigit() {
 			currentState = numberState;
 			digitCount++;
-			
+
 		}
-		
-		
+
+
 	}
 	/**
 	 * Class for if the current state is a suffix.
 	 * @author Jeremiah Knizley
 	 *
 	 */
-	public class SuffixState extends State {
+	private class SuffixState extends State {
 
 		/**
 		 * Throws an exception
@@ -181,7 +180,7 @@ public class CourseNameValidator {
 		@Override
 		public void onLetter() throws InvalidTransitionException {
 			throw new InvalidTransitionException("Cannot have anything after the suffix");
-			
+
 		}
 
 		/**
@@ -191,16 +190,16 @@ public class CourseNameValidator {
 		@Override
 		public void onDigit() throws InvalidTransitionException {
 			throw new InvalidTransitionException("Cannot have anything after the suffix");
-			
+
 		}
-		
+
 	}
 	/**
 	 * Class for if the current state is the initial state.
 	 * @author Jeremiah Knizley
 	 *
 	 */
-	public class InitialState extends State {
+	private class InitialState extends State {
 
 		/**
 		 * Sets the current state to a LetterState, increases letter count by 1.
@@ -218,16 +217,16 @@ public class CourseNameValidator {
 		@Override
 		public void onDigit() throws InvalidTransitionException {
 			throw new InvalidTransitionException("First character cannot be a digit");
-			
+
 		}
-		
+
 	}
 	/**
 	 * Class for if the current state is a digit.
 	 * @author Jeremiah Knizley
 	 *
 	 */
-	public class NumberState extends State {
+	private class NumberState extends State {
 
 		/**
 		 * If digit count is three, current state is set to the suffix state and validEndState is set to true.
@@ -243,7 +242,7 @@ public class CourseNameValidator {
 				currentState = suffixState;
 				validEndState = true;
 			}
-			
+
 		}
 
 		/**
@@ -256,16 +255,16 @@ public class CourseNameValidator {
 			if (digitCount <= 2) {
 				digitCount++;
 				currentState = numberState;
-				if (digitCount == 2) {
+				if (digitCount == 3) {
 					validEndState = true;
 				}
 			}
 			else if (digitCount == 3) {
 				throw new InvalidTransitionException("Can only have three digits in a row");
 			}
-			
+
 		}
-		
+
 	}
-	
+
 }
