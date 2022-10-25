@@ -37,63 +37,62 @@ public class CourseNameValidator {
 	 * determines whether or not a course name is valid.
 	 * @param name the name of the course
 	 * @return boolean, true if valid, false if not.
+	 * @throws InvalidTransitionException if an invalid character appears in the course name
 	 */
-	public boolean isValid(String name) {
+	public boolean isValid(String name) throws InvalidTransitionException {
 		char[] characters = new char[name.length()];
 		characters = name.toCharArray();
-		try {
-			for (int i = 0; i < characters.length; i++) {
-				if (currentState == initialState) {
-					if (Character.isDigit(characters[i])) {
-						currentState.onDigit();
-					}
-					else if (Character.isLetter(characters[i])) {
-						currentState.onLetter();
-					}
-					else {
-						currentState.onOther();
-					}
+		currentState = initialState;
+		digitCount = 0;
+		letterCount = 0;
+
+		for (int i = 0; i < characters.length; i++) {
+			if (currentState == initialState) {
+				if (Character.isDigit(characters[i])) {
+					currentState.onDigit();
 				}
-				else if (currentState == suffixState) {
-					if (Character.isDigit(characters[i])) {
-						currentState.onDigit();
-					}
-					else if (Character.isLetter(characters[i])) {
-						currentState.onLetter();
-					}
-					else {
-						currentState.onOther();
-					}
+				else if (Character.isLetter(characters[i])) {
+					currentState.onLetter();
 				}
-				else if (currentState == letterState) {
-					if (Character.isDigit(characters[i])) {
-						currentState.onDigit();
-					}
-					else if (Character.isLetter(characters[i])) {
-						currentState.onLetter();
-					}
-					else {
-						currentState.onOther();
-					}
-				}
-				else if (currentState == numberState) {
-					if (Character.isDigit(characters[i])) {
-						currentState.onDigit();
-					}
-					else if (Character.isLetter(characters[i])) {
-						currentState.onLetter();
-					}
-					else {
-						currentState.onOther();
-					}
+				else {
+					currentState.onOther();
 				}
 			}
-		} catch (InvalidTransitionException e) {
-			currentState = initialState;
-			digitCount = 0;
-			letterCount = 0;
-			return false;
+			else if (currentState == suffixState) {
+				if (Character.isDigit(characters[i])) {
+					currentState.onDigit();
+				}
+				else if (Character.isLetter(characters[i])) {
+					currentState.onLetter();
+				}
+				else {
+					currentState.onOther();
+				}
+			}
+			else if (currentState == letterState) {
+				if (Character.isDigit(characters[i])) {
+					currentState.onDigit();
+				}
+				else if (Character.isLetter(characters[i])) {
+					currentState.onLetter();
+				}
+				else {
+					currentState.onOther();
+				}
+			}
+			else if (currentState == numberState) {
+				if (Character.isDigit(characters[i])) {
+					currentState.onDigit();
+				}
+				else if (Character.isLetter(characters[i])) {
+					currentState.onLetter();
+				}
+				else {
+					currentState.onOther();
+				}
+			}
 		}
+
 		if (validEndState) {
 			currentState = initialState;
 			digitCount = 0;

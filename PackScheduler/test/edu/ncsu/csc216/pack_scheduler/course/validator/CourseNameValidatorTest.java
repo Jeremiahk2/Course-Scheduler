@@ -48,18 +48,28 @@ class CourseNameValidatorTest {
 	}
 	
 	@Test
+	void testInvalidSuffix()	{
+		CourseNameValidator validator = new CourseNameValidator();
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("ahfq2958"));
+		assertThrows(InvalidTransitionException.class,
+				() -> validator.isValid("ahfq295!"));
+	}
+	
+	@Test
 	void testInvalidStrings() {
 		CourseNameValidator validator = new CourseNameValidator();
-		assertFalse(validator.isValid("l@"));
-		assertFalse(validator.isValid("9"));
-		assertFalse(validator.isValid("abcdp"));
-		assertFalse(validator.isValid("a4c"));
-		assertFalse(validator.isValid("ai3p"));
-		assertFalse(validator.isValid("aosf0s"));
-		assertFalse(validator.isValid("sjfm6f"));
-		assertFalse(validator.isValid("b52l"));
-		assertFalse(validator.isValid("s2052"));
-		assertFalse(validator.isValid("f294p5"));
-		assertFalse(validator.isValid("s203gg"));
+		Exception e0 = assertThrows(InvalidTransitionException.class, () -> validator.isValid("l@"));
+		Exception e1 = assertThrows(InvalidTransitionException.class, () -> validator.isValid("&%%$"));
+		Exception e2 = assertThrows(InvalidTransitionException.class, () -> validator.isValid("9hiya"));
+		assertEquals("First character cannot be a digit", e2.getMessage());
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("abcdp"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("a4c"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("ai3p"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("aosf0s"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("sjfm6f"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("b52l"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("s2052"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("f294p5"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("s203gg"));
 	}
 }
