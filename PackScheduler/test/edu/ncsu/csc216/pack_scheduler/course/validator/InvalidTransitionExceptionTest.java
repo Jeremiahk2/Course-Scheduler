@@ -1,8 +1,10 @@
-package edu.ncsu.csc216.pack_scheduler.course;
+package edu.ncsu.csc216.pack_scheduler.course.validator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import edu.ncsu.csc216.pack_scheduler.course.validator.InvalidTransitionException;
 
 /**
  * Tests the InvalidTransitionException class

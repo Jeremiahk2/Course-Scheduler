@@ -1,4 +1,4 @@
-package edu.ncsu.csc216.pack_scheduler.course;
+package edu.ncsu.csc216.pack_scheduler.course.validator;
 
 /**
  * Class to handle invalid transitions in the finite state machine

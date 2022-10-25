@@ -1,7 +1,5 @@
 package edu.ncsu.csc216.pack_scheduler.course.validator;
 
-import edu.ncsu.csc216.pack_scheduler.course.InvalidTransitionException;
-
 /**
  * Finite State Machine for checking whether
  * a Course's Name is valid.

@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.ncsu.csc216.pack_scheduler.course.InvalidTransitionException;
-
 /**
  * Test class for CourseNameValidator
  * @author Jeremiah Knizley
