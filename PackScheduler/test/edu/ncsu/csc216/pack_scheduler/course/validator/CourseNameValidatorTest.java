@@ -61,7 +61,7 @@ class CourseNameValidatorTest {
 		Exception e2 = assertThrows(InvalidTransitionException.class, () -> validator.isValid("9hiya"));
 		assertEquals("First character cannot be a digit", e2.getMessage());
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("abcdp"));
-		assertThrows(InvalidTransitionException.class, () -> validator.isValid("a4c"));
+		assertThrows(InvalidTransitionException.class, () -> validator.isValid("E11"));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("ai3p"));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("aosf0s"));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("sjfm6f"));
