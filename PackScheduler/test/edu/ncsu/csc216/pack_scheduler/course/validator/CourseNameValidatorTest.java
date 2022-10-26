@@ -74,7 +74,7 @@ class CourseNameValidatorTest {
 	void testInvalidStrings() {
 		CourseNameValidator validator = new CourseNameValidator();
 		Exception e2 = assertThrows(InvalidTransitionException.class, () -> validator.isValid("9hiya"));
-		assertEquals("First character cannot be a digit", e2.getMessage());
+		assertEquals("Course name must start with a letter.", e2.getMessage());
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("abcdp"));
 		assertDoesNotThrow(() -> assertFalse(validator.isValid("E11")));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("ai3p"));
