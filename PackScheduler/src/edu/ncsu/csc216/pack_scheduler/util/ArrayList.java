@@ -45,11 +45,12 @@ public class ArrayList<E> extends AbstractList<E>{
 			throw new IndexOutOfBoundsException();
 		}
 		//Replace with size later
-		if (size == idx) {
+		if (this.list.length == idx) {
 			growArray();
 		}
-		if (size == 0) {
-			list[0] = value;
+		
+		if (size == idx) {
+			list[size] = value;
 		}
 		else {
 			E replaced = list[idx];
@@ -69,7 +70,13 @@ public class ArrayList<E> extends AbstractList<E>{
 
 	@Override
 	public int size() {
-		return list.length;
+		int count = 0;
+		for (int i = 0; i < list.length; i++) {
+			if (list[i] != null) {
+				count += 1;
+			}
+		}
+		return count;
 	}
 	
 	private void growArray() {

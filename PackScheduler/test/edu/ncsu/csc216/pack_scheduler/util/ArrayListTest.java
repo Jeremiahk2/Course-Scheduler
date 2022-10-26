@@ -28,6 +28,7 @@ class ArrayListTest {
 	void testGet() {
 		
 	}
+	
 	/**
 	 * Tests the ArrayList.add
 	 */
