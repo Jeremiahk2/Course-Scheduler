@@ -25,7 +25,7 @@ public class ArrayList<E> extends AbstractList<E>{
 	@SuppressWarnings("unchecked")
 	public ArrayList() {
 		this.size = 0;
-		list = (E[]) new Object[10];
+		list = (E[]) new Object[INIT_SIZE];
 	}
 	
 	/**
@@ -44,20 +44,40 @@ public class ArrayList<E> extends AbstractList<E>{
 		if (idx < 0 || idx > this.size()) {
 			throw new IndexOutOfBoundsException();
 		}
-		
-		
+		//Replace with size later
+		if (size == idx) {
+			growArray();
+		}
+		if (size == 0) {
+			list[0] = value;
+		}
+		else {
+			E replaced = list[idx];
+			list[idx] = value;
+			for (int i = idx + 1; i < size; i++) {
+				list[i] = replaced;
+				replaced = list[i];
+			}
+		}
+
 	}
 	
 	@Override
 	public E get(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return list[index];
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return list.length;
 	}
-
+	
+	private void growArray() {
+		@SuppressWarnings("unchecked")
+		E[] list2 = (E[])new Object[size * 2];
+		for (int i = 0; i < size; i++) {
+			list2[i] = list[i];
+		}
+		list = list2;
+	}
 }
