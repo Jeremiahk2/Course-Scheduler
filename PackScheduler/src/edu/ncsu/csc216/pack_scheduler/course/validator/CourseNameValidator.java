@@ -217,7 +217,7 @@ public class CourseNameValidator {
 		 */
 		@Override
 		public void onDigit() throws InvalidTransitionException {
-			throw new InvalidTransitionException("Course name must start with a letter.");
+			throw new InvalidTransitionException("First character cannot be a digit");
 
 		}
 
