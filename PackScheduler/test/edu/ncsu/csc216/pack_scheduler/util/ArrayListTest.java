@@ -45,6 +45,27 @@ class ArrayListTest {
 		assertEquals("Pineapple", l1.get(2));
 		assertEquals("Cherry", l1.get(3));
 		
+		assertEquals(5, l1.size());
+		assertThrows(IllegalArgumentException.class, () -> l1.add("Pineapple"));
+		
+		assertEquals(5, l1.size());
+		
+		assertDoesNotThrow(() -> l1.add(5, "Kiwi"));
+		assertDoesNotThrow(() -> l1.add(6, "Blueberry"));
+		assertDoesNotThrow(() -> l1.add(7, "Watermelon"));
+		assertDoesNotThrow(() -> l1.add(8, "Orange"));
+		assertDoesNotThrow(() -> l1.add(9, "Chocolate"));
+		
+		assertEquals(10, l1.size());
+		
+		assertDoesNotThrow(() -> l1.add(10, "studnet"));
+		
+		assertEquals(11, l1.size());
+		
+		assertThrows(NullPointerException.class, () -> l1.add(null));
+		assertThrows(IndexOutOfBoundsException.class, () -> l1.add(-1, "yeet"));
+		assertThrows(IndexOutOfBoundsException.class, () -> l1.add(420, "yeet"));
+		
 	}
 	
 	

@@ -39,7 +39,15 @@ public class ArrayList<E> extends AbstractList<E>{
 			throw new NullPointerException();
 		}
 		//check for duplicate element
-		
+		boolean duplicate = false;
+		for (int i = 0;  i < size; i++) {
+			if (list[i] == value) {
+				duplicate = true;
+			}
+		}
+		if (duplicate) {
+			throw new IllegalArgumentException("Duplicate value");
+		}
 		
 		if (idx < 0 || idx > this.size()) {
 			throw new IndexOutOfBoundsException();
@@ -55,12 +63,12 @@ public class ArrayList<E> extends AbstractList<E>{
 		else {
 			E replaced = list[idx];
 			list[idx] = value;
-			for (int i = idx + 1; i < size; i++) {
+			for (int i = idx + 1; i < size + 1; i++) {
 				list[i] = replaced;
 				replaced = list[i];
 			}
 		}
-
+		size++;
 	}
 	
 	@Override
