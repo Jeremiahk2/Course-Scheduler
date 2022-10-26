@@ -28,3 +28,22 @@ Lab 6:
 - Task: Get new GUI --> Owner: Spencer                                    Due - Monday, October 24  Status: Complete
 - Task: System Testing and Debugging --> Owner: Spencer                   Due - Monday, October 24  Status: Complete
 - Task: Generate JavaDoc --> Owner: Spencer                               Due - Monday, October 24  Status: Complete
+
+
+Lab 7: 
+
+- Task: Implement and Test ArrayList.remove --> Owner: Jerry 				Due - Saturday, October 29  Status: Incomplete
+- Task: Implement and Test ArrayList.set --> Owner: Jerry 				Due - Saturday, October 29  Status: Incomplete
+- Task: Implement and Test ArrayList.get --> Owner: Jerry 				Due - Saturday, October 29  Status: Incomplete
+- Task: Create Schedule and ScheduleTest classes & packages --> Owner: Jerry		Due - Saturday, October 29  Status: Incomplete
+- Task: Implement Schedule state --> Owner: Spencer					Due - Monday, October 31  Status: Incomplete
+- Task: Test and Implement Schedule.Schedule --> Owner: Spencer				Due - Monday, October 31  Status: Incomplete
+- Task: Test and Implement Schedeule.addCourseToSchedule --> Owner: Spencer		Due - Monday, October 31  Status: Incomplete
+- Task: Test and Implement Schedule.removeCourseFromSchedule --> Owner: Spencer		Due - Monday, October 31  Status: Incomplete
+- Task: Test and Implement Schedule.resetSchedule --> Owner: Spencer			Due - Monday, October 31  Status: Incomplete
+- Task: Test and Implement Schedule.getScheduledCourses --> Owner: Spencer		Due - Monday, October 31  Status: Incomplete
+- Task: Test and Implement Schedule.setTitle --> Owner: Spencer				Due - Monday, October 31  Status: Incomplete
+- Task: Integrate Schedule into Student class --> Owner: Spencer			Due - Monday, October 31  Status: Incomplete
+- Task: Ensure quality test coverage --> Owner: Spencer					Due - Monday, October 31  Status: Incomplete
+- Task: Add new UI class --> Owner: Spencer						Due - Monday, October 31  Status: Incomplete
+- Task: System testing --> Owner: Spencer						Due - Monday, October 31  Status: Incomplete
