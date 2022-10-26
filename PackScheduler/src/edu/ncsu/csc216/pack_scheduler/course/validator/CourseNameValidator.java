@@ -141,11 +141,12 @@ public class CourseNameValidator {
 		/**
 		 * If there are already four letters present, an exception is thrown.
 		 * If not, letter count is increased by 1 and current state remains in letterState
+		 * @throws InvalidTransitionException if the letter count equals 4 at the time of execution.
 		 */
 		@Override
 		public void onLetter() throws InvalidTransitionException {
 			if (letterCount == 4) {
-				throw new InvalidTransitionException("Can only contain 4 letters maximum at the beginning");
+				throw new InvalidTransitionException("Course name cannot start with more than 4 letters.");
 			}
 			else {
 				letterCount++;
@@ -179,7 +180,7 @@ public class CourseNameValidator {
 		 */
 		@Override
 		public void onLetter() throws InvalidTransitionException {
-			throw new InvalidTransitionException("Cannot have anything after the suffix");
+			throw new InvalidTransitionException("Course name can only have a 1 letter suffix");
 
 		}
 
@@ -189,7 +190,7 @@ public class CourseNameValidator {
 		 */
 		@Override
 		public void onDigit() throws InvalidTransitionException {
-			throw new InvalidTransitionException("Cannot have anything after the suffix");
+			throw new InvalidTransitionException("Course name cannot contain digits after the suffix.");
 
 		}
 
@@ -216,7 +217,7 @@ public class CourseNameValidator {
 		 */
 		@Override
 		public void onDigit() throws InvalidTransitionException {
-			throw new InvalidTransitionException("First character cannot be a digit");
+			throw new InvalidTransitionException("Course name must start with a letter.");
 
 		}
 
@@ -236,7 +237,7 @@ public class CourseNameValidator {
 		@Override
 		public void onLetter() throws InvalidTransitionException {
 			if (digitCount != 3) {
-				throw new InvalidTransitionException("Cannot have a digit in the letter state, unless it is after the third digit");
+				throw new InvalidTransitionException("Course name must have 3 digits.");
 			}
 			else {
 				currentState = suffixState;
@@ -260,7 +261,7 @@ public class CourseNameValidator {
 				}
 			}
 			else if (digitCount == 3) {
-				throw new InvalidTransitionException("Can only have three digits in a row");
+				throw new InvalidTransitionException("Course name can only have 3 digits.");
 			}
 
 		}

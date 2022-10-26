@@ -26,6 +26,9 @@ class CourseNameValidatorTest {
 //		assertFalse(validator.isValid("a28"));
 	}
 	
+	/**
+	 * test method for a state where only two letters are entered at the start
+	 */
 	@Test
 	void testStateLL()   {
 		CourseNameValidator validator = new CourseNameValidator();
@@ -33,12 +36,20 @@ class CourseNameValidatorTest {
 		assertDoesNotThrow(() -> assertTrue(validator.isValid("ah155")));
 //		assertFalse(validator.isValid("as3"));
 	}
+	
+	/**
+	 * test method for a state where three letters are entered at the start
+	 */
 	@Test
 	void testStateLLL()   {
 		CourseNameValidator validator = new CourseNameValidator();
 		assertDoesNotThrow(() -> assertTrue(validator.isValid("sfd320")));
 		assertDoesNotThrow(() -> assertTrue(validator.isValid("asf294e")));
 	}
+	
+	/**
+	 * test method for a state where four letters are entered at the start
+	 */
 	@Test
 	void testStateLLLL()   {
 		CourseNameValidator validator = new CourseNameValidator();
@@ -46,6 +57,9 @@ class CourseNameValidatorTest {
 		assertDoesNotThrow(() -> assertTrue(validator.isValid("ahfq295p")));
 	}
 	
+	/**
+	 * test method for things entered after the suffix.
+	 */
 	@Test
 	void testInvalidSuffix()	{
 		CourseNameValidator validator = new CourseNameValidator();
@@ -53,6 +67,9 @@ class CourseNameValidatorTest {
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("ahfq295!"));
 	}
 	
+	/**
+	 * test method for various invalid strings
+	 */ 
 	@Test
 	void testInvalidStrings() {
 		CourseNameValidator validator = new CourseNameValidator();
@@ -71,6 +88,9 @@ class CourseNameValidatorTest {
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("sjf!"));
 		assertThrows(InvalidTransitionException.class, () -> validator.isValid("p492df"));
 	} 
+	/**
+	 * test method for a string that specifically STARTS with an invalid character.
+	 */
 	@Test
 	void testInvalidStrings1() {
 		CourseNameValidator validator = new CourseNameValidator();

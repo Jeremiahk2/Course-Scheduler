@@ -20,12 +20,6 @@ public class Course extends Activity implements Comparable<Course> {
 	private static final int MIN_NAME_LENGTH = 4;
 	/** Maximum length of Course name */
 	private static final int MAX_NAME_LENGTH = 8;
-	/** Minimum letter count */
-	private static final int MIN_LETTER_COUNT = 1;
-	/** Maximum letter count */
-	private static final int MAX_LETTER_COUNT = 4;
-	/** Count of digits */
-	private static final int DIGIT_COUNT = 3;
 	/** Length of section */
 	private static final int SECTION_LENGTH = 3;
 	/** Maximum number of credits */
