@@ -21,10 +21,10 @@ Lab 6:
 	- Task: DigitState --> Owner: Jerry                                     Due - Saturday, October 22  Status: Complete
 	- Task: SuffixState --> Owner: Jerry                                    Due - Saturday, October 22  Status: Complete
 - Task: Implement CourseNameValidator (Context Class) --> Owner: Jerry    Due - Saturday, October 22  Status: Complete
-- Task: Test CourseNameValidator --> Owner: Spencer                       Due - Saturday, October 22  Status: Incomplete
-- Task: Integrate CourseNameValidator into Course --> Owner: Spencer      Due - Monday, October 24  Status: Incomplete
-- Task: Update unit tests in project --> Owner: Spencer                   Due - Monday, October 24  Status: Incomplete
-- Task: Ensure 80% statement coverage --> Owner: Spencer                  Due - Monday, October 24  Status: Incomplet
-- Task: Get new GUI --> Owner: Spencer                                    Due - Monday, October 24  Status: Incomplete
-- Task: System Testing and Debugging --> Owner: Spencer                   Due - Monday, October 24  Status: Incomplete
-- Task: Generate JavaDoc --> Owner: Spencer                               Due - Monday, October 24  Status: Incomplete
+- Task: Test CourseNameValidator --> Owner: Spencer                       Due - Saturday, October 22  Status: Complete
+- Task: Integrate CourseNameValidator into Course --> Owner: Spencer      Due - Monday, October 24  Status: Complete
+- Task: Update unit tests in project --> Owner: Spencer                   Due - Monday, October 24  Status: Complete
+- Task: Ensure 80% statement coverage --> Owner: Spencer                  Due - Monday, October 24  Status: Complete
+- Task: Get new GUI --> Owner: Spencer                                    Due - Monday, October 24  Status: Complete
+- Task: System Testing and Debugging --> Owner: Spencer                   Due - Monday, October 24  Status: Complete
+- Task: Generate JavaDoc --> Owner: Spencer                               Due - Monday, October 24  Status: Complete
