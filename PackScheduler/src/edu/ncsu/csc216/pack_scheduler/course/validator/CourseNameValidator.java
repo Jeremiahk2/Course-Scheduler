@@ -180,7 +180,7 @@ public class CourseNameValidator {
 		 */
 		@Override
 		public void onLetter() throws InvalidTransitionException {
-			throw new InvalidTransitionException("Course name can only have a 1 letter suffix");
+			throw new InvalidTransitionException("Course name can only have a 1 letter suffix.");
 
 		}
 
@@ -217,7 +217,7 @@ public class CourseNameValidator {
 		 */
 		@Override
 		public void onDigit() throws InvalidTransitionException {
-			throw new InvalidTransitionException("First character cannot be a digit");
+			throw new InvalidTransitionException("Course name must start with a letter.");
 
 		}
 
