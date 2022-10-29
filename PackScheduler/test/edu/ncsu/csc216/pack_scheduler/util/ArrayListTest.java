@@ -31,8 +31,10 @@ class ArrayListTest {
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
 		assertDoesNotThrow(() -> l1.add(3, "Strawberry"));
-		assertThrows(IndexOutOfBoundsException.class, () -> l1.get(-2));
-		assertThrows(IndexOutOfBoundsException.class, () -> l1.get(420));
+		assertThrows(IndexOutOfBoundsException.class, () -> l1.get(-1));
+		assertThrows(IndexOutOfBoundsException.class, () -> l1.get(4));
+		assertEquals("Banana", l1.get(0));
+		assertEquals("Strawberry", l1.get(3));
 	}
 	
 	/**
@@ -74,6 +76,19 @@ class ArrayListTest {
 		
 	}
 	
+	/**
+	 * Tests the ArrayList.get()
+	 */
+	@Test
+	void testRemove() {
+		ArrayList<String> l1 = new ArrayList<String>();
+		assertDoesNotThrow(() -> l1.add(0, "Banana"));
+		assertDoesNotThrow(() -> l1.add(1, "Apple"));
+		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
+		assertDoesNotThrow(() -> l1.add(3, "Strawberry"));
+		assertDoesNotThrow(() -> l1.remove(1));
+		
+	}
 	
 
 }

@@ -73,6 +73,9 @@ public class ArrayList<E> extends AbstractList<E>{
 	
 	@Override
 	public E get(int index) {
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException();
+		}
 		return list[index];
 	}
 
