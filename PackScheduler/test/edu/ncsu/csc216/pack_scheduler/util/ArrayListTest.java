@@ -26,7 +26,13 @@ class ArrayListTest {
 	 */
 	@Test
 	void testGet() {
-		
+		ArrayList<String> l1 = new ArrayList<String>();
+		assertDoesNotThrow(() -> l1.add(0, "Banana"));
+		assertDoesNotThrow(() -> l1.add(1, "Apple"));
+		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
+		assertDoesNotThrow(() -> l1.add(3, "Strawberry"));
+		assertThrows(IndexOutOfBoundsException.class, () -> l1.get(-2));
+		assertThrows(IndexOutOfBoundsException.class, () -> l1.get(420));
 	}
 	
 	/**
