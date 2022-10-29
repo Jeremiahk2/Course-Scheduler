@@ -98,4 +98,18 @@ public class ArrayList<E> extends AbstractList<E>{
 		}
 		list = list2;
 	}
+	
+	@Override
+	public E remove(int index) {
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException();
+		}
+		E rtnE = get(index);
+		for (int i = index; i < size - 1; i++) {
+			list[i] = get(index + 1);
+		}
+		list[size - 1] = null;
+		size--;
+		return rtnE;
+	}
 }
