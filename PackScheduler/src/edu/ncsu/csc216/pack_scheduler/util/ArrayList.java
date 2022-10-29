@@ -18,7 +18,7 @@ public class ArrayList<E> extends AbstractList<E>{
 	private E[] list;
 	/**  */
 	private int size;
-	
+
 	/**
 	 * Constructor for an ArrayList
 	 */
@@ -27,7 +27,7 @@ public class ArrayList<E> extends AbstractList<E>{
 		this.size = 0;
 		list = (E[]) new Object[INIT_SIZE];
 	}
-	
+
 	/**
 	 * Adds a given value of type E to the ArrayList at the given index
 	 * @param idx the index of the item to add
@@ -48,7 +48,7 @@ public class ArrayList<E> extends AbstractList<E>{
 		if (duplicate) {
 			throw new IllegalArgumentException("Duplicate value");
 		}
-		
+
 		if (idx < 0 || idx > this.size()) {
 			throw new IndexOutOfBoundsException();
 		}
@@ -56,7 +56,7 @@ public class ArrayList<E> extends AbstractList<E>{
 		if (this.list.length == idx) {
 			growArray();
 		}
-		
+
 		if (size == idx) {
 			list[size] = value;
 		}
@@ -70,7 +70,7 @@ public class ArrayList<E> extends AbstractList<E>{
 		}
 		size++;
 	}
-	
+
 	@Override
 	public E get(int index) {
 		if (index < 0 || index >= size()) {
@@ -89,7 +89,7 @@ public class ArrayList<E> extends AbstractList<E>{
 		}
 		return count;
 	}
-	
+
 	private void growArray() {
 		@SuppressWarnings("unchecked")
 		E[] list2 = (E[])new Object[size * 2];
@@ -98,7 +98,7 @@ public class ArrayList<E> extends AbstractList<E>{
 		}
 		list = list2;
 	}
-	
+
 	@Override
 	public E remove(int index) {
 		if (index < 0 || index >= size()) {
@@ -112,4 +112,34 @@ public class ArrayList<E> extends AbstractList<E>{
 		size--;
 		return rtnE;
 	}
+
+	@Override
+	public E set(int index, E value) {
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		if (value == null) {
+			throw new NullPointerException();
+		}
+		//check for duplicate element
+		boolean duplicate = false;
+		for (int i = 0;  i < size; i++) {
+			if (list[i] == value) {
+				duplicate = true;
+			}
+		}
+		if (duplicate) {
+			throw new IllegalArgumentException("Duplicate value");
+		}
+		E rtnValue = get(index);
+		list[index] = value;
+
+
+		return rtnValue;
+
+	}
 }
+
+
+
+

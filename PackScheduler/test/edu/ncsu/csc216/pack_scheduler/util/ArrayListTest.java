@@ -20,7 +20,7 @@ class ArrayListTest {
 				() -> new ArrayList<String>());
 		assertEquals(0, l1.size());
 	}
-	
+
 	/**
 	 * Tests the ArrayList.get method
 	 */
@@ -36,7 +36,7 @@ class ArrayListTest {
 		assertEquals("Banana", l1.get(0));
 		assertEquals("Strawberry", l1.get(3));
 	}
-	
+
 	/**
 	 * Tests the ArrayList.add method
 	 */
@@ -47,35 +47,35 @@ class ArrayListTest {
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
 		assertDoesNotThrow(() -> l1.add(3, "Strawberry"));
-		
+
 		assertDoesNotThrow(() -> l1.add(2, "Pineapple"));
-		
+
 		assertEquals("Pineapple", l1.get(2));
 		assertEquals("Cherry", l1.get(3));
-		
+
 		assertEquals(5, l1.size());
 		assertThrows(IllegalArgumentException.class, () -> l1.add("Pineapple"));
-		
+
 		assertEquals(5, l1.size());
-		
+
 		assertDoesNotThrow(() -> l1.add(5, "Kiwi"));
 		assertDoesNotThrow(() -> l1.add(6, "Blueberry"));
 		assertDoesNotThrow(() -> l1.add(7, "Watermelon"));
 		assertDoesNotThrow(() -> l1.add(8, "Orange"));
 		assertDoesNotThrow(() -> l1.add(9, "Chocolate"));
-		
+
 		assertEquals(10, l1.size());
-		
+
 		assertDoesNotThrow(() -> l1.add(10, "studnet"));
-		
+
 		assertEquals(11, l1.size());
-		
+
 		assertThrows(NullPointerException.class, () -> l1.add(null));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.add(-1, "yeet"));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.add(420, "yeet"));
-		
+
 	}
-	
+
 	/**
 	 * Tests the ArrayList.remove method
 	 */
@@ -93,7 +93,7 @@ class ArrayListTest {
 		assertEquals(l1.size(), 2);
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.remove(2));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.get(2));
-		
+
 	}
 	/**
 	 * Tests the ArrayList.set method
@@ -105,19 +105,19 @@ class ArrayListTest {
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
 		assertDoesNotThrow(() -> l1.add(3, "Strawberry"));
-		
+
 		assertDoesNotThrow(() -> assertEquals("Apple", l1.set(1, "Pineapple")));
 		assertEquals(4, l1.size());
-		assertEquals("Apple", l1.get(1));
-		
+		assertEquals("Pineapple", l1.get(1));
+
 		assertThrows(NullPointerException.class, () -> l1.set(2, null));
 		assertThrows(IllegalArgumentException.class, () -> l1.set(3, "Banana"));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.set(-1, "Chocolate"));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.set(-4, "Orange"));
-		
-		
-		
+
+
+
 	}
-	
+
 
 }
