@@ -81,7 +81,7 @@ public class Schedule {
 	public String[][] getScheduledCourses() {
 		String[][] scheduledCourses = new String[this.schedule.size()][4];
 		for (int i = 0; i < this.schedule.size(); i++) {
-			scheduledCourses[i] = this.schedule.get(i).getLongDisplayArray();
+			scheduledCourses[i] = this.schedule.get(i).getShortDisplayArray();
 		}
 		return scheduledCourses;
 	}
