@@ -2,6 +2,7 @@ package edu.ncsu.csc216.pack_scheduler.user;
 
 import java.util.Objects;
 
+import edu.ncsu.csc216.pack_scheduler.user.schedule.Schedule;
 import edu.ncsu.csc217.collections.list.SortedList;
 
 /**
@@ -9,6 +10,7 @@ import edu.ncsu.csc217.collections.list.SortedList;
  * @author Geigh Neill
  * @author Jeremiah Knizley
  * @author Sahil Kanchan
+ * @author Spencer Grattan
  */
 public class Student extends User implements Comparable<Student> {
 	
@@ -18,7 +20,9 @@ public class Student extends User implements Comparable<Student> {
 	public static final int MAX_CREDITS = 18;
 	/** The minimum credits a student can have */
 	public static final int MIN_CREDITS = 3;
-
+	/** The schedule for the student */
+	public Schedule schedule;
+	
 	/**
 	 * Constructs Student object and sets it's instance fields
 	 * @param firstName The student's first name
@@ -32,7 +36,7 @@ public class Student extends User implements Comparable<Student> {
 			int maxCredits) {
 		super(firstName, lastName, id, email, hashPW);
 		setMaxCredits(maxCredits);
-		
+		this.schedule = new Schedule();
 	}
 	
 	/**
@@ -168,4 +172,12 @@ public class Student extends User implements Comparable<Student> {
 		return maxCredits == other.maxCredits;
 	}
 
+	/**
+	 * Gets the schedule for the Student
+	 * @return Student's schedule
+	 */
+	public Schedule getSchedule() {
+		return this.schedule;
+	}
+	
 }
