@@ -3,6 +3,7 @@
  */
 package edu.ncsu.csc216.pack_scheduler.user.schedule;
 
+import edu.ncsu.csc216.pack_scheduler.course.ConflictException;
 import edu.ncsu.csc216.pack_scheduler.course.Course;
 import edu.ncsu.csc216.pack_scheduler.util.ArrayList;
 
@@ -35,7 +36,23 @@ public class Schedule {
 	 * @throws NullPointerException if the course added is null
 	 */
 	public boolean addCourseToSchedule(Course course) {
+		//checks for duplicates
+		for (int i = 0; i < this.schedule.size(); i++) {
+			if (course.isDuplicate(this.schedule.get(i))) {
+				throw new IllegalArgumentException("You are already enrolled in " + course.getName() + ".");
+			}
+		}
 		
+		//checks for conflicts and adds
+		try {
+			for (int i = 0; i < this.schedule.size(); i++) {
+				course.checkConflict(this.schedule.get(i));
+			}
+			this.schedule.add(course);
+			return true;
+		} catch (ConflictException e) {
+			throw new IllegalArgumentException("The course cannot be added due to a conflict.");
+		}
 	}
 	
 	/**
@@ -45,7 +62,7 @@ public class Schedule {
 	 * false if there was not a course to remove
 	 */
 	public boolean removeCourseFromSchedule(Course course) {
-		
+		return this.schedule.remove(course);
 	}
 	
 	/**
@@ -62,7 +79,11 @@ public class Schedule {
 	 * @return all course information
 	 */
 	public String[][] getScheduledCourses() {
-		
+		String[][] scheduledCourses = new String[this.schedule.size()][4];
+		for (int i = 0; i < this.schedule.size(); i++) {
+			scheduledCourses[i] = this.schedule.get(i).getLongDisplayArray();
+		}
+		return scheduledCourses;
 	}
 	
 	/**
