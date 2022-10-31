@@ -195,6 +195,7 @@ public class PackSchedulerGUI {
 					txtPassword.setText("");
 					if (manager.getCurrentUser() instanceof Student) {
 						cardLayout.show(panel, STUDENT_PANEL);
+						pnlStudent.updateTables();
 					} else {
 						cardLayout.show(panel, REGISTRAR_PANEL);
 					}
@@ -310,16 +311,37 @@ public class PackSchedulerGUI {
 		private static final long serialVersionUID = 1L;
 		/** Button to logout */
 		private JButton btnLogout;
+		/** StudentRegistrationPanel */
+		private StudentRegistrationPanel studentRegPanel;
 		
-		/**
-		 * Temporary class for the StudentPanel until we implement
-		 * that functionality.
-		 */
 		public StudentPanel() {
+			super(new GridBagLayout());
+			
+			JPanel pnlButtons = new JPanel();
+			pnlButtons.setLayout(new GridLayout(1, 1));
 			btnLogout = new JButton("Logout");
 			btnLogout.addActionListener(this);
+			pnlButtons.add(btnLogout);
 			
-			add(btnLogout);
+			studentRegPanel = new StudentRegistrationPanel();
+	
+			GridBagConstraints c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 0;
+			c.gridwidth = 1;
+			c.weightx = 1;
+			c.anchor = GridBagConstraints.FIRST_LINE_START;
+			c.fill = GridBagConstraints.RELATIVE;
+			add(pnlButtons, c);
+			
+			c.gridx = 0;
+			c.gridy = 1;
+			c.gridwidth = 1;
+			c.weightx = 1;
+			c.weighty = 1;
+			c.anchor = GridBagConstraints.FIRST_LINE_START;
+			c.fill = GridBagConstraints.BOTH;
+			add(studentRegPanel, c);
 		}
 		
 		/**
@@ -333,6 +355,14 @@ public class PackSchedulerGUI {
 				cardLayout.show(panel, LOGIN_PANEL);
 			}
 		}
+		
+		/**
+		 * Updates tables
+		 */
+		public void updateTables() {
+			studentRegPanel.updateTables();
+		}
+		
 	}
 
 }
