@@ -134,7 +134,7 @@ public class ArrayList<E> extends AbstractList<E> {
 		}
 		E rtnE = get(index);
 		for (int i = index; i < size - 1; i++) {
-			list[i] = get(index + 1);
+			list[i] = get(i + 1);
 		}
 		list[size - 1] = null;
 		size--;

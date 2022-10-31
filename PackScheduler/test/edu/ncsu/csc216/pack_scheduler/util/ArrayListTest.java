@@ -3,6 +3,12 @@ package edu.ncsu.csc216.pack_scheduler.util;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests the ArrayList class
+ * @author Spencer Grattan
+ * @author Jeremiah Knizley
+ *
+ */
 class ArrayListTest {
 
 	/**
@@ -81,13 +87,17 @@ class ArrayListTest {
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
 		assertDoesNotThrow(() -> l1.add(3, "Strawberry"));
 		assertDoesNotThrow(() -> l1.remove(1));
+		assertEquals("Banana", l1.get(0));
+		assertEquals("Cherry", l1.get(1));
+		assertEquals("Strawberry", l1.get(2));
 		assertEquals(l1.size(), 3);
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.remove(3));
 		assertEquals("Cherry", l1.remove(1));
 		assertEquals(l1.size(), 2);
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.remove(2));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.get(2));
-
+		
+		
 	}
 	/**
 	 * Tests the ArrayList.set method
