@@ -25,6 +25,7 @@ import edu.ncsu.csc216.pack_scheduler.course.Course;
 public class CourseCatalogTest {
 	/**
 	 * Resets course_records.txt for use in other tests.
+	 * @throws Exception if unable to reset files
 	 */
 	@Before
 	public void setUp() throws Exception {
