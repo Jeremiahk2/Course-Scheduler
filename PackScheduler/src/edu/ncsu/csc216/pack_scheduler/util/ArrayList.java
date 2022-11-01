@@ -83,7 +83,7 @@ public class ArrayList<E> extends AbstractList<E> {
 	/**
 	 * returns the value at the specific index in the list
 	 * @return E the value at the index
-	 * @throws IndexOufOfBoundsException if the index is less than 0 or greater than equals to size
+	 * @throws IndexOutOfBoundsException if the index is less than 0 or greater than equals to size
 	 */
 	@Override
 	public E get(int index) {
