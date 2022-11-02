@@ -74,6 +74,7 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 		if (idx == 0) {
 			ListNode newFront = new ListNode(element, front);
 			front = newFront;
+			size++;
 		}
 		else {
 			ListNode beforeValue = front;
@@ -81,6 +82,7 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 				beforeValue = beforeValue.next;
 			}
 			beforeValue.next = new ListNode(element, beforeValue.next.next);
+			size++;
 		}
 		
 	}
