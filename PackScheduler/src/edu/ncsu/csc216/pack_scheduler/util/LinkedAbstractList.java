@@ -30,21 +30,30 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	}
 	
 	/**
-	 * 
+	 * Gets the object of type E stored at the given index in the linked abstract list
+	 * @param index the index of the object to get in the list
 	 */
 	@Override
 	public E get(int index) {
-		
-		return null;
+		//checks for the index being out of bounds
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		//traverses the linked list and gets to the node at the given index
+		ListNode current = front;
+		for (int i = 0; i < index; i++) {
+			current = current.next;
+		}
+		//returns the object stored at the given index
+		return current.data;
 	}
 
 	/**
-	 * 
+	 * Gets the current size of the linked abstract list- how many nodes are in the list. 
 	 */
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.size;
 	}
 	
 	/**
@@ -97,14 +106,46 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	}
 	
 	/**
-	 * 
-	 * @param idx
-	 * @param element
+	 * Sets the object at a given index to a new given element
+	 * @param idx the index where the element is replaced
+	 * @param element the object replacing the old element
+	 * @return the overridden element
 	 */
 	@Override
 	public E set(int idx, E element) {
+		//checks for null element 
+		if (element == null) {
+			throw new IllegalArgumentException();
+		}
 		
-		return null;
+		//checks for the index being out of bounds
+		if (idx < 0 || idx >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		
+		//checks for a duplicate element in the list
+		ListNode duplicate = front;
+		for (int i = 0; i < size; i++) {
+			if (duplicate.data.equals(element)) {
+				throw new IllegalArgumentException();
+			}
+			duplicate = duplicate.next;
+		}
+		
+		//traverses the linked list and gets to the node before the given index
+		ListNode current = front;
+		for (int i = 0; i < idx - 1; i++) {
+			current = current.next;
+		}
+		
+		E replacedElement = current.next.data;
+		
+		//create a new node with the passed data and set connect the previous node to the new one
+		ListNode newNode = new ListNode(element, current.next.next);
+		current.next = newNode;
+		
+		//return the overridden element
+		return replacedElement;
 	}
 	
 	/**
