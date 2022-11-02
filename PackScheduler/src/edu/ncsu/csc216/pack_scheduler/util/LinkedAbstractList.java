@@ -66,7 +66,6 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 		if (element == null) {
 			throw new NullPointerException();
 		}
-		//TODO: implement duplicate check
 		if (idx < 0 || idx > size()) {
 			throw new IndexOutOfBoundsException();
 		}
@@ -90,8 +89,16 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 			for (int i = 0; i < idx - 1; i++) {
 				beforeValue = beforeValue.next;
 			}
-			beforeValue.next = new ListNode(element, beforeValue.next.next);
-			size++;
+			if (idx != size) {
+				ListNode elementNode = new ListNode(element, beforeValue.next.next);
+				beforeValue.next = elementNode;
+				size++;
+			}
+			else {
+				ListNode elementNode = new ListNode(element);
+				beforeValue.next = elementNode;
+				size++;
+			}
 		}
 		
 	}
