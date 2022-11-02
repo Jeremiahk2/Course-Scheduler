@@ -7,21 +7,21 @@ import java.util.AbstractList;
 
 /**
  * @author Spencer Grattan
- * @param E 
+ * @param <E> the generic parameter for LinkedAbstractList
  *
  */
-public class LinkedAbstractList<E> extends AbstractList{
+public class LinkedAbstractList<E> extends AbstractList<E> {
 
-	/**  */
+	/** The front of the list */
 	private ListNode front;
-	/**  */
+	/** the size of the list */
 	private int size;
-	/**  */
+	/** the capacity of the list */
 	private int capacity;
 	
 	/**
 	 * Constructor for LinkedAbstractList
-	 * @param capacity 
+	 * @param capacity  the capacity of the newly created list
 	 */
 	public LinkedAbstractList(int capacity) {
 		this.front = null;
@@ -33,8 +33,8 @@ public class LinkedAbstractList<E> extends AbstractList{
 	 * 
 	 */
 	@Override
-	public Object get(int index) {
-		// TODO Auto-generated method stub
+	public E get(int index) {
+		
 		return null;
 	}
 
@@ -54,6 +54,34 @@ public class LinkedAbstractList<E> extends AbstractList{
 	 */
 	@Override
 	public void add(int idx, E element) {
+		if (element == null) {
+			throw new NullPointerException();
+		}
+		//TODO: implement duplicate check
+		if (idx < 0 || idx > size()) {
+			throw new IndexOutOfBoundsException();
+		}
+		if (size == capacity) {
+			throw new IllegalArgumentException();
+		}
+		ListNode duplicate = front;
+		for (int i = 0; i < size; i++) {
+			if (duplicate.data.equals(element)) {
+				throw new IllegalArgumentException();
+			}
+			duplicate = duplicate.next;
+		}
+		if (idx == 0) {
+			ListNode newFront = new ListNode(element, front);
+			front = newFront;
+		}
+		else {
+			ListNode beforeValue = front;
+			for (int i = 0; i < idx - 1; i++) {
+				beforeValue = beforeValue.next;
+			}
+			beforeValue.next = new ListNode(element, beforeValue.next.next);
+		}
 		
 	}
 	
@@ -63,6 +91,7 @@ public class LinkedAbstractList<E> extends AbstractList{
 	@Override
 	public E remove(int idx) {
 		
+		return null;
 	}
 	
 	/**
@@ -71,8 +100,9 @@ public class LinkedAbstractList<E> extends AbstractList{
 	 * @param element
 	 */
 	@Override
-	public void set(int idx, E element) {
+	public E set(int idx, E element) {
 		
+		return null;
 	}
 	
 	/**

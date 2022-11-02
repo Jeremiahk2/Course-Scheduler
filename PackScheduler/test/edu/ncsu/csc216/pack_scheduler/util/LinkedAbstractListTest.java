@@ -13,7 +13,7 @@ class LinkedAbstractListTest {
 	@Test
 	void testLinkedAbstractList() {
 		LinkedAbstractList<String> l1 = assertDoesNotThrow(
-				() -> new LinkedAbstractList<String>());
+				() -> new LinkedAbstractList<String>(10));
 		assertEquals(0, l1.size());
 	}
 
@@ -22,7 +22,7 @@ class LinkedAbstractListTest {
 	 */
 	@Test
 	void testGet() {
-		LinkedAbstractList<String> l1 = new LinkedAbstractList<String>();
+		LinkedAbstractList<String> l1 = new LinkedAbstractList<String>(10);
 		assertDoesNotThrow(() -> l1.add(0, "Banana"));
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
@@ -38,7 +38,7 @@ class LinkedAbstractListTest {
 	 */
 	@Test
 	void testAdd() {
-		LinkedAbstractList<String> l1 = new LinkedAbstractList<String>();
+		LinkedAbstractList<String> l1 = new LinkedAbstractList<String>(10);
 		assertDoesNotThrow(() -> l1.add(0, "Banana"));
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
@@ -77,7 +77,7 @@ class LinkedAbstractListTest {
 	 */
 	@Test
 	void testRemove() {
-		LinkedAbstractList<String> l1 = new LinkedAbstractList<String>();
+		LinkedAbstractList<String> l1 = new LinkedAbstractList<String>(10);
 		assertDoesNotThrow(() -> l1.add(0, "Banana"));
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
@@ -100,7 +100,7 @@ class LinkedAbstractListTest {
 	 */
 	@Test
 	void testSet() {
-		LinkedAbstractList<String> l1 = new LinkedAbstractList<String>();
+		LinkedAbstractList<String> l1 = new LinkedAbstractList<String>(10);
 		assertDoesNotThrow(() -> l1.add(0, "Banana"));
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
