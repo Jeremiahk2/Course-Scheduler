@@ -47,3 +47,31 @@ Lab 7:
 - Task: Ensure quality test coverage --> Owner: Spencer					Due - Monday, October 31  Status: Complete
 - Task: Add new UI class --> Owner: Spencer						Due - Monday, October 31  Status: Complete
 - Task: System testing --> Owner: Spencer						Due - Monday, October 31  Status: Complete
+
+
+Lab 8: 
+
+- Task: Test LinkedAbstractList.add --> Owner: Jerry				Due- Saturday Nov 5 
+- Task: Test LinkedAbstractList.remove --> Owner: Jerry				Due- Saturday Nov 5
+- Task: Test LinkedAbstractList.set --> Owner: Jerry				Due- Saturday Nov 5
+- Task: Test LinkedAbstractList.get --> Owner: Jerry				Due- Saturday Nov 5
+- Task: Test LinkedAbstractList.LinkedAbstractList --> Owner: Jerry		Due- Saturday Nov 5
+- Task: Create CourseRoll package, class, and test class --> Owner: Jerry	Due- Saturday Nov 5
+- Task: Implement CourseRoll State --> Owner: Jerry				Due- Saturday Nov 5
+- Task: Test and Implement CourseRoll.CourseRoll --> Owner: Jerry		Due- Saturday Nov 5
+- Task: Test and Implement CourseRoll.setEnrollmentCap --> Owner: Jerry		Due- Saturday Nov 5
+- Task: Test and Implement CourseRoll.drop --> Owner: Spencer			Due- Monday Nov 7
+- Task: Test and Implement CourseRoll.canEnroll --> Owner: Spencer		Due- Monday Nov 7
+- Task: Integrate CourseRoll into Course --> Owner: Spencer			Due- Monday Nov 7
+- Task: Update CourseRecordIO and CourseRecordIOTest --> Owner: Spencer		Due- Monday Nov 7
+- Task: Update CoruseCatalog and CourseCatalogTest --> Owner: Spencer		Due- Monday Nov 7
+- Task: Fix other compiler errors --> Owner: Spencer				Due- Monday Nov 7
+- Task: Update Schedule and ScheduleTest --> Owner: Spencer			Due- Monday Nov 7
+- Task: Update Student class and StudentTest --> Owner: Spencer			Due- Monday Nov 7
+- Task: Update RegistrationManager and RegistrationManagerTest --> Owner: Spencer	Due- Monday Nov 7
+- Task: Update GUI classes --> Owner: Spencer	Due- Monday Nov 7
+- Task: Ensure all unit tests pass --> Owner: Spencer				Due- Monday Nov 7
+- Task: Ensure 80% statement coverage --> Owner: Spencer			Due- Monday Nov 7
+- Task: System Testing --> Owner: Spencer					Due- Monday Nov 7
+- Task: Generate Javadoc --> Owner: Spencer					Due- Monday Nov 7
+
