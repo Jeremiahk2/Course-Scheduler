@@ -15,6 +15,7 @@ class LinkedAbstractListTest {
 		LinkedAbstractList<String> l1 = assertDoesNotThrow(
 				() -> new LinkedAbstractList<String>(10));
 		assertEquals(0, l1.size());
+		assertThrows(IllegalArgumentException.class, () -> new LinkedAbstractList<String>(-1));
 	}
 
 	/**
