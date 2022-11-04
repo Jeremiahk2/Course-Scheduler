@@ -90,7 +90,7 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 				beforeValue = beforeValue.next;
 			}
 			if (idx != size) {
-				ListNode elementNode = new ListNode(element, beforeValue.next.next);
+				ListNode elementNode = new ListNode(element, beforeValue.next);
 				beforeValue.next = elementNode;
 				size++;
 			}
@@ -108,8 +108,24 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	 */
 	@Override
 	public E remove(int idx) {
-		
-		return null;
+		if (idx < 0 || idx >= size()) {
+			throw new IndexOutOfBoundsException();
+		}
+		E data = null;
+		if (idx == 0) {
+			data = front.data;
+			front = front.next;
+		}
+		else {
+			ListNode beforeValue = front;
+			for (int i = 0; i < idx - 1; i++) {
+				beforeValue = beforeValue.next;
+			}
+			data = beforeValue.next.data;
+			beforeValue.next = beforeValue.next.next;
+		}
+		size--;
+		return data;
 	}
 	
 	/**
@@ -122,7 +138,7 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	public E set(int idx, E element) {
 		//checks for null element 
 		if (element == null) {
-			throw new IllegalArgumentException();
+			throw new NullPointerException();
 		}
 		
 		//checks for the index being out of bounds
