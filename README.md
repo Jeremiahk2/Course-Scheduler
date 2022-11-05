@@ -51,15 +51,15 @@ Lab 7:
 
 Lab 8: 
 
-- Task: Test LinkedAbstractList.add --> Owner: Jerry				Due- Saturday Nov 5 
-- Task: Test LinkedAbstractList.remove --> Owner: Jerry				Due- Saturday Nov 5
-- Task: Test LinkedAbstractList.set --> Owner: Jerry				Due- Saturday Nov 5
-- Task: Test LinkedAbstractList.get --> Owner: Jerry				Due- Saturday Nov 5
-- Task: Test LinkedAbstractList.LinkedAbstractList --> Owner: Jerry		Due- Saturday Nov 5
-- Task: Create CourseRoll package, class, and test class --> Owner: Jerry	Due- Saturday Nov 5
-- Task: Implement CourseRoll State --> Owner: Jerry				Due- Saturday Nov 5
-- Task: Test and Implement CourseRoll.CourseRoll --> Owner: Jerry		Due- Saturday Nov 5
-- Task: Test and Implement CourseRoll.setEnrollmentCap --> Owner: Jerry		Due- Saturday Nov 5
+- Task: Test LinkedAbstractList.add --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
+- Task: Test LinkedAbstractList.remove --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
+- Task: Test LinkedAbstractList.set --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
+- Task: Test LinkedAbstractList.get --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
+- Task: Test LinkedAbstractList.LinkedAbstractList --> Owner: Jerry		Due- Saturday Nov 5 Status: Complete
+- Task: Create CourseRoll package, class, and test class --> Owner: Jerry	Due- Saturday Nov 5 Status: Complete
+- Task: Implement CourseRoll State --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
+- Task: Test and Implement CourseRoll.CourseRoll --> Owner: Jerry		Due- Saturday Nov 5 Status: Complete
+- Task: Test and Implement CourseRoll.setEnrollmentCap --> Owner: Jerry		Due- Saturday Nov 5 Status: Complete
 - Task: Test and Implement CourseRoll.drop --> Owner: Spencer			Due- Monday Nov 7
 - Task: Test and Implement CourseRoll.canEnroll --> Owner: Spencer		Due- Monday Nov 7
 - Task: Integrate CourseRoll into Course --> Owner: Spencer			Due- Monday Nov 7
