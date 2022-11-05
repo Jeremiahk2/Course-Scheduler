@@ -6,7 +6,10 @@ package edu.ncsu.csc216.pack_scheduler.util;
 import java.util.AbstractList;
 
 /**
+ * A custom LinkedList. Implements typical LinkedList methods, though changes functionality to suite PackScheduler's needs.
+ * Also contains a capacity, which determines the maximum amount of elements in the list.
  * @author Spencer Grattan
+ * @author Jeremiah Knizley
  * @param <E> the generic parameter for LinkedAbstractList
  *
  */
@@ -26,10 +29,7 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	public LinkedAbstractList(int capacity) {
 		this.front = null;
 		this.size = 0;
-		this.capacity = capacity;
-		if (capacity < 0 || capacity < size) {
-			throw new IllegalArgumentException();
-		}
+		setCapacity(capacity);
 	}
 	
 	/**
@@ -60,9 +60,12 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	}
 	
 	/**
-	 * 
-	 * @param idx
-	 * @param element
+	 * Adds the element to the index. The element that was at the index (if there was one) is pushed up to the next index.
+	 * @param idx the index where the element will be added in the list
+	 * @param element The element to be added to the list
+	 * @throws NullPointerException if element is null
+	 * @throws IndexOutOfBoundsException if idx is less than 0 or greater than size
+	 * @throws IllegalArgumentException if the list is at capacity or if the element is a duplicate of one already in the list
 	 */
 	@Override
 	public void add(int idx, E element) {
@@ -107,7 +110,9 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	}
 	
 	/**
-	 * 
+	 * Removes the element at the specified index from the list, returning it to the client
+	 * @param idx the index of the element to remove
+	 * @throws IndexOutOfBoundsException if idx is less than 0 or greater than or equals to size
 	 */
 	@Override
 	public E remove(int idx) {
@@ -136,6 +141,9 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	 * @param idx the index where the element is replaced
 	 * @param element the object replacing the old element
 	 * @return the overridden element
+	 * @throws NullPointerException if element is null
+	 * @throws IndexOutOfBoundsException if index is less than 0 or index is greater than/equal to size
+	 * @throws IllegalArgumentException if element is a duplicate of one already in the list.
 	 */
 	@Override
 	public E set(int idx, E element) {
@@ -175,13 +183,22 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	}
 	
 	/**
-	 * 
-	 * @param capacity
+	 * sets the capacity of the list
+	 * @param capacity the capacity of the list, that size cannot be over
+	 * @throws IllegalArgumentException if capacity is less than 0 or if capacity is less than size
 	 */
 	public void setCapacity(int capacity) {
-		
+		if (capacity < 0 || capacity < size) {
+			throw new IllegalArgumentException();
+		}
+		this.capacity = capacity;
 	}
 	
+	/**
+	 * Standard implementation of ListNode, designed for Generics.
+	 * @author Jeremiah Knizley
+	 *
+	 */
 	private class ListNode {
 		
 		/** The data being stored in the node. The type passed into 
