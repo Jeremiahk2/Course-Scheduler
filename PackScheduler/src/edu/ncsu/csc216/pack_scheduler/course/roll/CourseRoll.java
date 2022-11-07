@@ -72,7 +72,17 @@ public class CourseRoll {
 	 * adding the student to the LinkedAbstractList generates an exception 
 	 */
 	public void enroll(Student s) {
-		
+		if (s == null) {
+			throw new IllegalArgumentException("Student cannot be null");
+		}
+		if (!(canEnroll(s))) {
+			throw new IllegalArgumentException("Student cannot be enrolled");
+		}
+		try {
+			roll.add(s);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Something went wrong");
+		}
 	}
 	
 	/**
@@ -84,7 +94,14 @@ public class CourseRoll {
 	 * an exception 
 	 */
 	public void drop(Student s) {
-		
+		if (s == null) {
+			throw new IllegalArgumentException("Student cannot be null");
+		}
+		try {
+			roll.remove(s);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Something went wrong");
+		}
 	}
 	
 	/**
@@ -95,7 +112,13 @@ public class CourseRoll {
 	 * student is already enrolled
 	 */
 	public boolean canEnroll(Student s) {
-		return false;
+		if (roll.size() == this.enrollmentCap) {
+			return false;
+		}
+		if (roll.contains(s)) {
+			return false;
+		}
+		return true;
 	}
 	
 }
