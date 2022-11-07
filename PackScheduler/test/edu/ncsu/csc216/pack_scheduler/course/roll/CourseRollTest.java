@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests CourseRoll
  * @author Jeremiah Knizley
+ * @author Spencer Grattan
  *
  */
 class CourseRollTest {
@@ -27,6 +28,30 @@ class CourseRollTest {
 		
 		assertEquals(100, roll.getEnrollmentCap());
 		assertEquals(100, roll.getOpenSeats());
+	}
+	
+	/**
+	 * Tests the enroll method
+	 */
+	@Test
+	void testEnroll() {
+		
+	}
+	
+	/**
+	 * Tests the drop method
+	 */
+	@Test
+	void testDrop() {
+		
+	}
+	
+	/**
+	 * Tests the canEnroll method
+	 */
+	@Test
+	void testCanEnroll() {
+		
 	}
 
 }

@@ -10,6 +10,7 @@ import edu.ncsu.csc216.pack_scheduler.util.LinkedAbstractList;
  * CourseRoll is a class that encapsulates information about students in a class.
  * More specifically it maintains a list of students in a class, and keeps track of adding/removing students from that roll.
  * @author Jeremiah Knizley
+ * @author Spencer Grattan
  *
  */
 public class CourseRoll {
@@ -61,4 +62,40 @@ public class CourseRoll {
 	public int getEnrollmentCap() {
 		return enrollmentCap;
 	}
+	
+	/**
+	 * Enrolls the passed student by adding it to the end of the roll
+	 * @param s the student to enroll
+	 * @throws IllegalArgumentException if the student is null, 
+	 * there is no more room in the class, 
+	 * the student is already enrolled, 
+	 * adding the student to the LinkedAbstractList generates an exception 
+	 */
+	public void enroll(Student s) {
+		
+	}
+	
+	/**
+	 * Drops the passed student from the course by removing it from 
+	 * the roll
+	 * @param s the student to drop from the course
+	 * @throws IllegalArgumentException if the student is null
+	 * if removing the student from the LinkedAbstractList generates 
+	 * an exception 
+	 */
+	public void drop(Student s) {
+		
+	}
+	
+	/**
+	 * Helper method to check if a student can be added to the course roll
+	 * @param s the student being enrolled
+	 * @return true if the student can be added to the course roll
+	 * false if there is no more room in the class or if the
+	 * student is already enrolled
+	 */
+	public boolean canEnroll(Student s) {
+		return false;
+	}
+	
 }
