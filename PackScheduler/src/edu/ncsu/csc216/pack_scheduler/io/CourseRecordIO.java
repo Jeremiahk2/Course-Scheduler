@@ -14,6 +14,7 @@ import edu.ncsu.csc217.collections.list.SortedList;
 /**
  * Writes into a file the Course records and reads Course records from files.
  * @author Geigh Neill
+ * @author Spencer Grattan
  *
  */
 public class CourseRecordIO {
@@ -95,6 +96,7 @@ public class CourseRecordIO {
 			String section = in.next();
 			int credits = in.nextInt();
 			String instructorId = in.next();
+			int enrollmentCap = in.nextInt();
 			String meetingDays = in.next();
 			
 			if ("A".equals(meetingDays)) {
@@ -104,7 +106,7 @@ public class CourseRecordIO {
 				}
 				else {
 					in.close();
-					return new Course(name, title, section, credits, instructorId, meetingDays);
+					return new Course(name, title, section, credits, instructorId, enrollmentCap, meetingDays);
 				}
 			}
 			else {
@@ -117,7 +119,7 @@ public class CourseRecordIO {
 				}
 				else {
 					in.close();
-					return new Course(name, title, section, credits, instructorId, meetingDays, startTime, endTime);
+					return new Course(name, title, section, credits, instructorId, enrollmentCap, meetingDays, startTime, endTime);
 				}
 			}
 		} catch (NoSuchElementException e) {

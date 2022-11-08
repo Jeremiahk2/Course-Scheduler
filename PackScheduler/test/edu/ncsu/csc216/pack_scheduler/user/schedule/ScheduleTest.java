@@ -35,21 +35,21 @@ class ScheduleTest {
 	@Test
 	void testAddCourseToSchedule() {
 		Schedule s1 = new Schedule();
-		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", "MWF", 1300, 1400);
+		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", 10, "MWF", 1300, 1400);
 		
 		//tests for valid course addition
 		assertDoesNotThrow(() -> s1.addCourseToSchedule(c));
-		String[][] testArray = new String[][] { {"CSC123", "001", "Learning to type", c.getMeetingString()} };
+		String[][] testArray = new String[][] { {"CSC123", "001", "Learning to type", c.getMeetingString(), "10"} };
  		assertArrayEquals(testArray, s1.getScheduledCourses());
 		
 		//tests for adding duplicate course
-		Course c2 = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", "MWF", 1500, 1600);
+		Course c2 = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", 10, "MWF", 1500, 1600);
 		Exception e1 = assertThrows(IllegalArgumentException.class, 
 				() -> s1.addCourseToSchedule(c2));
 		assertEquals("You are already enrolled in CSC123", e1.getMessage());
 		
 		//tests for adding conflicting course
-		Course c3 = new Course("CSC567", "Intro to Mainframe Hacking", "002", 3, "goobo", "MWF", 1300, 1400);
+		Course c3 = new Course("CSC567", "Intro to Mainframe Hacking", "002", 3, "goobo", 10, "MWF", 1300, 1400);
 		Exception e2 = assertThrows(IllegalArgumentException.class, 
 				() -> s1.addCourseToSchedule(c3));
 		assertEquals("The course cannot be added due to a conflict.", e2.getMessage());
@@ -64,13 +64,13 @@ class ScheduleTest {
 	@Test
 	void testRemoveCourseFromSchedule() {
 		Schedule s1 = new Schedule();
-		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", "MWF", 1300, 1400);
+		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", 10, "MWF", 1300, 1400);
 		
 		//populate schedule
 		assertDoesNotThrow(() -> s1.addCourseToSchedule(c));
 		
 		//test course not in schedule
-		Course c3 = new Course("CSC567", "Intro to Mainframe Hacking", "002", 3, "goobo", "MWF", 1300, 1400);
+		Course c3 = new Course("CSC567", "Intro to Mainframe Hacking", "002", 3, "goobo", 10, "MWF", 1300, 1400);
 		assertFalse(s1.removeCourseFromSchedule(c3));
 		
 		//test course in schedule
@@ -85,7 +85,7 @@ class ScheduleTest {
 	@Test
 	void testResetSchedule() {
 		Schedule s1 = new Schedule();
-		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", "MWF", 1300, 1400);
+		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", 10, "MWF", 1300, 1400);
 		
 		//populate schedule and change title
 		s1.addCourseToSchedule(c);
@@ -109,14 +109,14 @@ class ScheduleTest {
 		assertArrayEquals(testArray, s1.getScheduledCourses());
 		
 		//populate schedule
-		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", "MWF", 1300, 1400);
-		Course c1 = new Course ("CSC234", "Intro to houses", "001", 3, "scooby", "TH", 1000, 1100);
+		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", 10, "MWF", 1300, 1400);
+		Course c1 = new Course ("CSC234", "Intro to houses", "001", 3, "scooby", 10, "TH", 1000, 1100);
 		s1.addCourseToSchedule(c);
 		s1.addCourseToSchedule(c1);
 		
 		//test populated schedule
-		String[][] testArray2 = new String[][] {{c.getName(), c.getSection(), c.getTitle(), c.getMeetingString()},
-			{c1.getName(), c1.getSection(), c1.getTitle(), c1.getMeetingString()}};
+		String[][] testArray2 = new String[][] {{c.getName(), c.getSection(), c.getTitle(), c.getMeetingString(), "10"},
+			{c1.getName(), c1.getSection(), c1.getTitle(), c1.getMeetingString(), "10"}};
 		assertArrayEquals(testArray2, s1.getScheduledCourses());
 	}
 	

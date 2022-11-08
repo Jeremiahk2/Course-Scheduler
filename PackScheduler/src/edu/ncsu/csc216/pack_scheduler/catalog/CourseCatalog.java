@@ -14,6 +14,7 @@ import edu.ncsu.csc216.pack_scheduler.io.CourseRecordIO;
 /**
  * This class is responsible for maintaining a catalog of courses.
  * @author Jeremiah Knizley
+ * @author Spencer Grattan
  *
  */
 public class CourseCatalog {
@@ -49,13 +50,14 @@ public class CourseCatalog {
 	 * @param section the section of the course
 	 * @param credits the number of credits the course gives
 	 * @param instructorId the ID of the instructor teaching the course
+	 * @param enrollmentCap the maximum number of students that can be enrolled in the course
 	 * @param meetingDays the days the course meets for class (if applicable)
 	 * @param startTime start time of class meetings in military time
 	 * @param endTime the end time of class meetings in military time
 	 * @return boolean true if successfully added, false if not.
 	 */
-	public boolean addCourseToCatalog(String name, String title, String section, int credits, String instructorId, String meetingDays, int startTime, int endTime) throws IllegalArgumentException {
-		Course course = new Course(name, title, section, credits, instructorId, meetingDays, startTime, endTime);
+	public boolean addCourseToCatalog(String name, String title, String section, int credits, String instructorId, int enrollmentCap, String meetingDays, int startTime, int endTime) throws IllegalArgumentException {
+		Course course = new Course(name, title, section, credits, instructorId, enrollmentCap, meetingDays, startTime, endTime);
 		for (int i = 0; i < catalog.size(); i++) {
 			Course catalogCourse = catalog.get(i);
 			String courseName = catalogCourse.getName();
@@ -119,7 +121,7 @@ public class CourseCatalog {
 		if (catalog.isEmpty()) {
 			return new String[0][0];
 		}
-		String[][] courseCatalog = new String[catalog.size()][3]; 
+		String[][] courseCatalog = new String[catalog.size()][4]; 
 		for (int i = 0; i < catalog.size(); i++) {
 			Course currentCourse = catalog.get(i);
 			courseCatalog[i] = currentCourse.getShortDisplayArray();

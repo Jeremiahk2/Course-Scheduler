@@ -62,6 +62,8 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 	private JLabel lblCredits;
 	/** JLabel for instructorId */
 	private JLabel lblInstructorId;
+	/** JLabel for enrollmentCap */
+	private JLabel lblEnrollmentCap;
 	/** Label for meeting days */
 	private JLabel lblMeetingDays = new JLabel("Meeting Days: ");
 	/** Label for start time */
@@ -76,6 +78,8 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 	private JTextField txtSection;
 	/** JTextField for instructorId */
 	private JTextField txtInstructorId;
+	/** JTextField for enrollmentCap */
+	private JTextField txtEnrollmentCap;
 	/** Check box for Monday */
 	private JCheckBox cbMonday;
 	/** Check box for Tuesday */
@@ -171,10 +175,12 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		lblSection = new JLabel("Section");
 		lblCredits = new JLabel("Credits");
 		lblInstructorId = new JLabel("Instructor Id");
+		lblEnrollmentCap = new JLabel("Enrollment Cap");
 		txtName = new JTextField(20);
 		txtTitle = new JTextField(20);
 		txtSection = new JTextField(20);
 		txtInstructorId = new JTextField(20);
+		txtEnrollmentCap = new JTextField(20);
 		comboCredits = new JComboBox<Integer>();
 		comboCredits.addItem(Integer.valueOf(1));
 		comboCredits.addItem(Integer.valueOf(2));
@@ -305,7 +311,7 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		pnlTime.add(pnlEndTime);
 		
 		JPanel pnlCourseForm = new JPanel();
-		pnlCourseForm.setLayout(new GridLayout(7, 2));
+		pnlCourseForm.setLayout(new GridLayout(8, 2));
 		pnlCourseForm.add(lblName);
 		pnlCourseForm.add(txtName);
 		pnlCourseForm.add(lblTitle);
@@ -316,6 +322,8 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		pnlCourseForm.add(comboCredits);
 		pnlCourseForm.add(lblInstructorId);
 		pnlCourseForm.add(txtInstructorId);
+		pnlCourseForm.add(lblEnrollmentCap);
+		pnlCourseForm.add(txtEnrollmentCap);
 		pnlCourseForm.add(pnlStartTime);
 		pnlCourseForm.add(pnlEndTime);
 		pnlCourseForm.add(lblMeetingDays);
@@ -337,7 +345,7 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		c.gridx = 0;
 		c.gridy = 1;
 		c.weightx = 1;
-		c.weighty = 4;
+		c.weighty = 1;
 		c.anchor = GridBagConstraints.LINE_START;
 		c.fill = GridBagConstraints.BOTH;
 		this.add(scrollCourseCatalog, c);
@@ -345,7 +353,7 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		c.gridx = 0;
 		c.gridy = 2;
 		c.weightx = 1;
-		c.weighty = .2;
+		c.weighty = .5;
 		c.anchor = GridBagConstraints.LINE_START;
 		c.fill = GridBagConstraints.BOTH;
 		this.add(pnlCourseButtons, c);
@@ -353,7 +361,7 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		c.gridx = 0;
 		c.gridy = 3;
 		c.weightx = 1;
-		c.weighty = 2;
+		c.weighty = 1;
 		c.anchor = GridBagConstraints.LINE_START;
 		c.fill = GridBagConstraints.BOTH;
 		this.add(pnlCourseForm, c);
@@ -391,6 +399,12 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 			String title = txtTitle.getText();
 			String section = txtSection.getText();
 			String instructorId = txtInstructorId.getText();
+			int enrollmentCap = 0;
+			try {
+				enrollmentCap = Integer.parseInt(txtEnrollmentCap.getText());
+			} catch (NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(this, "Enrollment capacity must be a number between 10 and 250.");
+			}
 			int credits = 0;
 			int creditsIdx = comboCredits.getSelectedIndex();
 			if (creditsIdx == -1) {
@@ -463,7 +477,7 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 			}
 			
 			try {
-				if (catalog.addCourseToCatalog(name, title, section, credits, instructorId, meetingDays, startTime, endTime)) {
+				if (catalog.addCourseToCatalog(name, title, section, credits, instructorId, enrollmentCap, meetingDays, startTime, endTime)) {
 					txtName.setText("");
 					txtTitle.setText("");
 					txtSection.setText("");
@@ -528,7 +542,7 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		/** ID number used for object serialization. */
 		private static final long serialVersionUID = 1L;
 		/** Column names for the table */
-		private String [] columnNames = {"Name", "Section", "Title", "Meeting Information"};
+		private String [] columnNames = {"Name", "Section", "Title", "Meeting Information", "Open Seats"};
 		/** Data stored in the table */
 		private Object [][] data;
 		
