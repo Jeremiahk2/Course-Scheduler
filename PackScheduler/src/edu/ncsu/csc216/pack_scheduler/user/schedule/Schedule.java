@@ -127,10 +127,15 @@ public class Schedule {
 		if (course == null) {
 			return false;
 		}
-		if (this.schedule.contains(course)) {
-			return false;
-		}
+//		if (this.schedule.contains(course)) {
+//			return false;
+//		}
 		for (int i = 0; i < this.schedule.size(); i++) {
+			//new code
+			if (schedule.get(i).isDuplicate(course)) {
+				return false;
+			}
+			//end new code
 			try {
 				this.schedule.get(i).checkConflict(course);
 			} catch (ConflictException e) {
