@@ -172,11 +172,24 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 			current = current.next;
 		}
 		
-		E replacedElement = current.next.data;
+		E replacedElement;
+		if (idx == 0) {
+			replacedElement = current.data;
+		}
+		else { 
+			replacedElement = current.next.data;
+		}
 		
 		//create a new node with the passed data and set connect the previous node to the new one
-		ListNode newNode = new ListNode(element, current.next.next);
-		current.next = newNode;
+		ListNode newNode;
+		if (idx == 0) {
+			newNode = new ListNode(element, current.next);
+			front = newNode;
+		}
+		else {
+			newNode = new ListNode(element, current.next.next);
+			current.next = newNode;
+		}
 		
 		//return the overridden element
 		return replacedElement;

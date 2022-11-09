@@ -106,12 +106,13 @@ class LinkedAbstractListTest {
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
 		assertDoesNotThrow(() -> l1.add(3, "Strawberry"));
 
+		assertDoesNotThrow(() -> assertEquals("Banana", l1.set(0, "Kiwi")));
 		assertDoesNotThrow(() -> assertEquals("Apple", l1.set(1, "Pineapple")));
 		assertEquals(4, l1.size());
 		assertEquals("Pineapple", l1.get(1));
 
 		assertThrows(NullPointerException.class, () -> l1.set(2, null));
-		assertThrows(IllegalArgumentException.class, () -> l1.set(3, "Banana"));
+		assertThrows(IllegalArgumentException.class, () -> l1.set(3, "Kiwi"));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.set(-1, "Chocolate"));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.set(-4, "Orange"));
 	}
