@@ -47,6 +47,7 @@ public class CourseRoll {
 			throw new IllegalArgumentException();
 		}
 		enrollmentCap = enrollmentCapacity;
+		roll.setCapacity(enrollmentCapacity);
 		
 	}
 
