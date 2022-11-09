@@ -215,7 +215,6 @@ public class StudentDirectoryPanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnLoadStudentList) {
-			
 			try {
 				String fileName = getFileName(true);
 				studentDirectory.loadStudentsFromFile(fileName);
@@ -227,7 +226,6 @@ public class StudentDirectoryPanel extends JPanel implements ActionListener {
 				JOptionPane.showMessageDialog(this, iae.getMessage());
 			}
 		} else if (e.getSource() == btnSaveStudentList) {
-			
 			try {
 				String fileName = getFileName(false);
 				studentDirectory.saveStudentDirectory(fileName);
@@ -251,7 +249,7 @@ public class StudentDirectoryPanel extends JPanel implements ActionListener {
 			try {
 				maxCredits = Integer.parseInt(txtMaxCredits.getText());
 			} catch (NumberFormatException nfe) {
-				//Do nothing - use default max credits
+				// Do nothing - use default max credits
 			}
 			
 			String pwString = "";
