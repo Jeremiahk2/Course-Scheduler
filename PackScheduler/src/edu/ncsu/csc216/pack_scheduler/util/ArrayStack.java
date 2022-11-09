@@ -3,36 +3,42 @@
  */
 package edu.ncsu.csc216.pack_scheduler.util;
 
+import java.util.EmptyStackException;
+
 /**
  * An array-based stack data structure, customly made for PackScheduler.
  * @author Jeremiah Knizley
+ * @author Allie Norton
+ * @author Austin Bressel
  * @param <E> the generic type of the array stack.
  */
 public class ArrayStack<E> implements Stack<E> {
 	/** the capacity of the array stack */
 	private int capacity;
 	/** the array containing the elements in the stack */
-	private E[] stack;
+	private ArrayList<E> stack;
 	
 	/**
 	 * constructor for ArrayStacks, sets private field capacity to parameter capacity, initializes stack
 	 * @param capacity the capacity of the stack
 	 */
-	@SuppressWarnings("unchecked")
 	public ArrayStack(int capacity) {
 		setCapacity(capacity);
-		stack = (E[]) new Object[capacity];
+		stack = new ArrayList<E>();
 	}
 	
 	/**
 	 * adds an element to the top of the stack
-	 * @param element the elemnt to be added to the stack
-	 * @throws IllegalArgumentException if there is no room to add the elemnent in the stack
+	 * @param element the element to be added to the stack
+	 * @throws IllegalArgumentException if there is no room to add the element in the stack
 	 */
 	@Override
 	public void push(E element) {
-		// TODO Auto-generated method stub
+		if (stack.size() == capacity) {
+			throw new IllegalArgumentException("The stack is full.");
+		}
 		
+		stack.add(element);
 	}
 
 	/**
@@ -42,18 +48,19 @@ public class ArrayStack<E> implements Stack<E> {
 	 */
 	@Override
 	public E pop() {
-		// TODO Auto-generated method stub
-		return null;
+		if (isEmpty()) {
+			throw new EmptyStackException();
+		}
+		return stack.remove(stack.size() - 1);
 	}
 
 	/**
 	 * checks to see if the stack is empty
-	 * @return boolean false if it is not empty, true if not.
+	 * @return boolean false if it is not empty, true if is empty.
 	 */
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return stack.size() == 0;
 	}
 
 	/**
@@ -62,8 +69,7 @@ public class ArrayStack<E> implements Stack<E> {
 	 */
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return stack.size();
 	}
 
 	/**
@@ -73,7 +79,11 @@ public class ArrayStack<E> implements Stack<E> {
 	 */
 	@Override
 	public void setCapacity(int capacity) {
-		// TODO Auto-generated method stub
+		if (capacity < 0 || capacity < stack.size()) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.capacity = capacity;
 		
 	}
 
