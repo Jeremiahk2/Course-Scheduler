@@ -115,13 +115,7 @@ public class CourseRoll {
 	 * student is already enrolled
 	 */
 	public boolean canEnroll(Student s) {
-		if (roll.size() == this.enrollmentCap) {
-			return false;
-		}
-		if (roll.contains(s)) {
-			return false;
-		}
-		return true;
+		return !(roll.size() == this.enrollmentCap || roll.contains(s));
 	}
 	
 }
