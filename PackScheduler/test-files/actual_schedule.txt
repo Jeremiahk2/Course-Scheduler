@@ -1,0 +1,4 @@
+CSC 216,Software Development Fundamentals,601,3,jctetter,A
+CSC 217,Software Development Fundamentals Lab,601,1,sesmith5,A
+CSC 226,Discrete Mathematics for Computer Scientists,001,3,tmbarnes,MWF,935,1025
+Lunch,MTWHF,1310,1345,Oval dining hall
