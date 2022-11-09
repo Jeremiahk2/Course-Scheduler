@@ -104,4 +104,40 @@ public class Schedule {
 	public String getTitle() {
 		return this.title;
 	}
+	
+	/**
+	 * Returns the total number of credits in the schedule
+	 * @return credit total
+	 */
+	public int getScheduleCredits() {
+		int total = 0;
+		for (int i = 0; i < this.schedule.size(); i++) {
+			total += this.schedule.get(i).getCredits();
+		}
+		return total;
+	}
+	
+	/**
+	 * Checks whether a course can be added to the schedule
+	 * @param course the course to be checked
+	 * @return true if the course can be added 
+	 * if the course is in the schedule, is a conflict, or null
+	 */
+	public boolean canAdd(Course course) {
+		if (course == null) {
+			return false;
+		}
+		if (this.schedule.contains(course)) {
+			return false;
+		}
+		for (int i = 0; i < this.schedule.size(); i++) {
+			try {
+				this.schedule.get(i).checkConflict(course);
+			} catch (ConflictException e) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 }

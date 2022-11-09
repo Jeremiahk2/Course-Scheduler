@@ -136,6 +136,48 @@ class ScheduleTest {
 		assertEquals("Title cannot be null.", e1.getMessage());
 	}
 	
+	/**
+	 * Tests the getScheduleCredits method
+	 */
+	@Test
+	void testGetScheduleCredits() {
+		Schedule s1 = new Schedule();
+		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", 10, "MWF", 1300, 1400);
+		Course c1 = new Course ("CSC234", "Intro to houses", "001", 3, "scooby", 10, "TH", 1300, 1500);
+		Course c2 = new Course ("CSC334", "Intro to houses II", "001", 3, "scooby", 10, "TH", 700, 800);
+		
+		assertEquals(0, s1.getScheduleCredits());
+		s1.addCourseToSchedule(c);
+		assertEquals(3, s1.getScheduleCredits());
+		s1.addCourseToSchedule(c1);
+		assertEquals(6, s1.getScheduleCredits());
+		s1.addCourseToSchedule(c2);
+		assertEquals(9, s1.getScheduleCredits());
+		
+	}
 	
+	/**
+	 * Tests the canAdd method
+	 */
+	@Test
+	void testCanAdd() {
+		Schedule s1 = new Schedule();
+		Course c = new Course("CSC123", "Learning to type", "001", 3, "pbnutter", 10, "MWF", 1300, 1400);
+		Course c1 = new Course ("CSC234", "Intro to houses", "001", 3, "scooby", 10, "MTH", 1300, 1500);
+		Course c2 = new Course ("CSC334", "Intro to houses II", "001", 3, "scooby", 10, "TH", 700, 800);
+		s1.addCourseToSchedule(c);
+		
+		//test for course already in schedule
+		assertFalse(s1.canAdd(c));
+		
+		//test for conflicting course
+		assertFalse(s1.canAdd(c1));
+		
+		//test for null
+		assertFalse(s1.canAdd(null));
+		
+		//test for valid course
+		assertTrue(s1.canAdd(c2));
+	}
 
 }
