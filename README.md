@@ -51,27 +51,27 @@ Lab 7:
 
 Lab 8: 
 
-- Task: Test LinkedAbstractList.add --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
-- Task: Test LinkedAbstractList.remove --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
-- Task: Test LinkedAbstractList.set --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
-- Task: Test LinkedAbstractList.get --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
-- Task: Test LinkedAbstractList.LinkedAbstractList --> Owner: Jerry		Due- Saturday Nov 5 Status: Complete
-- Task: Create CourseRoll package, class, and test class --> Owner: Jerry	Due- Saturday Nov 5 Status: Complete
-- Task: Implement CourseRoll State --> Owner: Jerry				Due- Saturday Nov 5 Status: Complete
-- Task: Test and Implement CourseRoll.CourseRoll --> Owner: Jerry		Due- Saturday Nov 5 Status: Complete
-- Task: Test and Implement CourseRoll.setEnrollmentCap --> Owner: Jerry		Due- Saturday Nov 5 Status: Complete
-- Task: Test and Implement CourseRoll.drop --> Owner: Spencer			Due- Monday Nov 7
-- Task: Test and Implement CourseRoll.canEnroll --> Owner: Spencer		Due- Monday Nov 7
-- Task: Integrate CourseRoll into Course --> Owner: Spencer			Due- Monday Nov 7
-- Task: Update CourseRecordIO and CourseRecordIOTest --> Owner: Spencer		Due- Monday Nov 7
-- Task: Update CoruseCatalog and CourseCatalogTest --> Owner: Spencer		Due- Monday Nov 7
-- Task: Fix other compiler errors --> Owner: Spencer				Due- Monday Nov 7
-- Task: Update Schedule and ScheduleTest --> Owner: Spencer			Due- Monday Nov 7
-- Task: Update Student class and StudentTest --> Owner: Spencer			Due- Monday Nov 7
-- Task: Update RegistrationManager and RegistrationManagerTest --> Owner: Spencer	Due- Monday Nov 7
-- Task: Update GUI classes --> Owner: Spencer	Due- Monday Nov 7
-- Task: Ensure all unit tests pass --> Owner: Spencer				Due- Monday Nov 7
-- Task: Ensure 80% statement coverage --> Owner: Spencer			Due- Monday Nov 7
-- Task: System Testing --> Owner: Spencer					Due- Monday Nov 7
-- Task: Generate Javadoc --> Owner: Spencer					Due- Monday Nov 7
+- Task: Test LinkedAbstractList.add --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
+- Task: Test LinkedAbstractList.remove --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
+- Task: Test LinkedAbstractList.set --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
+- Task: Test LinkedAbstractList.get --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
+- Task: Test LinkedAbstractList.LinkedAbstractList --> Owner: Jerry			Due- Saturday Nov 5 Status: Complete
+- Task: Create CourseRoll package, class, and test class --> Owner: Jerry		Due- Saturday Nov 5 Status: Complete
+- Task: Implement CourseRoll State --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
+- Task: Test and Implement CourseRoll.CourseRoll --> Owner: Jerry			Due- Saturday Nov 5 Status: Complete
+- Task: Test and Implement CourseRoll.setEnrollmentCap --> Owner: Jerry			Due- Saturday Nov 5 Status: Complete
+- Task: Test and Implement CourseRoll.drop --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
+- Task: Test and Implement CourseRoll.canEnroll --> Owner: Spencer			Due- Monday Nov 7 Status: Complete
+- Task: Integrate CourseRoll into Course --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
+- Task: Update CourseRecordIO and CourseRecordIOTest --> Owner: Spencer			Due- Monday Nov 7 Status: Complete
+- Task: Update CoruseCatalog and CourseCatalogTest --> Owner: Spencer			Due- Monday Nov 7 Status: Complete
+- Task: Fix other compiler errors --> Owner: Spencer					Due- Monday Nov 7 Status: Complete
+- Task: Update Schedule and ScheduleTest --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
+- Task: Update Student class and StudentTest --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
+- Task: Update RegistrationManager and RegistrationManagerTest --> Owner: Spencer	Due- Monday Nov 7 Status: Complete
+- Task: Update GUI classes --> Owner: Spencer						Due- Monday Nov 7 Status: Complete
+- Task: Ensure all unit tests pass --> Owner: Spencer					Due- Monday Nov 7 Status: Complete
+- Task: Ensure 80% statement coverage --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
+- Task: System Testing --> Owner: Spencer						Due- Monday Nov 7 Status: Complete
+- Task: Generate Javadoc --> Owner: Spencer						Due- Monday Nov 7 Status: Complete
 
