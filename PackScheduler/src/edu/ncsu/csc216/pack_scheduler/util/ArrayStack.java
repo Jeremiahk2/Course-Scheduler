@@ -23,8 +23,8 @@ public class ArrayStack<E> implements Stack<E> {
 	 * @param capacity the capacity of the stack
 	 */
 	public ArrayStack(int capacity) {
+		this.stack = new ArrayList<E>();
 		setCapacity(capacity);
-		stack = new ArrayList<E>();
 	}
 	
 	/**
