@@ -3,12 +3,12 @@
 Lab 9:
 
 
-- Task: Test ArrayStack --> Owner: Austin Due: 11/14 Status: 
-- Task: Test LinkedStack --> Owner: Austin  Due: 11/14 Status: 
-- Task: Implemenet ArrayQueue --> Owner: Jeremiah Due: 11/14 Status: 
-- Task: Implement LinkedQueue --> Owner: Jeremiah Due: 11/14 Status:
-- Task: Test ArrayQueue --> Owner: Allie Due: 11/14 Status:
-- Task: Test LinkedQueue --> Owner: Allie Due: 11/14 Status:
+- Task: Test ArrayStack --> Owner: Austin Due: 11/14 Status: Finished
+- Task: Test LinkedStack --> Owner: Austin  Due: 11/14 Status: Finished
+- Task: Implemenet ArrayQueue --> Owner: Jeremiah Due: 11/14 Status: Finished
+- Task: Implement LinkedQueue --> Owner: Jeremiah Due: 11/14 Status: Finished
+- Task: Test ArrayQueue --> Owner: Allie Due: 11/14 Status: Finished
+- Task: Test LinkedQueue --> Owner: Allie Due: 11/14 Status: Finished
 - Task: Analyze Runtime Efficiency --> Owner:  Due: 11/14 Status: 
 - Task: add back field --> Owner:  Due: 11/14 Status: 
 - Task: update add(idx, element) --> Owner:  Due: 11/14 Status: 
