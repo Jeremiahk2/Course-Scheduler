@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import edu.ncsu.csc216.pack_scheduler.course.Course;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 
 /**
@@ -22,11 +23,12 @@ class CourseRollTest {
 	 */
 	@Test
 	void testCourseRoll() {
-		assertDoesNotThrow(() -> new CourseRoll(100));
-		assertThrows(IllegalArgumentException.class, () -> new CourseRoll(9));
-		assertThrows(IllegalArgumentException.class, () -> new CourseRoll(251));
+		Course testCourse = new Course("CSC216", "Software Development Fundamentals", "001", 3, "sheckman", 100, "MW");
+		assertDoesNotThrow(() -> new CourseRoll(testCourse, 100));
+		assertThrows(IllegalArgumentException.class, () -> new CourseRoll(testCourse, 9));
+		assertThrows(IllegalArgumentException.class, () -> new CourseRoll(testCourse, 251));
 		
-		CourseRoll roll = new CourseRoll(100);
+		CourseRoll roll = new CourseRoll(testCourse, 100);
 		
 		assertEquals(100, roll.getEnrollmentCap());
 		assertEquals(100, roll.getOpenSeats());
@@ -37,7 +39,8 @@ class CourseRollTest {
 	 */
 	@Test
 	void testEnroll() {
-		CourseRoll roll = new CourseRoll(10);
+		Course testCourse = new Course("CSC216", "Software Development Fundamentals", "001", 3, "sheckman", 100, "MW");
+		CourseRoll roll = new CourseRoll(testCourse, 10);
 		Student s1 = new Student("firstName", "lastName", "id", "email@ncsu.edu", "pw");
 		Student s2 = new Student("David", "Williams", "dwilly", "dwilly@ncsu.edu", "pw");
 		Student s3 = new Student("Tyriq", "Brown", "tybrown", "tybrown@ncsu.edu", "pw");
@@ -84,7 +87,8 @@ class CourseRollTest {
 	 */
 	@Test
 	void testDrop() {
-		CourseRoll roll = new CourseRoll(10);
+		Course testCourse = new Course("CSC216", "Software Development Fundamentals", "001", 3, "sheckman", 100, "MW");
+		CourseRoll roll = new CourseRoll(testCourse, 10);
 		Student s1 = new Student("firstName", "lastName", "id", "email@ncsu.edu", "pw");
 		Student s2 = new Student("David", "Williams", "dwilly", "dwilly@ncsu.edu", "pw");
 		Student s3 = new Student("Tyriq", "Brown", "tybrown", "tybrown@ncsu.edu", "pw");
@@ -109,7 +113,8 @@ class CourseRollTest {
 	 */
 	@Test
 	void testCanEnroll() {
-		CourseRoll roll = new CourseRoll(10);
+		Course testCourse = new Course("CSC216", "Software Development Fundamentals", "001", 3, "sheckman", 100, "MW");
+		CourseRoll roll = new CourseRoll(testCourse, 10);
 		Student s1 = new Student("firstName", "lastName", "id", "email@ncsu.edu", "pw");
 		Student s2 = new Student("David", "Williams", "dwilly", "dwilly@ncsu.edu", "pw");
 		Student s3 = new Student("Tyriq", "Brown", "tybrown", "tybrown@ncsu.edu", "pw");

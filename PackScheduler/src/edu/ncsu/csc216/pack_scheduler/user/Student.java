@@ -22,7 +22,7 @@ public class Student extends User implements Comparable<Student> {
 	/** The minimum credits a student can have */
 	public static final int MIN_CREDITS = 3;
 	/** The schedule for the student */
-	public Schedule schedule;
+	private Schedule schedule;
 	
 	/**
 	 * Constructs Student object and sets it's instance fields
@@ -51,6 +51,7 @@ public class Student extends User implements Comparable<Student> {
 	public Student(String firstName, String lastName, String id, String email, String hashPW) {
 		super(firstName, lastName, id, email, hashPW);
 		setMaxCredits(MAX_CREDITS);
+		this.schedule = new Schedule();
 	}
 	
 	/**

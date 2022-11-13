@@ -13,14 +13,14 @@ Lab 9:
 - Task: add back field --> Owner: Jeremiah Due: 11/14 Status: Finished
 - Task: update add(idx, element) --> Owner: Jeremiah Due: 11/14 Status: Finished
 - Task: update remove(idx) --> Owner: Jeremiah Due: 11/14 Status: Finished
-- Task: update size() --> Owner: Person 2 Due: 11/14 Status: 
-- Task: add waitlist field to courseRoll --> Owner: Person 2 Due: 11/14 Status: 
-- Task: Update Courseroll constructor --> Owner: Person 2 Due: 11/14 Status: 
-- Task: Update Courseroll.enroll --> Owner: Person 2 Due: 11/14 Status: 
-- Task: Update Courseroll.drop --> Owner: Person 3 Due: 11/14 Status: 
-- Task: CourseRoll.canEnroll --> Owner: Person 3 Due: 11/14 Status: 
-- Task: Implement CourseRoll.getNumberOnWaitList --> Owner: Person 3 Due: 11/14 Status: 
-- Task: Ensure Coverage is met --> Owner: Person 3 Due: 11/14 Status: 
+- Task: update size() --> Owner: N/A Due: 11/14 Status: Was done last week
+- Task: add waitlist field to courseRoll --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update Courseroll constructor --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update Courseroll.enroll --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update Courseroll.drop --> Owner: Austin Due: 11/14 Status: Completed
+- Task: CourseRoll.canEnroll --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Implement CourseRoll.getNumberOnWaitList --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update Tests and Ensure Coverage is met --> Owner: Person 3 Due: 11/14 Status: 
 - Task: Update GUI (if needed) --> Owner: Person 3 Due: 11/14 Status: 
 - Task: System testing for new functionality --> Owner: Person 3 Due: 11/14 Status: 
 - Task: Generate javadoc --> Owner: Person 3 Due: 11/14 Status: 
