@@ -9,10 +9,10 @@ Lab 9:
 - Task: Implement LinkedQueue --> Owner: Jeremiah Due: 11/14 Status: Finished
 - Task: Test ArrayQueue --> Owner: Allie Due: 11/14 Status: Finished
 - Task: Test LinkedQueue --> Owner: Allie Due: 11/14 Status: Finished
-- Task: Analyze Runtime Efficiency --> Owner: Person 1  Due: 11/14 Status: 
-- Task: add back field --> Owner: Person 1 Due: 11/14 Status: 
-- Task: update add(idx, element) --> Owner: Person 1 Due: 11/14 Status: 
-- Task: update remove(idx) --> Owner: Person 1 Due: 11/14 Status: 
+- Task: Analyze Runtime Efficiency --> Owner: Jeremiah  Due: 11/14 Status: Finished
+- Task: add back field --> Owner: Jeremiah Due: 11/14 Status: Finished
+- Task: update add(idx, element) --> Owner: Jeremiah Due: 11/14 Status: Finished
+- Task: update remove(idx) --> Owner: Jeremiah Due: 11/14 Status: Finished
 - Task: update size() --> Owner: Person 2 Due: 11/14 Status: 
 - Task: add waitlist field to courseRoll --> Owner: Person 2 Due: 11/14 Status: 
 - Task: Update Courseroll constructor --> Owner: Person 2 Due: 11/14 Status: 
