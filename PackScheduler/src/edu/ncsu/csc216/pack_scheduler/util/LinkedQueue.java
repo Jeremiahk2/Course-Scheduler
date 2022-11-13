@@ -74,5 +74,21 @@ public class LinkedQueue<E> implements Queue<E> {
 		list.setCapacity(capacity);
 	}
 
-	
+	/**
+	 * This method checks if the queue currently contains a particular object
+	 * @param element the element that is being checked to see if it is contained in the queue
+	 * @return boolean true if queue contains the element
+	 */
+	public boolean contains(E element) {
+		boolean foundE = false;
+		int size = this.size(); // Size will change as things are added and removed
+		for(int i = 0; i < size; i++) {
+			E current = this.dequeue();
+			if (element.equals(current) ) {
+				foundE = true;
+			}
+			this.enqueue(current);
+		}
+		return foundE;
+	}
 }

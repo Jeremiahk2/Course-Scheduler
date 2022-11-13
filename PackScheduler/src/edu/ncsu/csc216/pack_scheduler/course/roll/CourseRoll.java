@@ -8,6 +8,7 @@ import edu.ncsu.csc216.pack_scheduler.user.Student;
 import edu.ncsu.csc216.pack_scheduler.user.schedule.Schedule;
 import edu.ncsu.csc216.pack_scheduler.util.ArrayQueue;
 import edu.ncsu.csc216.pack_scheduler.util.LinkedAbstractList;
+import edu.ncsu.csc216.pack_scheduler.util.LinkedQueue;
 
 /**
  * CourseRoll is a class that encapsulates information about students in a class.
@@ -31,7 +32,7 @@ public class CourseRoll {
 	/** the size of the wait list */
 	private static final int WAITLIST_SIZE = 10;
 	/** The wait list that stores students waiting to join a class if spots open */
-	private ArrayQueue<Student> waitList;
+	private LinkedQueue<Student> waitList;
 	
 	/**
 	 * Constructor for CourseRoll, creates the list of students on the roll, sets the capacity using the parameter
@@ -43,7 +44,7 @@ public class CourseRoll {
 		roll = new LinkedAbstractList<Student>(enrollmentCapacity);
 		setEnrollmentCap(enrollmentCapacity);
 		setCourse(course);
-		waitList = new ArrayQueue<Student>(WAITLIST_SIZE);
+		waitList = new LinkedQueue<Student>(WAITLIST_SIZE);
 		
 	}
 	

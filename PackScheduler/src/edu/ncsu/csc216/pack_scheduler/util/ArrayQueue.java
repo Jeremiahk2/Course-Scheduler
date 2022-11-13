@@ -100,7 +100,7 @@ public class ArrayQueue<E> implements Queue<E> {
 			if (element.equals(current) ) {
 				foundE = true;
 			}
-			this.enqueue(element);
+			this.enqueue(current);
 		}
 		return foundE;
 	}
