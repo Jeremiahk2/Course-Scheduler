@@ -105,6 +105,22 @@ public class CourseRoll {
 		if (s == null) {
 			throw new IllegalArgumentException("Student cannot be null");
 		}
+		
+//		if (canEnroll(s)) {
+//			try {
+//				roll.add(s);
+//				Schedule sched = s.getSchedule();
+//				sched.addCourseToSchedule(course);
+//			} catch (Exception e) {
+//				try {
+//					waitList.enqueue(s);
+//				} catch (Exception e1) {
+//					throw new IllegalArgumentException("Something went wrong");
+//				}
+//			}
+//		} else {
+//			throw new IllegalArgumentException("Student cannot be enrolled");
+//		}
 		if (!(canEnroll(s))) {
 			throw new IllegalArgumentException("Student cannot be enrolled");
 		}
@@ -169,7 +185,16 @@ public class CourseRoll {
 	 * student is already enrolled
 	 */
 	public boolean canEnroll(Student s) {
-		return !((roll.size() == this.enrollmentCap && waitList.size() == WAITLIST_SIZE) || roll.contains(s) || waitList.contains(s));
+		if (roll.contains(s)) {
+			return false;
+		}
+		
+		if (roll.size() == this.enrollmentCap) {
+			if (waitList.contains(s) || waitList.size() == WAITLIST_SIZE) {
+				return false;
+			}
+		} 
+		return true;
 	}
 	
 }

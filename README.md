@@ -18,7 +18,7 @@ Lab 9:
 - Task: Update Courseroll constructor --> Owner: Austin Due: 11/14 Status: Completed
 - Task: Update Courseroll.enroll --> Owner: Austin Due: 11/14 Status: Completed
 - Task: Update Courseroll.drop --> Owner: Austin Due: 11/14 Status: Completed
-- Task: CourseRoll.canEnroll --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update CourseRoll.canEnroll --> Owner: Austin Due: 11/14 Status: Completed
 - Task: Implement CourseRoll.getNumberOnWaitList --> Owner: Austin Due: 11/14 Status: Completed
 - Task: Update Tests and Ensure Coverage is met --> Owner: Person 3 Due: 11/14 Status: 
 - Task: Update GUI (if needed) --> Owner: Person 3 Due: 11/14 Status: 
