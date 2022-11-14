@@ -123,7 +123,7 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 				size++;
 			}
 			else {
-				ListNode elementNode = new ListNode(element);
+				ListNode elementNode = new ListNode(element, null);
 				beforeValue.next = elementNode;
 				size++;
 			}
@@ -245,15 +245,15 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 		/** The next node in the chain of nodes that make up the LinkedAbstractList */
 		private ListNode next;
 		
-		/**
-		 * Constructor for ListNode when adding a node to the end of the 
-		 * LinkedAbstractList
-		 * @param data the object being stored in the node
-		 */
-		public ListNode(E data) {
-			this.data = data;
-			this.next = null;
-		}
+//		/**
+//		 * Constructor for ListNode when adding a node to the end of the 
+//		 * LinkedAbstractList
+//		 * @param data the object being stored in the node
+//		 */
+//		public ListNode(E data) {
+//			this.data = data;
+//			this.next = null;
+//		}
 		
 		/**
 		 * Constructor for LintNode when specifying a specific node to be 
