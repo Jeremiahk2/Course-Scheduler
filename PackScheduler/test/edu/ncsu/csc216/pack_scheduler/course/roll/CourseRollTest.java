@@ -244,7 +244,7 @@ class CourseRollTest {
 		assertEquals(1, roll.getNumberOnWaitlist());
 		
 		roll.drop(s10);
-		System.out.print(s11.getSchedule().getScheduledCourses());
+		assertEquals(0, roll.getOpenSeats());
 		
 	}
 	
