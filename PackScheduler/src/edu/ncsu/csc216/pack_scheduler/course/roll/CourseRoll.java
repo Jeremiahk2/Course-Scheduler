@@ -137,7 +137,7 @@ public class CourseRoll {
 			try {
 				roll.remove(s);
 				if(waitList.size() != 0) {
-					roll.add(waitList.dequeue()); //Adds a student who was waiting to join a course
+					roll.add(waitList.size() - 1, waitList.dequeue()); //Adds a student who was waiting to join a course
 				}
 			} catch (Exception e) {
 				throw new IllegalArgumentException("Something went wrong");

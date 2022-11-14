@@ -214,4 +214,38 @@ class CourseRollTest {
 		assertThrows(IllegalArgumentException.class, () -> roll.setEnrollmentCap(10));
 	}
 	
+	@Test 
+	void testWaitList() {
+		Course testCourse = new Course("CSC216", "Software Development Fundamentals", "001", 3, "sheckman", 100, "MW");
+		CourseRoll roll = new CourseRoll(testCourse, 10);
+		Student s1 = new Student("firstName", "lastName", "id", "email@ncsu.edu", "pw");
+		Student s2 = new Student("David", "Williams", "dwilly", "dwilly@ncsu.edu", "pw");
+		Student s3 = new Student("Tyriq", "Brown", "tybrown", "tybrown@ncsu.edu", "pw");
+		Student s4 = new Student("Spencer", "Grattan", "dsgratta", "dsgratta@ncsu.edu", "pw");
+		Student s5 = new Student("Student 5", "LN", "stu5", "stu5@ncsu.edu", "pw");
+		Student s6 = new Student("Student 6", "LN", "stu6", "stu6@ncsu.edu", "pw");
+		Student s7 = new Student("Student 7", "LN", "stu7", "stu7@ncsu.edu", "pw");
+		Student s8 = new Student("Student 8", "LN", "stu8", "stu8@ncsu.edu", "pw");
+		Student s9 = new Student("Student 9", "LN", "stu9", "stu9@ncsu.edu", "pw");
+		Student s10 = new Student("Student 10", "LN", "stu10", "stu10@ncsu.edu", "pw");
+		Student s11 = new Student("Student 11", "LN", "stu11", "stu11@ncsu.com", "pw");
+		
+		roll.enroll(s1);
+		roll.enroll(s2);
+		roll.enroll(s3);
+		roll.enroll(s4);
+		roll.enroll(s5);
+		roll.enroll(s6);
+		roll.enroll(s7);
+		roll.enroll(s8);
+		roll.enroll(s9);
+		roll.enroll(s10);
+		roll.enroll(s11);
+		assertEquals(1, roll.getNumberOnWaitlist());
+		
+		roll.drop(s10);
+		System.out.print(s11.getSchedule().getScheduledCourses());
+		
+	}
+	
 }
