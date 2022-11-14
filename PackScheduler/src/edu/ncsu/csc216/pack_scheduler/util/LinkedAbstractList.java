@@ -94,14 +94,14 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 			if (size () == 1 && idx == size()) {
 				front.next = newBack;
 			}
-			if (back != null) {
+			if (back != null && idx == size()) {
 				oldBack.next = newBack;
 				back = newBack;
 			}
-			else {
+			else if (back == null) {
 				back = newBack;
 			}
-			if (front != null) {
+			if (front != null && idx != 0) {
 				size++;
 			}
 			else { /*(idx == 0) { */
