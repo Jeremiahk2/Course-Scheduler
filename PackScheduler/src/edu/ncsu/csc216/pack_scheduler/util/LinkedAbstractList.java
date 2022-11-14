@@ -51,7 +51,11 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 			current = current.next;
 		}
 		//returns the object stored at the given index
-		return current.data;
+		try {
+			return current.data;
+		} catch (NullPointerException e) {
+			return null;
+		}
 	}
 
 	/**
