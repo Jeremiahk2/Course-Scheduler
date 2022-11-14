@@ -161,20 +161,22 @@ class CourseRollTest {
 		roll.enroll(s11);
 		assertEquals(1, roll.getNumberOnWaitlist());
 		roll.enroll(s12);
-//		roll.enroll(s13);
-//		roll.enroll(s14);
-//		roll.enroll(s15);
-//		roll.enroll(s16);
-//		roll.enroll(s17);
-//		roll.enroll(s18);
-//		roll.enroll(s19);
-//		roll.enroll(s20);
-//		assertEquals(10, roll.getNumberOnWaitlist());
-		// try to add student 11th student to waitlist 
-//		Exception e = assertThrows(IllegalArgumentException.class, () -> (roll.canEnroll(s21)));
-//		assertEquals("Something went wrong", e.getMessage());
-//		// try to add student to waitilist that is already on waitlist
-//		assertFalse(roll.canEnroll(s11));
+		roll.enroll(s13);
+		roll.enroll(s14);
+		roll.enroll(s15);
+		roll.enroll(s16);
+		roll.enroll(s17);
+		roll.enroll(s18);
+		roll.enroll(s19);
+		roll.enroll(s20);
+		assertEquals(10, roll.getNumberOnWaitlist());
+		// try to add student to waitlist that is already on waitlist
+		assertFalse(roll.canEnroll(s11));
+		//try to add student 11th student to waitlist 
+		assertFalse(roll.canEnroll(s21));
+		Exception e = assertThrows(IllegalArgumentException.class, () -> roll.enroll(s21));
+		assertEquals("Student cannot be enrolled", e.getMessage());
+		
 		
 		
 	}

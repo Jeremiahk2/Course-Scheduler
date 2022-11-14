@@ -6,7 +6,6 @@ package edu.ncsu.csc216.pack_scheduler.course.roll;
 import edu.ncsu.csc216.pack_scheduler.course.Course;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 import edu.ncsu.csc216.pack_scheduler.user.schedule.Schedule;
-import edu.ncsu.csc216.pack_scheduler.util.ArrayQueue;
 import edu.ncsu.csc216.pack_scheduler.util.LinkedAbstractList;
 import edu.ncsu.csc216.pack_scheduler.util.LinkedQueue;
 
@@ -106,22 +105,6 @@ public class CourseRoll {
 		if (s == null) {
 			throw new IllegalArgumentException("Student cannot be null");
 		}
-		
-//		if (canEnroll(s)) {
-//			try {
-//				roll.add(s);
-//				Schedule sched = s.getSchedule();
-//				sched.addCourseToSchedule(course);
-//			} catch (Exception e) {
-//				try {
-//					waitList.enqueue(s);
-//				} catch (Exception e1) {
-//					throw new IllegalArgumentException("Something went wrong");
-//				}
-//			}
-//		} else {
-//			throw new IllegalArgumentException("Student cannot be enrolled");
-//		}
 		if (!(canEnroll(s))) {
 			throw new IllegalArgumentException("Student cannot be enrolled");
 		}

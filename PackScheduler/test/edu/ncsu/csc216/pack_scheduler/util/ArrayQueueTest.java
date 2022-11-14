@@ -107,5 +107,19 @@ class ArrayQueueTest {
 		assertEquals("Invalid capacity.", e.getMessage());
 		
 	}
+	
+	/**
+	 * Tests ArrayQueue.setCapacity method
+	 */
+	@Test
+	void testContains() {
+		ArrayQueue<String> a1 = new ArrayQueue<String>(CAPACITY);
+		
+		a1.enqueue("first");
+		a1.enqueue("second");
+		assertFalse(a1.contains("third"));
+		assertTrue(a1.contains("first"));
+		assertTrue(a1.contains("second"));
+	}
 
 }
