@@ -171,14 +171,9 @@ public class CourseRoll {
 	public boolean canEnroll(Student s) {
 		if (roll.contains(s)) {
 			return false;
+		} else {
+			return !(roll.size() == this.enrollmentCap && (waitList.contains(s) || waitList.size() == WAITLIST_SIZE));
 		}
-		
-		if (roll.size() == this.enrollmentCap) {
-			if (waitList.contains(s) || waitList.size() == WAITLIST_SIZE) {
-				return false;
-			}
-		} 
-		return true;
 	}
 	
 }
