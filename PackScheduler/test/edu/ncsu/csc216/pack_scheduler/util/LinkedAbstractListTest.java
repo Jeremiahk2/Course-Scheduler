@@ -63,11 +63,12 @@ class LinkedAbstractListTest {
 		LinkedAbstractList<String> l2 = new LinkedAbstractList<String>(10);
 		
 		l2.add(0, "apple");
-		l2.get(0);
 		l2.add(0, "orange");
 		assertEquals(2, l2.size());
 		assertEquals("orange", l2.get(0));
-		l2.get(1);
+		l2.add(0, "banana");
+		l2.add(3, "kiwi");
+		assertEquals("kiwi", l2.get(3));
 
 		//Unnecessary because size should not increase beyond it's base capacity of 10
 //		assertDoesNotThrow(() -> l1.add(10, "studnet"));

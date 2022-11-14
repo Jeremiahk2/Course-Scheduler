@@ -94,13 +94,13 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 		}
 		if (idx == size() || idx == 0) {
 			ListNode newBack = new ListNode(element, null);
-			ListNode oldBack = back;
+			//ListNode oldBack = back;
 			if (size () == 1 && idx == size()) {
 				front.next = newBack;
 			}
 			if (back != null && idx == size()) {
-				oldBack.next = newBack;
-				back = newBack;
+				back.next = newBack;
+				back = back.next;
 			}
 			else if (back == null) {
 				back = newBack;
@@ -110,10 +110,13 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 			}
 			else if (idx == 0) { /*(idx == 0) { */
 				ListNode newFront = new ListNode(element, front);
-				ListNode oldFront = front;
-				newFront.next = oldFront;
+				//ListNode oldFront = front;
+				//newFront.next = oldFront;
 				front = newFront;
 				size++;
+			}
+			if (size() == 1) {
+				front = back;
 			}
 		}
 		else {
