@@ -104,7 +104,7 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 			if (front != null && idx != 0) {
 				size++;
 			}
-			else { /*(idx == 0) { */
+			else if (idx == 0) { /*(idx == 0) { */
 				ListNode newFront = new ListNode(element, front);
 				ListNode oldFront = front;
 				newFront.next = oldFront;
