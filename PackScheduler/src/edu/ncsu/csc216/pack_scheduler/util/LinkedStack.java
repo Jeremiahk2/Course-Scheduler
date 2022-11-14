@@ -70,7 +70,7 @@ public class LinkedStack<E> implements Stack<E> {
 	/**
 	 * sets the capacity for the stack.
 	 * @param capacity the desired capacity of the stack.
-	 * @throws IllegalArgumnetExcepton if the new capacity is less than the number of elements in the stack.
+	 * @throws IllegalArgumentException if the new capacity is less than the number of elements in the stack.
 	 */
 	@Override
 	public void setCapacity(int capacity) {

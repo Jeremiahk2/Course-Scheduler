@@ -3,6 +3,8 @@
  */
 package edu.ncsu.csc216.pack_scheduler.util;
 
+import java.util.EmptyStackException;
+
 /**
  * Interface for implementing a generic Stack in different lists
  * @param <E> generic type for all parameters
@@ -40,7 +42,7 @@ public interface Stack<E> {
 	/**
 	 * sets the capacity for the stack.
 	 * @param capacity the desired capacity of the stack.
-	 * @throws IllegalArgumnetExcepton if the new capacity is less than the number of elements in the stack.
+	 * @throws IllegalArgumentException if the new capacity is less than the number of elements in the stack.
 	 */
 	void setCapacity(int capacity);
 	

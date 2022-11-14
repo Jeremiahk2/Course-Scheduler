@@ -3,6 +3,8 @@
  */
 package edu.ncsu.csc216.pack_scheduler.util;
 
+import java.util.NoSuchElementException;
+
 /**
  * Interface for creating custom Queues for PackScheduler
  * @param <E> a generic type, classes implementing can use generics to implement.

@@ -21,6 +21,6 @@ Lab 9:
 - Task: Update CourseRoll.canEnroll --> Owner: Austin Due: 11/14 Status: Completed
 - Task: Implement CourseRoll.getNumberOnWaitList --> Owner: Austin Due: 11/14 Status: Completed
 - Task: Update Tests and Ensure Coverage is met --> Owner: Allie Due: 11/14 Status: Completed
-- Task: Update GUI (if needed) --> Owner: Person 3 Due: 11/14 Status: 
-- Task: System testing for new functionality --> Owner: Person 3 Due: 11/14 Status: 
-- Task: Generate javadoc --> Owner: Person 3 Due: 11/14 Status: 
+- Task: Update GUI (if needed) --> Owner: Allie Due: 11/14 Status: Completed
+- Task: System testing for new functionality --> Owner: Allie Due: 11/14 Status: Completed
+- Task: Generate javadoc --> Owner: Allie Due: 11/14 Status: Completed
