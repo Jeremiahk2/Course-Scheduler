@@ -42,6 +42,36 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 	}
 
 	/**
+	 * This method adds an element to the list at a given index
+	 * @param index the index being added to
+	 * @param element the element being added to the list
+	 * @throws IllegalArgumentException if element is already in the list
+	 * @throws IndexOutOfBoundsException if index is less than 0 or greater
+	 *  than or equals to the size of the list
+	 */
+	@Override
+	public void add(int index, E element) {
+		if(this.contains(element)) {
+			throw new IllegalArgumentException();
+		}
+		LinkedListIterator adder = new LinkedListIterator(index);
+		adder.add(element);
+	}
+
+	
+	
+	@Override
+	public E set(int index, E element) {
+		if(this.contains(element)) {
+			throw new IllegalArgumentException();
+		}
+		LinkedListIterator setter = new LinkedListIterator(index);
+		E e = setter.next();
+		setter.set(element);
+		return e;
+	}
+
+	/**
 	 * returns the LinkedListIterator for this LinkedList
 	 * @param index The index at which the iterator will start at
 	 * @return the LinkedListIterator for this LinkedList
@@ -72,7 +102,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		 * @param index
 		 */
 		public LinkedListIterator(int index) {
-			if (index < 0 || index >= size) {
+			if (index < 0 || index > size) {
 				throw new IndexOutOfBoundsException();
 			}
 			ListNode current = front;
@@ -81,12 +111,14 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 				current = current.next;
 				currentIndex++;
 			}
-			previous = current.previous;
-			next = current;
+			previous = current;
+			next = current.next;
 			this.previousIndex = currentIndex - 1;
-			this.nextIndex = currentIndex;;
+			this.nextIndex = currentIndex;
 			lastRetrieved = null;
 		}
+		
+		
 		
 		/**
 		 * Returns true if the next element's data is not null.
@@ -154,12 +186,32 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		}
 		@Override
 		public void set(E e) {
-			// TODO Auto-generated method stub
+			if(this.lastRetrieved == null) {
+				throw new IllegalStateException();
+			}
+			if(e == null) {
+				throw new NullPointerException();
+			}
+			this.lastRetrieved.data = e;
 			
 		}
+		
+		/**
+		 * This method adds a new list element at the index the iterator would return next
+		 * @param e the element to be added to the list
+		 * @throws NullPointerException if e is null
+		 */
 		@Override
 		public void add(E e) {
-			// TODO Auto-generated method stub
+			if(e == null) {
+				throw new NullPointerException();
+			}
+			ListNode node = new ListNode(e, this.previous, this.next);
+			previous.next = node;
+			next.previous = node;
+			this.next = node;
+			size++;
+			this.lastRetrieved = null;
 			
 		}
 	}

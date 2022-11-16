@@ -15,9 +15,9 @@ class LinkedListTest {
 	 * Tests the LinkedList constructor
 	 */
 	@Test
-	void testArrayList() {
-		ArrayList<String> l1 = assertDoesNotThrow(
-				() -> new ArrayList<String>());
+	void testLinkedList() {
+		LinkedList<String> l1 = assertDoesNotThrow(
+				() -> new LinkedList<String>());
 		assertEquals(0, l1.size());
 	}
 
@@ -26,7 +26,7 @@ class LinkedListTest {
 	 */
 	@Test
 	void testGet() {
-		ArrayList<String> l1 = new ArrayList<String>();
+		LinkedList<String> l1 = new LinkedList<String>();
 		assertDoesNotThrow(() -> l1.add(0, "Banana"));
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
@@ -42,7 +42,7 @@ class LinkedListTest {
 	 */
 	@Test
 	void testAdd() {
-		ArrayList<String> l1 = new ArrayList<String>();
+		LinkedList<String> l1 = new LinkedList<String>();
 		assertDoesNotThrow(() -> l1.add(0, "Banana"));
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
@@ -81,7 +81,7 @@ class LinkedListTest {
 	 */
 	@Test
 	void testRemove() {
-		ArrayList<String> l1 = new ArrayList<String>();
+		LinkedList<String> l1 = new LinkedList<String>();
 		assertDoesNotThrow(() -> l1.add(0, "Banana"));
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
@@ -104,7 +104,7 @@ class LinkedListTest {
 	 */
 	@Test
 	void testSet() {
-		ArrayList<String> l1 = new ArrayList<String>();
+		LinkedList<String> l1 = new LinkedList<String>();
 		assertDoesNotThrow(() -> l1.add(0, "Banana"));
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
