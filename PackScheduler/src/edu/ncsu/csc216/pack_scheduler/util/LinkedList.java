@@ -2,6 +2,7 @@ package edu.ncsu.csc216.pack_scheduler.util;
 
 import java.util.AbstractSequentialList;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 /**
  * TODO: javadoc 
@@ -18,6 +19,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 	/** The size of the list */
 	private int size;
 	
+	/**
+	 * constructor for LinkedLists, assigns front and back to ListNodes with element of null
+	 * Sets front's next reference to back and back's previous reference to front. Sets size to 0
+	 */
 	public LinkedList() {
 		front = new ListNode(null);
 		back = new ListNode(null);
@@ -27,10 +32,23 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		
 	}
 
+	/**
+	 * returns the size of the list
+	 * @return size the size of the list
+	 */
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return size;
+	}
+
+	/**
+	 * returns the LinkedListIterator for this LinkedList
+	 * @param index The index at which the iterator will start at
+	 * @return the LinkedListIterator for this LinkedList
+	 */
+	@Override
+	public ListIterator<E> listIterator(int index) {
+		return new LinkedListIterator(index);
 	}
 
 	/**
@@ -54,39 +72,80 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		 * @param index
 		 */
 		public LinkedListIterator(int index) {
-			//TODO: implement
+			if (index < 0 || index >= size) {
+				throw new IndexOutOfBoundsException();
+			}
+			ListNode current = front;
+			int currentIndex = 0;
+			for (int i = 0; i < index; i++) {
+				current = current.next;
+				currentIndex++;
+			}
+			previous = current.previous;
+			next = current;
+			this.previousIndex = currentIndex - 1;
+			this.nextIndex = currentIndex;;
+			lastRetrieved = null;
 		}
 		
-		
+		/**
+		 * Returns true if the next element's data is not null.
+		 * @return boolean, true if the next element's data is not null.
+		 */
 		@Override
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
-			return false;
+			return next != null && next.data != null;
 		}
 		@Override
 		public E next() {
-			// TODO Auto-generated method stub
-			return null;
+			if (next.data == null) {
+				throw new NoSuchElementException();
+			}
+			E data = next.data;
+			previousIndex++;
+			nextIndex++;
+			previous = next;
+			next = next.next;
+			lastRetrieved = previous;
+			return data;
+			
 		}
+		/**
+		 * Returns true if the previous element's data is not null.
+		 * @return boolean, true if the previous element's data is not null.
+		 */
 		@Override
 		public boolean hasPrevious() {
-			// TODO Auto-generated method stub
-			return false;
+			return previous != null && previous.data != null;
 		}
 		@Override
 		public E previous() {
-			// TODO Auto-generated method stub
-			return null;
+			if (next.data == null) {
+				throw new NoSuchElementException();
+			}
+			E data = previous.data;
+			previousIndex--;
+			nextIndex--;
+			next = previous;
+			previous = previous.previous;
+			lastRetrieved = next;
+			return data;
 		}
+		/**
+		 * returns the index of the next element
+		 * @return the index of the next element
+		 */
 		@Override
 		public int nextIndex() {
-			// TODO Auto-generated method stub
-			return 0;
+			return nextIndex;
 		}
+		/**
+		 * returns the index of the previous element
+		 * @return the index of the previous element
+		 */
 		@Override
 		public int previousIndex() {
-			// TODO Auto-generated method stub
-			return 0;
+			return previousIndex;
 		}
 		@Override
 		public void remove() {
@@ -141,12 +200,6 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 			previous = prev;
 			this.next = next;
 		}
-	}
-
-	@Override
-	public ListIterator<E> listIterator(int index) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
