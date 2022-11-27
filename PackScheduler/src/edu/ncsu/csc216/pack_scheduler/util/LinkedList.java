@@ -5,9 +5,13 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 /**
- * TODO: javadoc 
+ * This class functions as a list, it can add, set, remove and do all normal functions a list can provide
+ * It stores data and returns the data as requested. This particular list also includes iterator functionality
+ * which allows for the use of a for each loop along with other iterator functions that can be used to move through
+ * and get information from the list. While using an iterator DO NOT edit the list outside of the iterator's functions
+ * otherwise the iterator will break.
  * @author Allie Norton
- *
+ * @author Austin Bressler
  * @param <E> the generic type of the linked list
  */
 public class LinkedList<E> extends AbstractSequentialList<E> {
@@ -59,7 +63,15 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 	}
 
 	
-	
+	/**
+	 * This method sets a particular element at a given index to a different value
+	 * then returns the original data that was replaced.
+	 * @param index the index being set
+	 * @param element the element being placed in the index
+	 * @return E the element that used to be at an index
+	 * @throws IllegalArgumentException if the element is already in the list
+	 * @throws IndexOutOfBoundsException if the given index is not within the list
+	 */
 	@Override
 	public E set(int index, E element) {
 		if(this.contains(element)) {
@@ -82,7 +94,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 	}
 
 	/**
-	 * TODO: javadoc
+	 * This is the iterator for this linked list class which
+	 * is able to mover through the list and return values in the list while
+	 * also editing the list if needed. Do not edit the list directly
+	 * while iterating, only edit the list using the iterator while iterating. 
 	 */
 	private class LinkedListIterator implements ListIterator<E> {
 		
@@ -98,8 +113,10 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		private ListNode lastRetrieved;
 		
 		/**
-		 * 
-		 * @param index
+		 * This method constructs a list iterator for use that starts at an
+		 * index within the list.
+		 * @param index the starting index
+		 * @throws IndexOutOfBoundsException if the given index is not within the list
 		 */
 		public LinkedListIterator(int index) {
 			if (index < 0 || index > size) {
@@ -128,6 +145,13 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		public boolean hasNext() {
 			return next != null && next.data != null;
 		}
+		
+		/**
+		 * Returns the next element in the list
+		 * @return E the next element in the list
+		 * @throws NoSuchElementException if the iterator attempts to get
+		 * an element past the end of the list.
+		 */
 		@Override
 		public E next() {
 			if (next.data == null) {
@@ -142,6 +166,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 			return data;
 			
 		}
+		
 		/**
 		 * Returns true if the previous element's data is not null.
 		 * @return boolean, true if the previous element's data is not null.
@@ -150,6 +175,13 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		public boolean hasPrevious() {
 			return previous != null && previous.data != null;
 		}
+		
+		/**
+		 * This method returns the previous element in a list 
+		 * @return E the previous element in the list
+		 * @throws NoSuchElementException if the iterator
+		 * attempts to get an element before the start of the list
+		 */
 		@Override
 		public E previous() {
 			if (next.data == null) {
@@ -163,6 +195,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 			lastRetrieved = next;
 			return data;
 		}
+		
 		/**
 		 * returns the index of the next element
 		 * @return the index of the next element
@@ -171,6 +204,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		public int nextIndex() {
 			return nextIndex;
 		}
+		
 		/**
 		 * returns the index of the previous element
 		 * @return the index of the previous element
@@ -179,11 +213,34 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		public int previousIndex() {
 			return previousIndex;
 		}
+		
+		/**
+		 * This method removes the previously retrieved element from the list
+		 * @throws IllegalStateException if the last action performed with the
+		 * iterator was not a retrieval.
+		 */
 		@Override
 		public void remove() {
-			// TODO Auto-generated method stub
-			
+			if(this.lastRetrieved == null) {
+				throw new IllegalStateException();
+			}
+			this.lastRetrieved.previous.next = this.lastRetrieved.next;
+			this.lastRetrieved.next.previous = this.lastRetrieved.previous;
+			this.previous = this.lastRetrieved.previous;
+			this.next = this.lastRetrieved.next;
+			this.previousIndex = this.previousIndex - 1;
+			this.nextIndex = this.nextIndex - 1;
+			size--;
+			this.lastRetrieved = null;
 		}
+		
+		/**
+		 * This method sets the last element to a new element
+		 * This method does not work if the last action performed
+		 * by the iterator was not a retrieval. 
+		 * @throws IllegalStateException if last action was not a retrieval
+		 * @throws NullPointerException if the given element to replace is null
+		 */
 		@Override
 		public void set(E e) {
 			if(this.lastRetrieved == null) {
@@ -217,8 +274,8 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 	}
 
 	/**
-	 * Creates a new ListNode
-	 * 
+	 * This class represents a node in the list that can hold data and lead to other
+	 * list nodes.
 	 * @author Allie Norton
 	 *
 	 */
@@ -245,7 +302,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		 * 
 		 * @param data the data in the node
 		 * @param prev the previous node in the list
-		 * @param next the nex node in the list
+		 * @param next the next node in the list
 		 */
 		public ListNode(E data, ListNode prev, ListNode next) {
 			this.data = data;
