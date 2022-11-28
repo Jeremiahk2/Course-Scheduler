@@ -24,3 +24,30 @@ Lab 9:
 - Task: Update GUI (if needed) --> Owner: Allie Due: 11/14 Status: Completed
 - Task: System testing for new functionality --> Owner: Allie Due: 11/14 Status: Completed
 - Task: Generate javadoc --> Owner: Allie Due: 11/14 Status: Completed
+
+Lab 10:
+
+- Task: Create FacultyTest --> Owner: None Due: 11/28 Status: Pending
+- Task: Implement Faculty --> Owner: None Due: 11/28 Status: Pending
+- Task: Javadoc Faculty --> Owner: None Due: 11/28 Status: Pending
+- Task: Create FacultyRecordIOTest --> Owner: None Due: 11/28 Status: Pending
+- Task: implement readFacultyRecords(String) --> Owner: None Due: 11/28 Status: Pending
+- Task: implement writeFacultyRecords(String, LinkedList<Faculty>) --> Owner: None Due: 11/28 Status: Pending
+- Task: Javadoc FacultyRecordIO --> Owner: None Due: 11/28 Status: Pending
+- Task: Create FacultyDirectoryTest --> Owner: None Due: 11/28 Status: Pending
+- Task: Implement FacultyDirectory state --> Owner: None Due: 11/28 Status: Pending
+- Task: Implement FacultyDirectory Constructor --> Owner: None Due: 11/28 Status: Pending
+- Task: Implement FacultyDirectory newFacultyDirectory --> Owner: None Due: 11/28 Status: Pending
+- Task: Implement FacultyDirectory loadFacultyFromFile --> Owner: None Due: 11/28 Status: Pending
+- Task: implement addFaculty --> Owner: None Due: 11/28 Status: Pending
+- Task: implement removeFaculty --> Owner: None Due: 11/28 Status: Pending
+- Task: implement getFacultyDirectory --> Owner: None Due: 11/28 Status: Pending
+- Task: implement saveFacultyDirectory --> Owner: None Due: 11/28 Status: Pending
+- Task: javadoc update RegistrationManager state --> Owner: None Due: 11/28 Status: Pending
+- Task: javadoc implement RegistrationManager.getFacultyDirectory --> Owner: None Due: 11/28 Status: Pending
+- Task: javadoc update RegistrationManager.login --> Owner: None Due: 11/28 Status: Pending
+- Task: javadoc update RegistrationManagerTest --> Owner: None Due: 11/28 Status: Pending
+- Task: javadoc Update GUI classes --> Owner: None Due: 11/28 Status: Pending
+- Task: javadoc Ensure coverage and passing tests --> Owner: None Due: 11/28 Status: Pending
+- Task: javadoc System test --> Owner: None Due: 11/28 Status: Pending
+- Task: javadoc Generate javadoc --> Owner: None Due: 11/28 Status: Pending
