@@ -27,9 +27,9 @@ Lab 9:
 
 Lab 10:
 
-- Task: Create FacultyTest --> Owner: None Due: 11/28 Status: Pending
-- Task: Implement Faculty --> Owner: None Due: 11/28 Status: Pending
-- Task: Javadoc Faculty --> Owner: None Due: 11/28 Status: Pending
+- Task: Create FacultyTest --> Owner: Jeremiah Due: 11/28 Status: Pending
+- Task: Implement Faculty --> Owner: Jeremiah Due: 11/28 Status: Pending
+- Task: Javadoc Faculty --> Owner: Jeremiah Due: 11/28 Status: Pending
 - Task: Create FacultyRecordIOTest --> Owner: None Due: 11/28 Status: Pending
 - Task: implement readFacultyRecords(String) --> Owner: None Due: 11/28 Status: Pending
 - Task: implement writeFacultyRecords(String, LinkedList<Faculty>) --> Owner: None Due: 11/28 Status: Pending
