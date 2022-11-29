@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.pack_scheduler.catalog.CourseCatalog;
+import edu.ncsu.csc216.pack_scheduler.directory.FacultyDirectory;
 import edu.ncsu.csc216.pack_scheduler.directory.StudentDirectory;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 import edu.ncsu.csc216.pack_scheduler.user.schedule.Schedule;
@@ -111,8 +112,22 @@ public class RegistrationManagerTest {
 				() -> manager.login("bad_id", "bad_password"));
 		assertEquals("User doesn't exist.", e1.getMessage());
 		
+
+		FacultyDirectory fd = new FacultyDirectory();
+		fd.addFaculty("Haley", "Grass", "hgrass", "hgrass@ncsu.edu", "pw", "pw", 2);
+		
+		assertTrue(manager.login("hgrass", "pw"));
+//		e1 = assertThrows(IllegalArgumentException.class, () -> manager.login("hgrass", "notPassword"));
+		
 		//test for a case where the student id is valid but password is invalid
 		assertFalse(manager.login("goomba", "bad_password"));
+		
+//		// test new faculty login function
+//		FacultyDirectory fd = new FacultyDirectory();
+//		fd.addFaculty("Haley", "Grass", "hgrass", "hgrass@ncsu.edu", "pw", "pw", 15);
+//		
+//		assertTrue(manager.login("hgrass", "pw"));
+//		e1 = assertThrows(IllegalArgumentException.class, () -> manger.login())
 	}
 
 	/**

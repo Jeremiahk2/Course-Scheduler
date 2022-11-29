@@ -30,24 +30,24 @@ Lab 10:
 - Task: Create FacultyTest --> Owner: Jeremiah Due: 11/28 Status: Complete
 - Task: Implement Faculty --> Owner: Jeremiah Due: 11/28 Status: Complete
 - Task: Javadoc Faculty --> Owner: Jeremiah Due: 11/28 Status: Complete
-- Task: Create FacultyRecordIOTest --> Owner: None Due: 11/28 Status: Pending
-- Task: implement readFacultyRecords(String) --> Owner: None Due: 11/28 Status: Pending
-- Task: implement writeFacultyRecords(String, LinkedList<Faculty>) --> Owner: None Due: 11/28 Status: Pending
-- Task: Javadoc FacultyRecordIO --> Owner: None Due: 11/28 Status: Pending
-- Task: Create FacultyDirectoryTest --> Owner: None Due: 11/28 Status: Pending
-- Task: Implement FacultyDirectory state --> Owner: None Due: 11/28 Status: Pending
-- Task: Implement FacultyDirectory Constructor --> Owner: None Due: 11/28 Status: Pending
-- Task: Implement FacultyDirectory newFacultyDirectory --> Owner: None Due: 11/28 Status: Pending
-- Task: Implement FacultyDirectory loadFacultyFromFile --> Owner: None Due: 11/28 Status: Pending
-- Task: implement addFaculty --> Owner: None Due: 11/28 Status: Pending
-- Task: implement removeFaculty --> Owner: None Due: 11/28 Status: Pending
-- Task: implement getFacultyDirectory --> Owner: None Due: 11/28 Status: Pending
-- Task: implement saveFacultyDirectory --> Owner: None Due: 11/28 Status: Pending
-- Task: javadoc update RegistrationManager state --> Owner: None Due: 11/28 Status: Pending
-- Task: javadoc implement RegistrationManager.getFacultyDirectory --> Owner: None Due: 11/28 Status: Pending
-- Task: javadoc update RegistrationManager.login --> Owner: None Due: 11/28 Status: Pending
-- Task: javadoc update RegistrationManagerTest --> Owner: None Due: 11/28 Status: Pending
-- Task: javadoc Update GUI classes --> Owner: None Due: 11/28 Status: Pending
-- Task: javadoc Ensure coverage and passing tests --> Owner: None Due: 11/28 Status: Pending
-- Task: javadoc System test --> Owner: None Due: 11/28 Status: Pending
-- Task: javadoc Generate javadoc --> Owner: None Due: 11/28 Status: Pending
+- Task: Create FacultyRecordIOTest --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement readFacultyRecords(String) --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement writeFacultyRecords(String, LinkedList<Faculty>) --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Javadoc FacultyRecordIO --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Create FacultyDirectoryTest --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Implement FacultyDirectory state --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Implement FacultyDirectory Constructor --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Implement FacultyDirectory newFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Implement FacultyDirectory loadFacultyFromFile --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement addFaculty --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement removeFaculty --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement getFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement saveFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
+- Task: javadoc update RegistrationManager state --> Owner: Allie Due: 11/28 Status: Pending
+- Task: javadoc implement RegistrationManager.getFacultyDirectory --> Owner: Allie Due: 11/28 Status: Pending
+- Task: javadoc update RegistrationManager.login --> Owner: Allie Due: 11/28 Status: Pending
+- Task: javadoc update RegistrationManagerTest --> Owner: Allie Due: 11/28 Status: Pending
+- Task: javadoc Update GUI classes --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc Ensure coverage and passing tests --> Owner: Allie Due: 11/28 Status: Pending
+- Task: javadoc System test --> Owner: Allie Due: 11/28 Status: Pending
+- Task: javadoc Generate javadoc --> Owner: Allie Due: 11/28 Status: Pending

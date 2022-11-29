@@ -11,7 +11,9 @@ import java.util.Properties;
 import edu.ncsu.csc216.pack_scheduler.catalog.CourseCatalog;
 import edu.ncsu.csc216.pack_scheduler.course.Course;
 import edu.ncsu.csc216.pack_scheduler.course.roll.CourseRoll;
+import edu.ncsu.csc216.pack_scheduler.directory.FacultyDirectory;
 import edu.ncsu.csc216.pack_scheduler.directory.StudentDirectory;
+import edu.ncsu.csc216.pack_scheduler.user.Faculty;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 import edu.ncsu.csc216.pack_scheduler.user.User;
 import edu.ncsu.csc216.pack_scheduler.user.schedule.Schedule;
@@ -39,6 +41,8 @@ public class RegistrationManager {
 	private static final String HASH_ALGORITHM = "SHA-256";
 	/** The name of the file where the login information is stored (STORED LOCALLY). */
 	private static final String PROP_FILE = "registrar.properties";
+	/** The faculty directory */
+	private FacultyDirectory facultyDirectory; 
 
 	/**
 	 * Constructor for RegistrationManager, creates a new Registrar user using createRegistrar()
@@ -47,6 +51,7 @@ public class RegistrationManager {
 		createRegistrar();
 		this.studentDirectory = new StudentDirectory();
 		this.courseCatalog = new CourseCatalog();
+		this.facultyDirectory = new FacultyDirectory();
 	}
 
 	/**
@@ -109,6 +114,14 @@ public class RegistrationManager {
 	}
 
 	/**
+	 * Returns the faculty directory 
+	 * @return facultyDirectory the faculty directory
+	 */
+	public FacultyDirectory getFacultyDirectory() {
+		return facultyDirectory;
+	}
+
+	/**
 	 * Logs in a student or Registrar to the Registration Manager
 	 * stores currentUser as s if the user is a student, "registrar" if the login information
 	 * matches that of the registrar
@@ -125,7 +138,7 @@ public class RegistrationManager {
 		}
 		
 		//hash the given password
-				String localHashPW = hashPW(password);
+		String localHashPW = hashPW(password);
 		
 		//if the id and password match the registrar, log in
 		if (registrar.getId().equals(id)) {
@@ -138,15 +151,23 @@ public class RegistrationManager {
 		else {
 			//check if there is a student that matches the given id
 			Student s = studentDirectory.getStudentById(id);
+			Faculty f = facultyDirectory.getFacultyById(id);
 			if (s == null) {
-				throw new IllegalArgumentException("User doesn't exist.");
+				if (f == null) {
+					throw new IllegalArgumentException("User doesn't exist.");
+				}
 			}
 			
 			//if there is a student, check if their password is correct
-			if (s.getPassword().equals(localHashPW)) {
+			if (s != null && s.getPassword().equals(localHashPW)) {
 				currentUser = s;
 				return true;
 			}	
+			
+			if (f != null && f.getPassword().equals(localHashPW)) {
+				currentUser = f;
+				return true;
+			}
 		}
 
 		//if none of the information is correct, return false
