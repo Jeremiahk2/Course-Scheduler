@@ -123,7 +123,7 @@ class FacultyRecordIOTest {
 		//Try writing to a file it doesn't have access to
 		Exception exception = assertThrows(IOException.class, 
 				() -> FacultyRecordIO.writeFacultyRecords("/home/sesmith5/actual_faculty_records.txt", records));
-		assertEquals("/home/sesmith5/actual_faculty_records.txt (No such file or directory)", exception.getMessage());
+		assertEquals("\\home\\sesmith5\\actual_faculty_records.txt (The system cannot find the path specified)", exception.getMessage());
 		
 		
 		//try writing to valid location.
