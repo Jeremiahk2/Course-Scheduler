@@ -77,10 +77,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		if(this.contains(element)) {
 			throw new IllegalArgumentException();
 		}
-		LinkedListIterator setter = new LinkedListIterator(index);
-		E e = setter.next();
-		setter.set(element);
-		return e;
+		return super.set(index, element);
 	}
 
 	/**
