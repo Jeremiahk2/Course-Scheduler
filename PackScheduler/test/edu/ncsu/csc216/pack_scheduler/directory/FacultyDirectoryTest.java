@@ -132,7 +132,7 @@ class FacultyDirectoryTest {
 		assertEquals(ID, facultyDirectory[0][2]);
 		
 		//Test invalid Faculty because of duplicate ID
-		assertFalse(sd.addFaculty(FIRST_NAME_1, LAST_NAME_1, ID, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_COURSES_LOW));
+		assertThrows(IllegalArgumentException.class, () -> sd.addFaculty(FIRST_NAME_1, LAST_NAME_1, ID, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_COURSES_LOW));
 	}
 	
 	/**
@@ -142,11 +142,9 @@ class FacultyDirectoryTest {
 	public void testAddFacultyHighLowCredits() {
 		FacultyDirectory sd = new FacultyDirectory();
 		
-		//Tests if Faculty with high/low credits are added with separate constructor
-		sd.addFaculty(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, PASSWORD, MAX_COURSES_LOW);
-		sd.addFaculty(FIRST_NAME_1, LAST_NAME_1, ID_1, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_COURSES_HIGH);
-		String [][] facultyDirectory = sd.getFacultyDirectory();
-		assertEquals(2, facultyDirectory.length);
+		//Tests if Faculty with high/low credits are rejected
+		assertThrows(IllegalArgumentException.class, () -> sd.addFaculty(FIRST_NAME, LAST_NAME, ID, EMAIL, PASSWORD, PASSWORD, MAX_COURSES_LOW));
+		assertThrows(IllegalArgumentException.class, () -> sd.addFaculty(FIRST_NAME_1, LAST_NAME_1, ID_1, EMAIL_1, PASSWORD_1, PASSWORD_1, MAX_COURSES_HIGH));
 	}
 	
 	/**

@@ -83,11 +83,7 @@ public class FacultyDirectory {
 		//If an IllegalArgumentException is thrown, it's passed up from Faculty
 		//to the GUI
 		Faculty faculty = null;
-		if (maxCourses < Faculty.MIN_COURSES || maxCourses > Faculty.MAX_COURSES) {
-			faculty = new Faculty(firstName, lastName, id, email, hashPW, Faculty.MAX_COURSES);
-		} else {
-			faculty = new Faculty(firstName, lastName, id, email, hashPW, maxCourses);
-		}
+		faculty = new Faculty(firstName, lastName, id, email, hashPW, maxCourses);
 		
 		for (int i = 0; i < facultyDirectory.size(); i++) {
 			User s = facultyDirectory.get(i);
