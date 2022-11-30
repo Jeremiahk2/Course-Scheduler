@@ -24,7 +24,7 @@ import edu.ncsu.csc216.pack_scheduler.user.Faculty;
 class FacultyDirectoryTest {
 
 	/** Valid Faculty records */
-	private final String validTestFile = "test-files/Faculty_records.txt";
+	private final String validTestFile = "test-files/faculty_records.txt";
 	/** Invalid Faculty records file */
 	private final String nonExistentTestFile = "";
 	/** Test first name */
