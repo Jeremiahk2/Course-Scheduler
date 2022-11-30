@@ -208,8 +208,8 @@ class FacultyDirectoryTest {
 		sd.addFaculty("Fiona", "Meadows", "fmeadow", "pharetra.sed@et.org", "pw", "pw", 3);
 		sd.addFaculty("Brent", "Brewer", "bbrewer", "sem.semper@orcisem.co.uk", "pw", "pw", 1);
 		assertEquals(3, sd.getFacultyDirectory().length);
-		sd.saveFacultyDirectory("test-files/actual_Faculty_records.txt");
-		checkFiles("test-files/expected_Faculty_records.txt", "test-files/actual_Faculty_records.txt");
+		sd.saveFacultyDirectory("test-files/actual_faculty_records.txt");
+		checkFiles("test-files/expected_faculty_records.txt", "test-files/actual_faculty_records.txt");
 		Exception saveException = assertThrows(IllegalArgumentException.class,
 				() -> sd.saveFacultyDirectory(nonExistentTestFile));
 		assertEquals("Unable to write to file " + nonExistentTestFile, saveException.getMessage(), 
