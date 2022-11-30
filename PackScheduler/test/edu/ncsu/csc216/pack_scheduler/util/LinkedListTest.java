@@ -141,6 +141,10 @@ class LinkedListTest {
 		assertDoesNotThrow(() -> assertEquals("Apple", l1.set(1, "Pineapple")));
 		assertEquals(4, l1.size());
 		assertEquals("Pineapple", l1.get(1));
+		
+		assertDoesNotThrow(() -> assertEquals("Strawberry", l1.set(3, "Apple")));
+		assertEquals(4, l1.size());
+		assertEquals("Apple", l1.get(3));
 
 		assertThrows(NullPointerException.class, () -> l1.set(2, null));
 		assertThrows(IllegalArgumentException.class, () -> l1.set(3, "Banana"));
