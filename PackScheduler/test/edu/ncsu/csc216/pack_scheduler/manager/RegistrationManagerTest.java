@@ -115,21 +115,13 @@ public class RegistrationManagerTest {
 		manager.getFacultyDirectory().addFaculty("Haley", "Grass", "hgrass", "hgrass@ncsu.edu", "pw", "pw", 2);
 		
 		assertTrue(manager.login("hgrass", "pw"));
-//		e1 = assertThrows(IllegalArgumentException.class, () -> manager.login("notFaculty", "pw"));
-//		assertEquals("User doesn't exist.", e1.getMessage());
-//		
+
 		//test for a case where the student id is valid but password is invalid
 		assertFalse(manager.login("goomba", "bad_password"));
 		assertEquals("hgrass", manager.getCurrentUser().getId());
 		assertEquals("Haley", manager.getCurrentUser().getFirstName());
 		assertEquals("Grass", manager.getCurrentUser().getLastName());
 		assertEquals("hgrass@ncsu.edu", manager.getCurrentUser().getEmail());
-//		// test new faculty login function
-//		FacultyDirectory fd = new FacultyDirectory();
-//		fd.addFaculty("Haley", "Grass", "hgrass", "hgrass@ncsu.edu", "pw", "pw", 15);
-//		
-//		assertTrue(manager.login("hgrass", "pw"));
-//		e1 = assertThrows(IllegalArgumentException.class, () -> manger.login())
 	}
 
 	/**
