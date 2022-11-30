@@ -51,3 +51,27 @@ Lab 10:
 - Task: javadoc Ensure coverage and passing tests --> Owner: Allie Due: 11/28 Status: Complete
 - Task: javadoc System test --> Owner: Allie Due: 11/28 Status: Complete
 - Task: javadoc Generate javadoc --> Owner: Allie Due: 11/28 Status: Complete
+  
+ Lab 11:
+- Task: test LinkedListRecursive --> Owner: None Due: 12/3 Status: Pending
+- Task: Create FacultySchedule --> Owner: None Due: 12/3 Status: Pending
+- Task: Create FacultyScheduleTest --> Owner: None Due: 12/3 Status: Pending
+- Task: Create FacultySchedule --> Owner: None Due: 12/3 Status: Pending
+- Task: Test FacultySchedule --> Owner: None Due: 12/3 Status: Pending
+- Task: Add FacultySchedule state --> Owner: None Due: 12/3 Status: Pending
+- Task: Add Faculty.getSchedule method --> Owner: None Due: 12/3 Status: Pending
+- Task: Add Faculty.isOverloaded method --> Owner: None Due: 12/3 Status: Pending
+- Task: Test the new functionality --> Owner: None Due: 12/3 Status: Pending
+- Task: Javadoc new stuff --> Owner: None Due: 12/3 Status: Pending
+- Task: update CourseRecordIO.readCourse --> Owner: None Due: 12/3 Status: Pending
+- Task: test new functionality --> Owner: None Due: 12/3 Status: Pending
+- Task: javadoc new stuff --> Owner: None Due: 12/3 Status: Pending
+- Task: Implement RegistrationManager.addFacultyToCourse --> Owner: None Due: 12/3 Status: Pending
+- Task: Implement RegistrationManager.removeFacultyFromCourse --> Owner: None Due: 12/3 Status: Pending
+- Task: Implement RegistrationManager.resetFacultySchedule --> Owner: None Due: 12/3 Status: Pending
+- Task: update RegistrationManagerTest --> Owner: None Due: 12/3 Status: Pending
+- Task: Update GUI --> Owner: None Due: 12/3 Status: Pending
+- Task: Ensure coverage --> Owner: None Due: 12/3 Status: Pending
+- Task: System test --> Owner: None Due: 12/3 Status: Pending
+- Task: Generate javadoc --> Owner: None Due: 12/3 Status: Pending
+ 
