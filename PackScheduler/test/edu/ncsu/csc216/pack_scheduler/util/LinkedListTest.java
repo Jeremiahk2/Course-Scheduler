@@ -134,6 +134,15 @@ class LinkedListTest {
 	void testSet() {
 		LinkedList<String> l1 = new LinkedList<String>();
 		assertDoesNotThrow(() -> l1.add(0, "Banana"));
+		
+		assertDoesNotThrow(() -> assertEquals("Banana", l1.set(0, "Pineapple")));
+		assertEquals(1, l1.size());
+		assertEquals("Pineapple", l1.get(0));
+		
+		assertDoesNotThrow(() -> assertEquals("Pineapple", l1.set(0, "Banana")));
+		assertEquals(1, l1.size());
+		assertEquals("Banana", l1.get(0));
+		
 		assertDoesNotThrow(() -> l1.add(1, "Apple"));
 		assertDoesNotThrow(() -> l1.add(2, "Cherry"));
 		assertDoesNotThrow(() -> l1.add(3, "Strawberry"));
@@ -145,9 +154,13 @@ class LinkedListTest {
 		assertDoesNotThrow(() -> assertEquals("Strawberry", l1.set(3, "Apple")));
 		assertEquals(4, l1.size());
 		assertEquals("Apple", l1.get(3));
+		
+		assertDoesNotThrow(() -> assertEquals("Banana", l1.set(0, "Melon")));
+		assertEquals(4, l1.size());
+		assertEquals("Melon", l1.get(0));
 
 		assertThrows(NullPointerException.class, () -> l1.set(2, null));
-		assertThrows(IllegalArgumentException.class, () -> l1.set(3, "Banana"));
+		assertThrows(IllegalArgumentException.class, () -> l1.set(3, "Apple"));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.set(-1, "Chocolate"));
 		assertThrows(IndexOutOfBoundsException.class, () -> l1.set(-4, "Orange"));
 
