@@ -43,11 +43,11 @@ Lab 10:
 - Task: implement removeFaculty --> Owner: Austin Due: 11/28 Status: Complete
 - Task: implement getFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
 - Task: implement saveFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
-- Task: javadoc update RegistrationManager state --> Owner: Allie Due: 11/28 Status: Pending
-- Task: javadoc implement RegistrationManager.getFacultyDirectory --> Owner: Allie Due: 11/28 Status: Pending
-- Task: javadoc update RegistrationManager.login --> Owner: Allie Due: 11/28 Status: Pending
-- Task: javadoc update RegistrationManagerTest --> Owner: Allie Due: 11/28 Status: Pending
+- Task: javadoc update RegistrationManager state --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc implement RegistrationManager.getFacultyDirectory --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc update RegistrationManager.login --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc update RegistrationManagerTest --> Owner: Allie Due: 11/28 Status: Complete
 - Task: javadoc Update GUI classes --> Owner: Allie Due: 11/28 Status: Complete
-- Task: javadoc Ensure coverage and passing tests --> Owner: Allie Due: 11/28 Status: Pending
-- Task: javadoc System test --> Owner: Allie Due: 11/28 Status: Pending
-- Task: javadoc Generate javadoc --> Owner: Allie Due: 11/28 Status: Pending
+- Task: javadoc Ensure coverage and passing tests --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc System test --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc Generate javadoc --> Owner: Allie Due: 11/28 Status: Complete
