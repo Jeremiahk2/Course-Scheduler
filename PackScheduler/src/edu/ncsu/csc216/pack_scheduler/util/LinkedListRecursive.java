@@ -281,7 +281,7 @@ public class LinkedListRecursive<E> {
 				this.data = e;
 				return element;
 			}
-			return this.set(idx - 1, e);
+			return this.next.set(idx - 1, e);
 		}
 
 		/**
