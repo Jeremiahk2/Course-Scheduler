@@ -122,17 +122,31 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 			if (index < 0 || index > size) {
 				throw new IndexOutOfBoundsException();
 			}
-			ListNode current = front;
-			int currentIndex = 0;
-			for (int i = 0; i < index; i++) {
-				current = current.next;
-				currentIndex++;
+			if(index < size / 2) {
+				ListNode current = front;
+				int currentIndex = 0;
+				for (int i = 0; i < index; i++) {
+					current = current.next;
+					currentIndex++;
+				}
+				previous = current;
+				next = current.next;
+				this.previousIndex = currentIndex - 1;
+				this.nextIndex = currentIndex;
+				lastRetrieved = null;
+			} else {
+				ListNode current = back;
+				int currentIndex = size - 1;
+				for (int i = size - 1; i >= index; i--) {
+					current = current.previous;
+					currentIndex--;
+				}
+				next = current;
+				previous = current.previous;
+				this.nextIndex = currentIndex + 1;
+				this.previousIndex = currentIndex;
+				lastRetrieved = null;
 			}
-			previous = current;
-			next = current.next;
-			this.previousIndex = currentIndex - 1;
-			this.nextIndex = currentIndex;
-			lastRetrieved = null;
 		}
 		
 		
@@ -184,7 +198,7 @@ public class LinkedList<E> extends AbstractSequentialList<E> {
 		 */
 		@Override
 		public E previous() {
-			if (next.data == null) {
+			if (previous.data == null) {
 				throw new NoSuchElementException();
 			}
 			E data = previous.data;

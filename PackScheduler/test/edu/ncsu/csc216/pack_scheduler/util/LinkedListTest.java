@@ -2,6 +2,8 @@ package edu.ncsu.csc216.pack_scheduler.util;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ListIterator;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -99,6 +101,32 @@ class LinkedListTest {
 		
 		
 	}
+	
+	/**
+	 * Tests the LinkedListIterator's ability to move through the list
+	 */
+	@Test
+	void testIteratorMovement() {
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		assertDoesNotThrow(() -> list.add(0, 0));
+		assertDoesNotThrow(() -> list.add(1, 1));
+		assertDoesNotThrow(() -> list.add(2, 2));
+		assertDoesNotThrow(() -> list.add(3, 3));
+		assertDoesNotThrow(() -> list.add(4, 4));
+		ListIterator<Integer> iterator = list.listIterator();
+		assertFalse(iterator.hasPrevious());
+		assertEquals(0, iterator.next());
+		assertEquals(1, iterator.next());
+		assertEquals(2, iterator.next());
+		assertEquals(3, iterator.next());
+		assertEquals(4, iterator.next());
+		assertFalse(iterator.hasNext());
+		assertEquals(4, iterator.previous());
+		assertEquals(3, iterator.previous());
+		assertTrue(iterator.hasPrevious());
+		assertTrue(iterator.hasNext());
+	}
+	
 	/**
 	 * Tests the LinkedList.set method
 	 */

@@ -152,10 +152,8 @@ public class RegistrationManager {
 			//check if there is a student that matches the given id
 			Student s = studentDirectory.getStudentById(id);
 			Faculty f = facultyDirectory.getFacultyById(id);
-			if (s == null) {
-				if (f == null) {
-					throw new IllegalArgumentException("User doesn't exist.");
-				}
+			if (s == null && f == null) {
+				throw new IllegalArgumentException("User doesn't exist.");
 			}
 			
 			//if there is a student, check if their password is correct
