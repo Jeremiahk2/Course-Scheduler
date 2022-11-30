@@ -4,7 +4,7 @@ package edu.ncsu.csc216.pack_scheduler.util;
  * 
  * @author Allie Norton
  * @author Austin Bressel
- * @author Jeremiah
+ * @author Jeremiah Knizley
  * @param <E> the generic type of the recursive linked list
  *
  */
@@ -41,12 +41,43 @@ public class LinkedListRecursive<E> {
 		return size;
 	}
 
+	/**
+	 * adds data e to the end of the list
+	 * @param e the data to be added to the list
+	 * @return boolean true if successfully added.
+	 */
 	public boolean add(E e) {
-		return false;
+		if (e == null) {
+			throw new NullPointerException();
+		}
+		if (contains(e)) {
+			throw new IllegalArgumentException();
+		}
+		if (size == 0) {
+			front = new ListNode(e, null);
+			return true;
+		}
+		return front.add(e);
 	}
 
 	public void add(int idx, E e) {
-
+		if (e == null) {
+			throw new NullPointerException();
+		}
+		if (contains(e)) {
+			throw new IllegalArgumentException();
+		}
+		if (idx < 0 || idx > size()) {
+			throw new IndexOutOfBoundsException();
+		}
+		if (idx == 0) {
+			front = new ListNode(e, front);
+		}
+		else {
+			front.add(idx, e);
+		}
+		
+		
 	}
 
 	public E get(int idx) {
@@ -72,21 +103,47 @@ public class LinkedListRecursive<E> {
 	 */
 	public boolean contains(E e) {
 
-		if (isEmpty()) {
-			return false;
-		}
-
-		return front.contains(e);
+		return !(front == null) && front.contains(e);
 	}
 
 	private class ListNode {
 
+		/** the data stored in the ListNode */
 		public E data;
-
+		
+		/** the next node after this ListNode */
 		public ListNode next;
 
+		/**
+		 * public pair with LinkedListRecursive that adds the element if it is at the correct index.
+		 * If not at the correct index, the method is called again with index - 1
+		 * @param idx a number representing distance from the index, decremented each time add is run. At 1 the method is at the index.
+		 * @param e the data to be added to the list.
+		 */
 		public void add(int idx, E e) {
-
+			if (idx == 1) {
+				this.next = new ListNode(e, this.next);
+			}
+			else {
+				this.next.add(idx - 1, e);
+			}
+		}
+		/**
+		 * public pair to LinkedListRecursive.add(E e) 
+		 * If this node is the last node, next is set to a new ListNode with e as it's data and null as next
+		 * If this node is not the last node, the next node calls add for itself.
+		 * @param e the data to be added to the list
+		 * @return boolean true if successfully added.
+		 */
+		public boolean add(E e) {
+			
+			if (next == null) {
+				next = new ListNode(e, null);
+				return true;
+			}
+			else {
+				return next.add(e);
+			}
 		}
 
 		public E get(int idx) {
