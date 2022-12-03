@@ -53,16 +53,16 @@ Lab 10:
 - Task: javadoc Generate javadoc --> Owner: Allie Due: 11/28 Status: Complete
   
  Lab 11:
-- Task: test LinkedListRecursive --> Owner: None Due: 12/3 Status: Pending
-- Task: Create FacultySchedule --> Owner: None Due: 12/3 Status: Pending
-- Task: Create FacultyScheduleTest --> Owner: None Due: 12/3 Status: Pending
-- Task: Create FacultySchedule --> Owner: None Due: 12/3 Status: Pending
-- Task: Test FacultySchedule --> Owner: None Due: 12/3 Status: Pending
-- Task: Add FacultySchedule state --> Owner: None Due: 12/3 Status: Pending
-- Task: Add Faculty.getSchedule method --> Owner: None Due: 12/3 Status: Pending
-- Task: Add Faculty.isOverloaded method --> Owner: None Due: 12/3 Status: Pending
-- Task: Test the new functionality --> Owner: None Due: 12/3 Status: Pending
-- Task: Javadoc new stuff --> Owner: None Due: 12/3 Status: Pending
+- Task: test LinkedListRecursive --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Create FacultySchedule --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Create FacultyScheduleTest --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Create FacultySchedule --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Test FacultySchedule --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Add FacultySchedule state --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Add Faculty.getSchedule method --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Add Faculty.isOverloaded method --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Test the new functionality --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Javadoc new stuff --> Owner: Austin Due: 12/3 Status: Finished
 - Task: update CourseRecordIO.readCourse --> Owner: None Due: 12/3 Status: Pending
 - Task: test new functionality --> Owner: None Due: 12/3 Status: Pending
 - Task: javadoc new stuff --> Owner: None Due: 12/3 Status: Pending

@@ -5,6 +5,8 @@ package edu.ncsu.csc216.pack_scheduler.user;
 
 import java.util.Objects;
 
+import edu.ncsu.csc216.pack_scheduler.user.schedule.FacultySchedule;
+
 /**
  * Creates Faculty objects, a type of User.
  * Adds private field maxCourses and MAX_COURSES and MIN_COURSES constants for 
@@ -20,6 +22,8 @@ public class Faculty extends User {
 	public static final int MAX_COURSES = 3;
 	/** The minimum courses a faculty can have */
 	public static final int MIN_COURSES = 1;
+	/** The faculty member's schedule */
+	private FacultySchedule schedule;
 	
 	/**
 	 * Constructs Faculty object and sets it's instance fields
@@ -34,6 +38,7 @@ public class Faculty extends User {
 			int maxCourses) {
 		super(firstName, lastName, id, email, hashPW);
 		setMaxCourses(maxCourses);
+		schedule = new FacultySchedule(id);
 	}
 	
 	/**
@@ -42,6 +47,22 @@ public class Faculty extends User {
 	 */
 	public int getMaxCourses() {
 		return maxCourses;
+	}
+
+	/**
+	 * This method returns the faculty member's schedule
+	 * @return the schedule
+	 */
+	public FacultySchedule getSchedule() {
+		return schedule;
+	}
+	
+	/**
+	 * This method returns true if the faculty member has more courses than they can handle
+	 * @return true if faculty member has too many courses
+	 */
+	public boolean isOverloaded() {
+		return schedule.getNumScheduledCourses() > maxCourses;
 	}
 
 	/**
