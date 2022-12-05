@@ -65,8 +65,9 @@ public class RegistrationManager {
 		if (currentUser != null && currentUser.equals(registrar)) {
 			faculty.getSchedule().addCourseToSchedule(course);
 			return true;
+		} else {
+			throw new IllegalArgumentException();
 		}
-		return false;
 	}
 	
 	/**
