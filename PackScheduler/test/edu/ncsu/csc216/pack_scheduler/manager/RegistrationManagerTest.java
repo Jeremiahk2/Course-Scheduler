@@ -367,18 +367,14 @@ public class RegistrationManagerTest {
 		Course c1 = new Course("ABC123", "title", "001", 4, null, 100, "MWF", 1200, 1300);
 		Faculty f1 = new Faculty("Nancy", "Wheeler", "nwheeler", "nwheeler@ncsu.edu", "pw", 2);
 		
-//		// registrar not logged in 
-//		assertFalse(manager.addFacultyToCourse(c1, f1));
+		// registrar not logged in 
+		assertThrows(IllegalArgumentException.class, () -> manager.addFacultyToCourse(c1, f1));
 
 		manager.login(registrarUsername, registrarPassword);
 		
 		assertTrue(manager.addFacultyToCourse(c1, f1));
 		assertEquals("nwheeler", c1.getInstructorId());
 		assertEquals(1, f1.getSchedule().getScheduledCourses().length);
-		
-		// reset the schedule
-		manager.resetFacultySchedule(f1);
-		assertEquals(0, f1.getSchedule().getScheduledCourses().length);
 	}
 	
 	/**
@@ -391,13 +387,34 @@ public class RegistrationManagerTest {
 		Faculty f1 = new Faculty("Nancy", "Wheeler", "nwheeler", "nwheeler@ncsu.edu", "pw", 2);
 		
 		// registrar not logged in 
-		assertFalse(manager.removeFacultyFromCourse(c1, f1));
+		assertThrows(IllegalArgumentException.class, () -> manager.removeFacultyFromCourse(c1, f1));
 
 		manager.login(registrarUsername, registrarPassword);
 		
 		manager.addFacultyToCourse(c1, f1);
 		assertTrue(manager.removeFacultyFromCourse(c1, f1));
 		assertEquals(null, c1.getInstructorId());
+	}
+	
+	/**
+	 * Tests RegistrationManager.resetFacultySchedule()
+	 */
+	@Test 
+	public void testResetFacultySchedule() {
+		Course c1 = new Course("ABC123", "title", "001", 4, null, 100, "MWF", 1200, 1300);
+		Faculty f1 = new Faculty("Nancy", "Wheeler", "nwheeler", "nwheeler@ncsu.edu", "pw", 2);
+		
+		// registrar not logged in 
+		assertThrows(IllegalArgumentException.class, () -> manager.resetFacultySchedule(f1));
+
+		manager.login(registrarUsername, registrarPassword);
+		
+		manager.addFacultyToCourse(c1, f1);
+		
+		// reset the schedule
+		manager.resetFacultySchedule(f1);
+		assertEquals(0, f1.getSchedule().getScheduledCourses().length);
+		
 	}
 	
 	/**

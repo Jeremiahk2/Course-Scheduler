@@ -81,8 +81,9 @@ public class RegistrationManager {
 		if (currentUser != null && currentUser.equals(registrar)) {
 			faculty.getSchedule().removeCourseFromSchedule(course);
 			return true;
+		} else {
+			throw new IllegalArgumentException();
 		}
-		return false;
 	}
 	
 	/**
@@ -93,6 +94,8 @@ public class RegistrationManager {
 	public void resetFacultySchedule(Faculty faculty) {
 		if (currentUser != null && currentUser.equals(registrar)) {
 			faculty.getSchedule().resetSchedule();
+		} else {
+			throw new IllegalArgumentException();
 		}
 	}
 	/**
