@@ -55,6 +55,46 @@ public class RegistrationManager {
 	}
 
 	/**
+	 * adds the faculty to the given course
+	 * @param course the course to be added to the faculty's schedule
+	 * @param faculty the faculty that will be teaching the course
+	 * @return true, if successfully added the course to the faculty's schedule, false if not.
+	 * @throws IllegalArgumentException if the faculty could not be added to the course
+	 */
+	public boolean addFacultyToCourse(Course course, Faculty faculty) {
+		if (currentUser != null && currentUser.equals(registrar)) {
+			faculty.getSchedule().addCourseToSchedule(course);
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * removes the faculty from the given course
+	 * @param course the course to be removed
+	 * @param faculty the faculty with which the course will be removed from
+	 * @return true if successfully removed, false if not
+	 * @throws IllegalArgumentException if the course could not be removed from the faculty
+	 */
+	public boolean removeFacultyFromCourse(Course course, Faculty faculty) {
+		if (currentUser != null && currentUser.equals(registrar)) {
+			faculty.getSchedule().removeCourseFromSchedule(course);
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * resets the given faculty member's schedule
+	 * @param faculty the faculty member whose schedule will be reset
+	 * @throws IllegalArgumentException if the faculty's schedule could not be reset
+	 */
+	public void resetFacultySchedule(Faculty faculty) {
+		if (currentUser != null && currentUser.equals(registrar)) {
+			faculty.getSchedule().resetSchedule();
+		}
+	}
+	/**
 	 * creates a new Registrar user using information from PROP_FILE
 	 */
 	private void createRegistrar() {

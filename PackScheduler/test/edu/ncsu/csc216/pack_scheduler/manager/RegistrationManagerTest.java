@@ -68,7 +68,6 @@ public class RegistrationManagerTest {
 	public void testGetStudentDirectory() {
 		assertTrue(manager.getStudentDirectory() instanceof StudentDirectory);
 	}
-
 	/**
 	 * tests the login method
 	 */
@@ -150,7 +149,6 @@ public class RegistrationManagerTest {
 		//tests when no one is logged in
 		assertEquals(null, manager.getCurrentUser());
 	}
-	
 	/**
 	 * Tests RegistrationManager.enrollStudentInCourse()
 	 */
