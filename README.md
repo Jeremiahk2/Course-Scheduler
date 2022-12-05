@@ -63,12 +63,12 @@ Lab 10:
 - Task: Add Faculty.isOverloaded method --> Owner: Austin Due: 12/3 Status: Finished
 - Task: Test the new functionality --> Owner: Austin Due: 12/3 Status: Finished
 - Task: Javadoc new stuff --> Owner: Austin Due: 12/3 Status: Finished
-- Task: update CourseRecordIO.readCourse --> Owner: None Due: 12/3 Status: Pending
-- Task: test new functionality --> Owner: None Due: 12/3 Status: Pending
-- Task: javadoc new stuff --> Owner: None Due: 12/3 Status: Pending
-- Task: Implement RegistrationManager.addFacultyToCourse --> Owner: None Due: 12/3 Status: Pending
-- Task: Implement RegistrationManager.removeFacultyFromCourse --> Owner: None Due: 12/3 Status: Pending
-- Task: Implement RegistrationManager.resetFacultySchedule --> Owner: None Due: 12/3 Status: Pending
+- Task: update CourseRecordIO.readCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: test new functionality --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: javadoc new stuff --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: Implement RegistrationManager.addFacultyToCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: Implement RegistrationManager.removeFacultyFromCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: Implement RegistrationManager.resetFacultySchedule --> Owner: Jeremiah Due: 12/3 Status: Finished
 - Task: update RegistrationManagerTest --> Owner: None Due: 12/3 Status: Pending
 - Task: Update GUI --> Owner: None Due: 12/3 Status: Pending
 - Task: Ensure coverage --> Owner: None Due: 12/3 Status: Pending
