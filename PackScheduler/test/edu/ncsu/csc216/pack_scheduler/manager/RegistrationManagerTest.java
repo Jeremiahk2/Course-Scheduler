@@ -11,7 +11,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.pack_scheduler.catalog.CourseCatalog;
+import edu.ncsu.csc216.pack_scheduler.course.Course;
 import edu.ncsu.csc216.pack_scheduler.directory.StudentDirectory;
+import edu.ncsu.csc216.pack_scheduler.user.Faculty;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 import edu.ncsu.csc216.pack_scheduler.user.schedule.Schedule;
 
@@ -354,6 +356,48 @@ public class RegistrationManagerTest {
 		assertEquals(0, scheduleHicksArray.length, "User: ahicks\nCourse: CSC216-001, CSC226-001, CSC116-003, removed CSC226-001, CSC216-001, CSC116-003\n");
 		
 		manager.logout();
+	}
+	
+	/**
+	 * Tests RegistrationManager.addFacultyToCourse()
+	 */
+	@Test
+	public void testAddFacultyToCourse() {
+
+		Course c1 = new Course("ABC123", "title", "001", 4, null, 100, "MWF", 1200, 1300);
+		Faculty f1 = new Faculty("Nancy", "Wheeler", "nwheeler", "nwheeler@ncsu.edu", "pw", 2);
+		
+		// registrar not logged in 
+		assertFalse(manager.addFacultyToCourse(c1, f1));
+
+		manager.login(registrarUsername, registrarPassword);
+		
+		assertTrue(manager.addFacultyToCourse(c1, f1));
+		assertEquals("nwheeler", c1.getInstructorId());
+		assertEquals(1, f1.getSchedule().getScheduledCourses().length);
+		
+		// reset the schedule
+		manager.resetFacultySchedule(f1);
+		assertEquals(0, f1.getSchedule().getScheduledCourses().length);
+	}
+	
+	/**
+	 * Tests RegistrationManager.removeFacultyFromCourse()
+	 */
+	@Test
+	public void testRemoveFacultyFromCourse() {
+		
+		Course c1 = new Course("ABC123", "title", "001", 4, null, 100, "MWF", 1200, 1300);
+		Faculty f1 = new Faculty("Nancy", "Wheeler", "nwheeler", "nwheeler@ncsu.edu", "pw", 2);
+		
+		// registrar not logged in 
+		assertFalse(manager.removeFacultyFromCourse(c1, f1));
+
+		manager.login(registrarUsername, registrarPassword);
+		
+		manager.addFacultyToCourse(c1, f1);
+		assertTrue(manager.removeFacultyFromCourse(c1, f1));
+		assertEquals(null, c1.getInstructorId());
 	}
 	
 	/**

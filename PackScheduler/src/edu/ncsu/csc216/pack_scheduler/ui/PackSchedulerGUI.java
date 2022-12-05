@@ -236,12 +236,16 @@ public class PackSchedulerGUI {
 		private static final String FACULTY_DIRECTORY_PANEL = "FacultyDirectoryPanel";
 		/** Constant to identify CourseCatalog */
 		private static final String COURSE_CATALOG_PANEL = "CourseCatalogPanel";
+		/** Constant to identify InstructorAssignmentPanel */
+		private static final String INSTRUCTOR_ASSIGNMENT_PANEL = "InstructorAssignmentPanel";
 		/** StudentDirectoryPanel */
 		private StudentDirectoryPanel pnlStudentDirectory;
 		/** FacultyDirectoryPanel */
 		private FacultyDirectoryPanel pnlFacultyDirectory;
 		/** CourseCatalogPanel */
 		private CourseCatalogPanel pnlCatalog;
+		/** InstructorAssignmentPanel */
+		private InstructorAssignmentPanel pnlInstructorAssignment;
 		/** CardLayout for the RegistrarPanel */
 		private CardLayout rCardLayout;
 		/** Panel for the RegistrarPanel */
@@ -252,6 +256,8 @@ public class PackSchedulerGUI {
 		private JButton btnFacultyDirectory;
 		/** Button for the CourseCatalog functionality */
 		private JButton btnCourseCatalog;
+		/** Button for InstructorAssignment functionality */
+		private JButton btnInstructorAssignment;
 		/** Button to logout */
 		private JButton btnLogout;
 		
@@ -266,11 +272,14 @@ public class PackSchedulerGUI {
 			btnFacultyDirectory.addActionListener(this);
 			btnCourseCatalog = new JButton("Course Catalog");
 			btnCourseCatalog.addActionListener(this);
+			btnInstructorAssignment = new JButton("Faculty Assignment");
+			btnInstructorAssignment.addActionListener(this);
 			btnLogout = new JButton("Logout");
 			btnLogout.addActionListener(this);
 			pnlButtons.add(btnStudentDirectory);
 			pnlButtons.add(btnFacultyDirectory);
 			pnlButtons.add(btnCourseCatalog);
+			pnlButtons.add(btnInstructorAssignment);
 			pnlButtons.add(btnLogout);
 			
 			rPanel = new JPanel();
@@ -279,9 +288,11 @@ public class PackSchedulerGUI {
 			pnlStudentDirectory = new StudentDirectoryPanel();
 			pnlFacultyDirectory = new FacultyDirectoryPanel();
 			pnlCatalog = new CourseCatalogPanel();
+			pnlInstructorAssignment = new InstructorAssignmentPanel();
 			rPanel.add(pnlStudentDirectory, STUDENT_DIRECTORY_PANEL);
 			rPanel.add(pnlFacultyDirectory, FACULTY_DIRECTORY_PANEL);
 			rPanel.add(pnlCatalog, COURSE_CATALOG_PANEL);
+			rPanel.add(pnlInstructorAssignment, INSTRUCTOR_ASSIGNMENT_PANEL);
 			rCardLayout.show(rPanel, STUDENT_DIRECTORY_PANEL);
 			
 //			scrollRPanel = new JScrollPane(rPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -317,6 +328,9 @@ public class PackSchedulerGUI {
 				rCardLayout.show(rPanel, FACULTY_DIRECTORY_PANEL);
 			} else if (e.getSource() == btnCourseCatalog) {
 				rCardLayout.show(rPanel, COURSE_CATALOG_PANEL);
+			} else if (e.getSource() == btnInstructorAssignment) {
+				rCardLayout.show(rPanel, INSTRUCTOR_ASSIGNMENT_PANEL);
+				pnlInstructorAssignment.updateTables();
 			} else if (e.getSource() == btnLogout) {
 				RegistrationManager.getInstance().logout();
 				cardLayout.show(panel, LOGIN_PANEL);
@@ -326,8 +340,8 @@ public class PackSchedulerGUI {
 	}
 	
 	/**
-	 * Creates a panel for students to register for classes.
-	 * @author Sarah Heckman
+	 * Creates a panel for student registration.
+	 * @author SarahHeckman
 	 */
 	private class StudentPanel extends JPanel implements ActionListener {
 

@@ -69,7 +69,7 @@ Lab 10:
 - Task: Implement RegistrationManager.addFacultyToCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
 - Task: Implement RegistrationManager.removeFacultyFromCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
 - Task: Implement RegistrationManager.resetFacultySchedule --> Owner: Jeremiah Due: 12/3 Status: Finished
-- Task: update RegistrationManagerTest --> Owner: None Due: 12/3 Status: Pending
+- Task: update RegistrationManagerTest --> Owner: Allie Due: 12/3 Status: Finished
 - Task: Update GUI --> Owner: None Due: 12/3 Status: Pending
 - Task: Ensure coverage --> Owner: None Due: 12/3 Status: Pending
 - Task: System test --> Owner: None Due: 12/3 Status: Pending
