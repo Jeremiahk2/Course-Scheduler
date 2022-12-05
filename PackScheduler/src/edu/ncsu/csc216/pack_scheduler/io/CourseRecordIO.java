@@ -9,6 +9,10 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import edu.ncsu.csc216.pack_scheduler.course.Course;
+import edu.ncsu.csc216.pack_scheduler.directory.FacultyDirectory;
+import edu.ncsu.csc216.pack_scheduler.manager.RegistrationManager;
+import edu.ncsu.csc216.pack_scheduler.user.Faculty;
+import edu.ncsu.csc216.pack_scheduler.user.schedule.FacultySchedule;
 import edu.ncsu.csc217.collections.list.SortedList;
 
 /**
@@ -68,6 +72,7 @@ public class CourseRecordIO {
 	            }
 	            //If the course is NOT a duplicate
 	            if (!duplicate) {
+	            	
 	                courses.add(course); //Add to the ArrayList!
 	            } //Otherwise ignore
 	        } catch (IllegalArgumentException e) {
@@ -106,7 +111,12 @@ public class CourseRecordIO {
 				}
 				else {
 					in.close();
-					return new Course(name, title, section, credits, instructorId, enrollmentCap, meetingDays);
+					Course course = new Course(name, title, section, credits, null, enrollmentCap, meetingDays);
+					Faculty faculty = RegistrationManager.getInstance().getFacultyDirectory().getFacultyById(instructorId);
+					if (faculty != null) {
+						faculty.getSchedule().addCourseToSchedule(course);
+					}
+					return course;
 				}
 			}
 			else {
@@ -119,7 +129,12 @@ public class CourseRecordIO {
 				}
 				else {
 					in.close();
-					return new Course(name, title, section, credits, instructorId, enrollmentCap, meetingDays, startTime, endTime);
+					Course course = new Course(name, title, section, credits, null, enrollmentCap, meetingDays, startTime, endTime);
+					Faculty faculty = RegistrationManager.getInstance().getFacultyDirectory().getFacultyById(instructorId);
+					if (faculty != null) {
+						faculty.getSchedule().addCourseToSchedule(course);
+					}
+					return course;
 				}
 			}
 		} catch (NoSuchElementException e) {
