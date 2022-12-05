@@ -113,10 +113,10 @@ public class LinkedListRecursive<E> {
 	 * @return true if the element was successfully removed
 	 */
 	public boolean remove(E e) {
-		if (e == null) {
-			throw new NullPointerException();
-		} else if (isEmpty()) {
+		if (isEmpty()) {
 			return false;
+		} else if (e == null) {
+			throw new NullPointerException();
 		} else if (front.data.equals(e)) {
 			front = front.next;
 			size--;
