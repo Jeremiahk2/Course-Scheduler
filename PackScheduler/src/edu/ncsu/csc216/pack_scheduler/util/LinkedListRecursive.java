@@ -119,6 +119,7 @@ public class LinkedListRecursive<E> {
 			return false;
 		} else if (front.data.equals(e)) {
 			front = front.next;
+			size--;
 			return true;
 		} else {
 			return front.remove(e);
@@ -262,6 +263,7 @@ public class LinkedListRecursive<E> {
 				return false;
 			} else if(next.data.equals(e)) {
 				this.next = this.next.next;
+				size--;
 				return true;
 			}
 				

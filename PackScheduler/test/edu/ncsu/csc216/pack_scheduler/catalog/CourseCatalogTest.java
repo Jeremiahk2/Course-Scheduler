@@ -111,9 +111,12 @@ public class CourseCatalogTest {
 		Course course1 = new Course("CSC116", "Intro to Programming - Java", "003", 3, "spbalik", 10, "MW", 1250, 1440);
 		Course course2 = new Course("CSC216", "Software Development Fundamentals", "001", 3, "sesmith5", 10, "MW", 1330, 1445);
 		Course course3 = new Course("CSC216", "Software Development Fundamentals", "601", 3, "jctetter", 10, "A", 0, 0);
-		assertTrue(course1.equals(catalog.getCourseFromCatalog("CSC116", "003")));
-		assertTrue(course2.equals(catalog.getCourseFromCatalog("CSC216", "001")));
-		assertTrue(course3.equals(catalog.getCourseFromCatalog("CSC216", "601")));
+		assertTrue(course1.getName().equals(catalog.getCourseFromCatalog("CSC116", "003").getName()));
+		assertTrue(course1.getSection().equals(catalog.getCourseFromCatalog("CSC116", "003").getSection()));
+		assertTrue(course2.getName().equals(catalog.getCourseFromCatalog("CSC216", "001").getName()));
+		assertTrue(course2.getSection().equals(catalog.getCourseFromCatalog("CSC216", "001").getSection()));
+		assertTrue(course3.getName().equals(catalog.getCourseFromCatalog("CSC216", "601").getName()));
+		assertTrue(course3.getSection().equals(catalog.getCourseFromCatalog("CSC216", "601").getSection()));
 
 
 	}
