@@ -116,7 +116,7 @@ public class LinkedListRecursive<E> {
 		if (isEmpty()) {
 			return false;
 		} else if (e == null) {
-			throw new NullPointerException();
+			return false;
 		} else if (front.data.equals(e)) {
 			front = front.next;
 			size--;
