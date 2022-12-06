@@ -110,7 +110,7 @@ public class LinkedListRecursive<E> {
 	/**
 	 * This method removes a given element from the list if it can
 	 * @param e the element being removed from the list
-	 * @return true if the element was successfully removed test line
+	 * @return true if the element was successfully removed
 	 */
 	public boolean remove(E e) {
 		if (isEmpty()) {
