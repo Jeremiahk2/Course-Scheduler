@@ -73,5 +73,5 @@ Lab 10:
 - Task: Update GUI --> Owner: Allie Due: 12/3 Status: Finished
 - Task: Ensure coverage --> Owner: Allie Due: 12/3 Status: Finished
 - Task: System test --> Owner: Allie Due: 12/3 Status: Finished
-- Task: Generate javadoc --> Owner: None Due: 12/3 Status: Pending
+- Task: Generate javadoc --> Owner: Allie Due: 12/3 Status: Finished 
  
