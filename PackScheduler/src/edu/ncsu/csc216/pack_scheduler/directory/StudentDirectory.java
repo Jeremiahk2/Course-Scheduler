@@ -7,12 +7,15 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import edu.ncsu.csc216.pack_scheduler.io.StudentRecordIO;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
+import edu.ncsu.csc216.pack_scheduler.user.User;
 import edu.ncsu.csc217.collections.list.SortedList;
 
 /**
  * Maintains a directory of all students enrolled at NC State.
  * All students have a unique id.
  * @author Sarah Heckman
+ * @author Jerry Knizley
+ * @author Spencer Grattan
  */
 public class StudentDirectory {
 	
@@ -91,7 +94,7 @@ public class StudentDirectory {
 		}
 		
 		for (int i = 0; i < studentDirectory.size(); i++) {
-			Student s = studentDirectory.get(i);
+			User s = studentDirectory.get(i);
 			if (s.getId().equals(student.getId())) {
 				return false;
 			}
@@ -125,7 +128,7 @@ public class StudentDirectory {
 	 */
 	public boolean removeStudent(String studentId) {
 		for (int i = 0; i < studentDirectory.size(); i++) {
-			Student s = studentDirectory.get(i);
+			User s = studentDirectory.get(i);
 			if (s.getId().equals(studentId)) {
 				studentDirectory.remove(i);
 				return true;
@@ -141,7 +144,7 @@ public class StudentDirectory {
 	public String[][] getStudentDirectory() {
 		String [][] directory = new String[studentDirectory.size()][3];
 		for (int i = 0; i < studentDirectory.size(); i++) {
-			Student s = studentDirectory.get(i);
+			User s = studentDirectory.get(i);
 			directory[i][0] = s.getFirstName();
 			directory[i][1] = s.getLastName();
 			directory[i][2] = s.getId();
@@ -160,6 +163,22 @@ public class StudentDirectory {
 		} catch (IOException e) {
 			throw new IllegalArgumentException("Unable to write to file " + fileName);
 		}
+	}
+	
+	/**
+	 * Parses the studentDirectory for a student with the specified ID, returning said student
+	 * @param id							the id of the desired student
+	 * @return Student						the student with the matching ID
+	 * @throws IllegalArgumentException 	if the id was not found
+	 */
+	public Student getStudentById(String id) {
+		for (int i = 0; i < studentDirectory.size(); i++) {
+			if (studentDirectory.get(i).getId().equals(id)) {
+				return studentDirectory.get(i);
+			}
+		}
+		
+		return null;
 	}
 
 }
