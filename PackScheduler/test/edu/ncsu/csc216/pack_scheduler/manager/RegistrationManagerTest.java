@@ -11,7 +11,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.pack_scheduler.catalog.CourseCatalog;
+import edu.ncsu.csc216.pack_scheduler.course.Course;
 import edu.ncsu.csc216.pack_scheduler.directory.StudentDirectory;
+import edu.ncsu.csc216.pack_scheduler.user.Faculty;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 import edu.ncsu.csc216.pack_scheduler.user.schedule.Schedule;
 
@@ -68,7 +70,6 @@ public class RegistrationManagerTest {
 	public void testGetStudentDirectory() {
 		assertTrue(manager.getStudentDirectory() instanceof StudentDirectory);
 	}
-
 	/**
 	 * tests the login method
 	 */
@@ -111,8 +112,17 @@ public class RegistrationManagerTest {
 				() -> manager.login("bad_id", "bad_password"));
 		assertEquals("User doesn't exist.", e1.getMessage());
 		
+		
+		manager.getFacultyDirectory().addFaculty("Haley", "Grass", "hgrass", "hgrass@ncsu.edu", "pw", "pw", 2);
+		
+		assertTrue(manager.login("hgrass", "pw"));
+
 		//test for a case where the student id is valid but password is invalid
 		assertFalse(manager.login("goomba", "bad_password"));
+		assertEquals("hgrass", manager.getCurrentUser().getId());
+		assertEquals("Haley", manager.getCurrentUser().getFirstName());
+		assertEquals("Grass", manager.getCurrentUser().getLastName());
+		assertEquals("hgrass@ncsu.edu", manager.getCurrentUser().getEmail());
 	}
 
 	/**
@@ -141,7 +151,6 @@ public class RegistrationManagerTest {
 		//tests when no one is logged in
 		assertEquals(null, manager.getCurrentUser());
 	}
-	
 	/**
 	 * Tests RegistrationManager.enrollStudentInCourse()
 	 */
@@ -347,6 +356,65 @@ public class RegistrationManagerTest {
 		assertEquals(0, scheduleHicksArray.length, "User: ahicks\nCourse: CSC216-001, CSC226-001, CSC116-003, removed CSC226-001, CSC216-001, CSC116-003\n");
 		
 		manager.logout();
+	}
+	
+	/**
+	 * Tests RegistrationManager.addFacultyToCourse()
+	 */
+	@Test
+	public void testAddFacultyToCourse() {
+
+		Course c1 = new Course("ABC123", "title", "001", 4, null, 100, "MWF", 1200, 1300);
+		Faculty f1 = new Faculty("Nancy", "Wheeler", "nwheeler", "nwheeler@ncsu.edu", "pw", 2);
+		
+		// registrar not logged in 
+		assertThrows(IllegalArgumentException.class, () -> manager.addFacultyToCourse(c1, f1));
+
+		manager.login(registrarUsername, registrarPassword);
+		
+		assertTrue(manager.addFacultyToCourse(c1, f1));
+		assertEquals("nwheeler", c1.getInstructorId());
+		assertEquals(1, f1.getSchedule().getScheduledCourses().length);
+	}
+	
+	/**
+	 * Tests RegistrationManager.removeFacultyFromCourse()
+	 */
+	@Test
+	public void testRemoveFacultyFromCourse() {
+		
+		Course c1 = new Course("ABC123", "title", "001", 4, null, 100, "MWF", 1200, 1300);
+		Faculty f1 = new Faculty("Nancy", "Wheeler", "nwheeler", "nwheeler@ncsu.edu", "pw", 2);
+		
+		// registrar not logged in 
+		assertThrows(IllegalArgumentException.class, () -> manager.removeFacultyFromCourse(c1, f1));
+
+		manager.login(registrarUsername, registrarPassword);
+		
+		manager.addFacultyToCourse(c1, f1);
+		assertTrue(manager.removeFacultyFromCourse(c1, f1));
+		assertEquals(null, c1.getInstructorId());
+	}
+	
+	/**
+	 * Tests RegistrationManager.resetFacultySchedule()
+	 */
+	@Test 
+	public void testResetFacultySchedule() {
+		Course c1 = new Course("ABC123", "title", "001", 4, null, 100, "MWF", 1200, 1300);
+		Faculty f1 = new Faculty("Nancy", "Wheeler", "nwheeler", "nwheeler@ncsu.edu", "pw", 2);
+		
+		// registrar not logged in 
+		assertThrows(IllegalArgumentException.class, () -> manager.resetFacultySchedule(f1));
+
+		manager.login(registrarUsername, registrarPassword);
+		
+		manager.addFacultyToCourse(c1, f1);
+		
+		// reset the schedule
+		manager.resetFacultySchedule(f1);
+		assertEquals(0, f1.getSchedule().getScheduledCourses().length);
+		
 	}
 	
 	/**

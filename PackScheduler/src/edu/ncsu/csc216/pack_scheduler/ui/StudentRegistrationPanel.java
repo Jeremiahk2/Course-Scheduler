@@ -82,6 +82,8 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 	private JLabel lblEnrollmentCapTitle = new JLabel("Enrollment Cap: ");
 	/** Label for Course Details open seats title */
 	private JLabel lblOpenSeatsTitle = new JLabel("Open Seats: ");
+	/** Label for Course Details waitlist title */
+	private JLabel lblWaitlistTitle = new JLabel("Number on Waitlist: ");
 	/** Label for Course Details name */
 	private JLabel lblName = new JLabel("");
 	/** Label for Course Details section */
@@ -98,6 +100,8 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 	private JLabel lblEnrollmentCap = new JLabel("");
 	/** Label for Course Details open seats */
 	private JLabel lblOpenSeats = new JLabel("");
+	/** Label for waitlist seats */
+	private JLabel lblWaitlist = new JLabel("");
 	/** Current user */
 	private Student currentUser;
 	/** Course catalog */
@@ -212,7 +216,7 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 		
 		//Set up the course details panel
 		pnlCourseDetails = new JPanel();
-		pnlCourseDetails.setLayout(new GridLayout(5, 1));
+		pnlCourseDetails.setLayout(new GridLayout(6, 1));
 		JPanel pnlName = new JPanel(new GridLayout(1, 4));
 		pnlName.add(lblNameTitle);
 		pnlName.add(lblName);
@@ -239,11 +243,16 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 		pnlEnrollment.add(lblOpenSeatsTitle);
 		pnlEnrollment.add(lblOpenSeats);
 		
+		JPanel pnlWaitlist = new JPanel(new GridLayout(1, 2));
+		pnlWaitlist.add(lblWaitlistTitle);
+		pnlWaitlist.add(lblWaitlist);
+		
 		pnlCourseDetails.add(pnlName);
 		pnlCourseDetails.add(pnlTitle);
 		pnlCourseDetails.add(pnlInstructor);
 		pnlCourseDetails.add(pnlMeeting);
 		pnlCourseDetails.add(pnlEnrollment);
+		pnlCourseDetails.add(pnlWaitlist);
 		
 		TitledBorder borderCourseDetails = BorderFactory.createTitledBorder(lowerEtched, "Course Details");
 		pnlCourseDetails.setBorder(borderCourseDetails);
@@ -299,7 +308,9 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 			} else {
 				try {
 					if (!RegistrationManager.getInstance().enrollStudentInCourse(catalog.getCourseFromCatalog(tableCatalog.getValueAt(row, 0).toString(), tableCatalog.getValueAt(row, 1).toString()))) {
-						JOptionPane.showMessageDialog(this, "Course doesn't exist.");
+						JOptionPane.showMessageDialog(this, "Course cannot be added to schedule.");
+					} else {
+						updateCourseDetails(catalog.getCourseFromCatalog(tableCatalog.getValueAt(row, 0).toString(), tableCatalog.getValueAt(row, 1).toString()));
 					}
 				} catch (IllegalArgumentException iae) {
 					JOptionPane.showMessageDialog(this, iae.getMessage());
@@ -313,6 +324,8 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 			} else {
 				if (!RegistrationManager.getInstance().dropStudentFromCourse(catalog.getCourseFromCatalog(tableSchedule.getValueAt(row, 0).toString(), tableSchedule.getValueAt(row, 1).toString()))) {
 					JOptionPane.showMessageDialog(this, "Cannot drop student from " + tableSchedule.getValueAt(row, 0).toString());
+				} else {
+					updateCourseDetails(catalog.getCourseFromCatalog(tableCatalog.getValueAt(row, 0).toString(), tableCatalog.getValueAt(row, 1).toString()));
 				}
 			}
 			updateTables();
@@ -327,6 +340,7 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 			}
 			borderSchedule.setTitle(schedule.getTitle());
 		}
+		
 		
 		this.repaint();
 		this.validate();
@@ -343,7 +357,7 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 	/**
 	 * Updates the pnlCourseDetails with full information about the most
 	 * recently selected course.
-	 * @param c Course to update the details section with
+	 * @param c Course that is selected
 	 */
 	private void updateCourseDetails(Course c) {
 		if (c != null) {
@@ -355,6 +369,17 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 			lblMeeting.setText(c.getMeetingString());
 			lblEnrollmentCap.setText("" + c.getCourseRoll().getEnrollmentCap());
 			lblOpenSeats.setText("" + c.getCourseRoll().getOpenSeats());
+			lblWaitlist.setText("" + c.getCourseRoll().getNumberOnWaitlist());
+		} else {
+			lblName.setText("");
+			lblSection.setText("");
+			lblTitle.setText("");
+			lblInstructor.setText("");
+			lblCredits.setText("");
+			lblMeeting.setText("");
+			lblEnrollmentCap.setText("");
+			lblOpenSeats.setText("");
+			lblWaitlist.setText("");
 		}
 	}
 	
@@ -404,7 +429,7 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 		
 		/**
 		 * Returns the column name at the given index.
-		 * @param col column index
+		 * @param col index of the column for the name
 		 * @return the column name at the given column.
 		 */
 		public String getColumnName(int col) {
@@ -413,8 +438,8 @@ public class StudentRegistrationPanel  extends JPanel implements ActionListener 
 
 		/**
 		 * Returns the data at the given {row, col} index.
-		 * @param row row index
-		 * @param col column index
+		 * @param row index of row for data
+		 * @param col index of column for data
 		 * @return the data at the given location.
 		 */
 		public Object getValueAt(int row, int col) {

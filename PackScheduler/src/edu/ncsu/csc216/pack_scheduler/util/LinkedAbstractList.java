@@ -17,6 +17,8 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 
 	/** The front of the list */
 	private ListNode front;
+	/** the node at the back of the list */
+	private ListNode back;
 	/** the size of the list */
 	private int size;
 	/** the capacity of the list */
@@ -29,6 +31,7 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 	public LinkedAbstractList(int capacity) {
 		this.front = null;
 		this.size = 0;
+		this.back = null;
 		setCapacity(capacity);
 	}
 	
@@ -48,7 +51,11 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 			current = current.next;
 		}
 		//returns the object stored at the given index
-		return current.data;
+		try {
+			return current.data;
+		} catch (NullPointerException e) {
+			return null;
+		}
 	}
 
 	/**
@@ -85,10 +92,32 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 			}
 			duplicate = duplicate.next;
 		}
-		if (idx == 0) {
-			ListNode newFront = new ListNode(element, front);
-			front = newFront;
-			size++;
+		if (idx == size() || idx == 0) {
+			ListNode newBack = new ListNode(element, null);
+			//ListNode oldBack = back;
+			if (size () == 1 && idx == size()) {
+				front.next = newBack;
+			}
+			if (back != null && idx == size()) {
+				back.next = newBack;
+				back = back.next;
+			}
+			else if (back == null) {
+				back = newBack;
+			}
+			if (front != null && idx != 0) {
+				size++;
+			}
+			else if (idx == 0) { /*(idx == 0) { */
+				ListNode newFront = new ListNode(element, front);
+				//ListNode oldFront = front;
+				//newFront.next = oldFront;
+				front = newFront;
+				size++;
+			}
+			if (size() == 1) {
+				front = back;
+			}
 		}
 		else {
 			ListNode beforeValue = front;
@@ -101,7 +130,7 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 				size++;
 			}
 			else {
-				ListNode elementNode = new ListNode(element);
+				ListNode elementNode = new ListNode(element, null);
 				beforeValue.next = elementNode;
 				size++;
 			}
@@ -128,6 +157,9 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 			ListNode beforeValue = front;
 			for (int i = 0; i < idx - 1; i++) {
 				beforeValue = beforeValue.next;
+			}
+			if (idx == size() - 1) {
+				back = beforeValue;
 			}
 			data = beforeValue.next.data;
 			beforeValue.next = beforeValue.next.next;
@@ -220,15 +252,15 @@ public class LinkedAbstractList<E> extends AbstractList<E> {
 		/** The next node in the chain of nodes that make up the LinkedAbstractList */
 		private ListNode next;
 		
-		/**
-		 * Constructor for ListNode when adding a node to the end of the 
-		 * LinkedAbstractList
-		 * @param data the object being stored in the node
-		 */
-		public ListNode(E data) {
-			this.data = data;
-			this.next = null;
-		}
+//		/**
+//		 * Constructor for ListNode when adding a node to the end of the 
+//		 * LinkedAbstractList
+//		 * @param data the object being stored in the node
+//		 */
+//		public ListNode(E data) {
+//			this.data = data;
+//			this.next = null;
+//		}
 		
 		/**
 		 * Constructor for LintNode when specifying a specific node to be 

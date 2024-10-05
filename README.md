@@ -1,77 +1,77 @@
-# csc217-LR2-223-08
+# csc217-LR3-223-01
 
-Lab 5: 
-
-- Task: Make Registrar inner class --> Owner: Jerry   Due - Friday, October 14th   Status: Complete
-- Task: Configure Properties file --> Owner: Jerry    Due - Friday, October 14th   Status: Complete
-- Task: Configure git properties --> Owner: Jerry     Due - Friday, October 14th   Status: Complete
-- Task: Inspect RegistrationManager --> Owner: Jerry  Due - Friday, October 14th   Status: Complete
-- Task: Test RegistrationManager --> Owner: Spencer   Due - Friday, October 14th   Status: Complete
-- Task: Replace GUI --> Owner: Spencer                Due - Friday, October 14th   Status: Complete
-- Task: Run system tests --> Owner: Spencer           Due - Friday, October 14th   Status: Complete
-- Task: Generate Javadoc --> Owner: Spencer           Due - Friday, October 14th   Status: Complete
+Lab 9:
 
 
-Lab 6:
+- Task: Test ArrayStack --> Owner: Austin Due: 11/14 Status: Finished
+- Task: Test LinkedStack --> Owner: Austin  Due: 11/14 Status: Finished
+- Task: Implemenet ArrayQueue --> Owner: Jeremiah Due: 11/14 Status: Finished
+- Task: Implement LinkedQueue --> Owner: Jeremiah Due: 11/14 Status: Finished
+- Task: Test ArrayQueue --> Owner: Allie Due: 11/14 Status: Finished
+- Task: Test LinkedQueue --> Owner: Allie Due: 11/14 Status: Finished
+- Task: Analyze Runtime Efficiency --> Owner: Jeremiah  Due: 11/14 Status: Finished
+- Task: add back field --> Owner: Jeremiah Due: 11/14 Status: Finished
+- Task: update add(idx, element) --> Owner: Jeremiah Due: 11/14 Status: Finished
+- Task: update remove(idx) --> Owner: Jeremiah Due: 11/14 Status: Finished
+- Task: update size() --> Owner: N/A Due: 11/14 Status: Was done last week
+- Task: add waitlist field to courseRoll --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update Courseroll constructor --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update Courseroll.enroll --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update Courseroll.drop --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update CourseRoll.canEnroll --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Implement CourseRoll.getNumberOnWaitList --> Owner: Austin Due: 11/14 Status: Completed
+- Task: Update Tests and Ensure Coverage is met --> Owner: Allie Due: 11/14 Status: Completed
+- Task: Update GUI (if needed) --> Owner: Allie Due: 11/14 Status: Completed
+- Task: System testing for new functionality --> Owner: Allie Due: 11/14 Status: Completed
+- Task: Generate javadoc --> Owner: Allie Due: 11/14 Status: Completed
 
-- Task: Implement State Class --> Owner: Jerry                            Due - Saturday, October 22  Status: Complete
-- Task: Implement Concrete States --> Owner: Jerry                        Due - Saturday, October 22  Status: Complete
-	- Task: InitialState --> Owner: Jerry                                   Due - Saturday, October 22  Status: Complete
-	- Task: LetterState --> Owner: Jerry                                    Due - Saturday, October 22  Status: Complete
-	- Task: DigitState --> Owner: Jerry                                     Due - Saturday, October 22  Status: Complete
-	- Task: SuffixState --> Owner: Jerry                                    Due - Saturday, October 22  Status: Complete
-- Task: Implement CourseNameValidator (Context Class) --> Owner: Jerry    Due - Saturday, October 22  Status: Complete
-- Task: Test CourseNameValidator --> Owner: Spencer                       Due - Saturday, October 22  Status: Complete
-- Task: Integrate CourseNameValidator into Course --> Owner: Spencer      Due - Monday, October 24  Status: Complete
-- Task: Update unit tests in project --> Owner: Spencer                   Due - Monday, October 24  Status: Complete
-- Task: Ensure 80% statement coverage --> Owner: Spencer                  Due - Monday, October 24  Status: Complete
-- Task: Get new GUI --> Owner: Spencer                                    Due - Monday, October 24  Status: Complete
-- Task: System Testing and Debugging --> Owner: Spencer                   Due - Monday, October 24  Status: Complete
-- Task: Generate JavaDoc --> Owner: Spencer                               Due - Monday, October 24  Status: Complete
+Lab 10:
 
-
-Lab 7: 
-
-- Task: Implement and Test ArrayList.remove --> Owner: Jerry 				Due - Saturday, October 29  Status: Complete
-- Task: Implement and Test ArrayList.set --> Owner: Jerry 				Due - Saturday, October 29  Status: Complete
-- Task: Implement and Test ArrayList.get --> Owner: Jerry 				Due - Saturday, October 29  Status: Complete
-- Task: Create Schedule and ScheduleTest classes & packages --> Owner: Jerry		Due - Saturday, October 29  Status: Complete
-- Task: Implement Schedule state --> Owner: Spencer					Due - Monday, October 31  Status: Complete
-- Task: Test and Implement Schedule.Schedule --> Owner: Spencer				Due - Monday, October 31  Status: Complete
-- Task: Test and Implement Schedeule.addCourseToSchedule --> Owner: Spencer		Due - Monday, October 31  Status: Complete
-- Task: Test and Implement Schedule.removeCourseFromSchedule --> Owner: Spencer		Due - Monday, October 31  Status: Complete
-- Task: Test and Implement Schedule.resetSchedule --> Owner: Spencer			Due - Monday, October 31  Status: Complete
-- Task: Test and Implement Schedule.getScheduledCourses --> Owner: Spencer		Due - Monday, October 31  Status: Complete
-- Task: Test and Implement Schedule.setTitle --> Owner: Spencer				Due - Monday, October 31  Status: Complete
-- Task: Integrate Schedule into Student class --> Owner: Spencer			Due - Monday, October 31  Status: Complete
-- Task: Ensure quality test coverage --> Owner: Spencer					Due - Monday, October 31  Status: Complete
-- Task: Add new UI class --> Owner: Spencer						Due - Monday, October 31  Status: Complete
-- Task: System testing --> Owner: Spencer						Due - Monday, October 31  Status: Complete
-
-
-Lab 8: 
-
-- Task: Test LinkedAbstractList.add --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
-- Task: Test LinkedAbstractList.remove --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
-- Task: Test LinkedAbstractList.set --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
-- Task: Test LinkedAbstractList.get --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
-- Task: Test LinkedAbstractList.LinkedAbstractList --> Owner: Jerry			Due- Saturday Nov 5 Status: Complete
-- Task: Create CourseRoll package, class, and test class --> Owner: Jerry		Due- Saturday Nov 5 Status: Complete
-- Task: Implement CourseRoll State --> Owner: Jerry					Due- Saturday Nov 5 Status: Complete
-- Task: Test and Implement CourseRoll.CourseRoll --> Owner: Jerry			Due- Saturday Nov 5 Status: Complete
-- Task: Test and Implement CourseRoll.setEnrollmentCap --> Owner: Jerry			Due- Saturday Nov 5 Status: Complete
-- Task: Test and Implement CourseRoll.drop --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
-- Task: Test and Implement CourseRoll.canEnroll --> Owner: Spencer			Due- Monday Nov 7 Status: Complete
-- Task: Integrate CourseRoll into Course --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
-- Task: Update CourseRecordIO and CourseRecordIOTest --> Owner: Spencer			Due- Monday Nov 7 Status: Complete
-- Task: Update CoruseCatalog and CourseCatalogTest --> Owner: Spencer			Due- Monday Nov 7 Status: Complete
-- Task: Fix other compiler errors --> Owner: Spencer					Due- Monday Nov 7 Status: Complete
-- Task: Update Schedule and ScheduleTest --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
-- Task: Update Student class and StudentTest --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
-- Task: Update RegistrationManager and RegistrationManagerTest --> Owner: Spencer	Due- Monday Nov 7 Status: Complete
-- Task: Update GUI classes --> Owner: Spencer						Due- Monday Nov 7 Status: Complete
-- Task: Ensure all unit tests pass --> Owner: Spencer					Due- Monday Nov 7 Status: Complete
-- Task: Ensure 80% statement coverage --> Owner: Spencer				Due- Monday Nov 7 Status: Complete
-- Task: System Testing --> Owner: Spencer						Due- Monday Nov 7 Status: Complete
-- Task: Generate Javadoc --> Owner: Spencer						Due- Monday Nov 7 Status: Complete
-
+- Task: Create FacultyTest --> Owner: Jeremiah Due: 11/28 Status: Complete
+- Task: Implement Faculty --> Owner: Jeremiah Due: 11/28 Status: Complete
+- Task: Javadoc Faculty --> Owner: Jeremiah Due: 11/28 Status: Complete
+- Task: Create FacultyRecordIOTest --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement readFacultyRecords(String) --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement writeFacultyRecords(String, LinkedList<Faculty>) --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Javadoc FacultyRecordIO --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Create FacultyDirectoryTest --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Implement FacultyDirectory state --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Implement FacultyDirectory Constructor --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Implement FacultyDirectory newFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
+- Task: Implement FacultyDirectory loadFacultyFromFile --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement addFaculty --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement removeFaculty --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement getFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
+- Task: implement saveFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
+- Task: javadoc update RegistrationManager state --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc implement RegistrationManager.getFacultyDirectory --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc update RegistrationManager.login --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc update RegistrationManagerTest --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc Update GUI classes --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc Ensure coverage and passing tests --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc System test --> Owner: Allie Due: 11/28 Status: Complete
+- Task: javadoc Generate javadoc --> Owner: Allie Due: 11/28 Status: Complete
+  
+ Lab 11:
+- Task: test LinkedListRecursive --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Create FacultySchedule --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Create FacultyScheduleTest --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Create FacultySchedule --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Test FacultySchedule --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Add FacultySchedule state --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Add Faculty.getSchedule method --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Add Faculty.isOverloaded method --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Test the new functionality --> Owner: Austin Due: 12/3 Status: Finished
+- Task: Javadoc new stuff --> Owner: Austin Due: 12/3 Status: Finished
+- Task: update CourseRecordIO.readCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: test new functionality --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: javadoc new stuff --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: Implement RegistrationManager.addFacultyToCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: Implement RegistrationManager.removeFacultyFromCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: Implement RegistrationManager.resetFacultySchedule --> Owner: Jeremiah Due: 12/3 Status: Finished
+- Task: update RegistrationManagerTest --> Owner: Allie Due: 12/3 Status: Finished
+- Task: Update GUI --> Owner: Allie Due: 12/3 Status: Finished
+- Task: Ensure coverage --> Owner: Allie Due: 12/3 Status: Finished
+- Task: System test --> Owner: Allie Due: 12/3 Status: Finished
+- Task: Generate javadoc --> Owner: Allie Due: 12/3 Status: Finished 
+ 

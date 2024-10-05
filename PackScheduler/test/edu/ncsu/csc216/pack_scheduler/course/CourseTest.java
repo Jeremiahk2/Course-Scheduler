@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -271,6 +272,18 @@ public class CourseTest {
 				() -> assertEquals(MEETING_DAYS, c.getMeetingDays(), "incorrect meeting days"), 
 				() -> assertEquals(START_TIME, c.getStartTime(), "incorrect start time"),
 				() -> assertEquals(END_TIME, c.getEndTime(), "incorrect end time"));
+		
+		// Test Valid null id
+		c.setInstructorId(null);
+		assertAll("Course", 
+				() -> assertEquals(NAME, c.getName(), "incorrect name"), 
+				() -> assertEquals(TITLE, c.getTitle(), "incorrect title"),
+				() -> assertEquals(SECTION, c.getSection(), "incorrect section"), 
+				() -> assertEquals(CREDITS, c.getCredits(), "incorrect credits"),
+				() -> assertEquals(null, c.getInstructorId(), "incorrect instructor id"),
+				() -> assertEquals(MEETING_DAYS, c.getMeetingDays(), "incorrect meeting days"), 
+				() -> assertEquals(START_TIME, c.getStartTime(), "incorrect start time"),
+				() -> assertEquals(END_TIME, c.getEndTime(), "incorrect end time"));
 	}
 	
 	/**
@@ -278,7 +291,7 @@ public class CourseTest {
 	 * @param invalid invalid input for the test
 	 */
 	@ParameterizedTest
-	@NullAndEmptySource
+	@EmptySource
 	public void testSetInstructorIdInvalid(String invalid) {
 		Course c = new Course(NAME, TITLE, SECTION, CREDITS, INSTRUCTOR_ID, ENROLLMENT_CAP, MEETING_DAYS, START_TIME, END_TIME);
 

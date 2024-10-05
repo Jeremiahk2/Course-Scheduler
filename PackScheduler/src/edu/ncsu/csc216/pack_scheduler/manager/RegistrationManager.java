@@ -11,7 +11,9 @@ import java.util.Properties;
 import edu.ncsu.csc216.pack_scheduler.catalog.CourseCatalog;
 import edu.ncsu.csc216.pack_scheduler.course.Course;
 import edu.ncsu.csc216.pack_scheduler.course.roll.CourseRoll;
+import edu.ncsu.csc216.pack_scheduler.directory.FacultyDirectory;
 import edu.ncsu.csc216.pack_scheduler.directory.StudentDirectory;
+import edu.ncsu.csc216.pack_scheduler.user.Faculty;
 import edu.ncsu.csc216.pack_scheduler.user.Student;
 import edu.ncsu.csc216.pack_scheduler.user.User;
 import edu.ncsu.csc216.pack_scheduler.user.schedule.Schedule;
@@ -39,6 +41,8 @@ public class RegistrationManager {
 	private static final String HASH_ALGORITHM = "SHA-256";
 	/** The name of the file where the login information is stored (STORED LOCALLY). */
 	private static final String PROP_FILE = "registrar.properties";
+	/** The faculty directory */
+	private FacultyDirectory facultyDirectory; 
 
 	/**
 	 * Constructor for RegistrationManager, creates a new Registrar user using createRegistrar()
@@ -47,8 +51,53 @@ public class RegistrationManager {
 		createRegistrar();
 		this.studentDirectory = new StudentDirectory();
 		this.courseCatalog = new CourseCatalog();
+		this.facultyDirectory = new FacultyDirectory();
 	}
 
+	/**
+	 * adds the faculty to the given course
+	 * @param course the course to be added to the faculty's schedule
+	 * @param faculty the faculty that will be teaching the course
+	 * @return true, if successfully added the course to the faculty's schedule, false if not.
+	 * @throws IllegalArgumentException if the faculty could not be added to the course
+	 */
+	public boolean addFacultyToCourse(Course course, Faculty faculty) {
+		if (currentUser != null && currentUser.equals(registrar)) {
+			faculty.getSchedule().addCourseToSchedule(course);
+			return true;
+		} else {
+			throw new IllegalArgumentException();
+		}
+	}
+	
+	/**
+	 * removes the faculty from the given course
+	 * @param course the course to be removed
+	 * @param faculty the faculty with which the course will be removed from
+	 * @return true if successfully removed, false if not
+	 * @throws IllegalArgumentException if the course could not be removed from the faculty
+	 */
+	public boolean removeFacultyFromCourse(Course course, Faculty faculty) {
+		if (currentUser != null && currentUser.equals(registrar)) {
+			faculty.getSchedule().removeCourseFromSchedule(course);
+			return true;
+		} else {
+			throw new IllegalArgumentException();
+		}
+	}
+	
+	/**
+	 * resets the given faculty member's schedule
+	 * @param faculty the faculty member whose schedule will be reset
+	 * @throws IllegalArgumentException if the faculty's schedule could not be reset
+	 */
+	public void resetFacultySchedule(Faculty faculty) {
+		if (currentUser != null && currentUser.equals(registrar)) {
+			faculty.getSchedule().resetSchedule();
+		} else {
+			throw new IllegalArgumentException();
+		}
+	}
 	/**
 	 * creates a new Registrar user using information from PROP_FILE
 	 */
@@ -109,6 +158,14 @@ public class RegistrationManager {
 	}
 
 	/**
+	 * Returns the faculty directory 
+	 * @return facultyDirectory the faculty directory
+	 */
+	public FacultyDirectory getFacultyDirectory() {
+		return facultyDirectory;
+	}
+
+	/**
 	 * Logs in a student or Registrar to the Registration Manager
 	 * stores currentUser as s if the user is a student, "registrar" if the login information
 	 * matches that of the registrar
@@ -125,7 +182,7 @@ public class RegistrationManager {
 		}
 		
 		//hash the given password
-				String localHashPW = hashPW(password);
+		String localHashPW = hashPW(password);
 		
 		//if the id and password match the registrar, log in
 		if (registrar.getId().equals(id)) {
@@ -138,15 +195,21 @@ public class RegistrationManager {
 		else {
 			//check if there is a student that matches the given id
 			Student s = studentDirectory.getStudentById(id);
-			if (s == null) {
+			Faculty f = facultyDirectory.getFacultyById(id);
+			if (s == null && f == null) {
 				throw new IllegalArgumentException("User doesn't exist.");
 			}
 			
 			//if there is a student, check if their password is correct
-			if (s.getPassword().equals(localHashPW)) {
+			if (s != null && s.getPassword().equals(localHashPW)) {
 				currentUser = s;
 				return true;
 			}	
+			
+			if (f != null && f.getPassword().equals(localHashPW)) {
+				currentUser = f;
+				return true;
+			}
 		}
 
 		//if none of the information is correct, return false
@@ -174,6 +237,7 @@ public class RegistrationManager {
 	public void clearData() {
 		courseCatalog.newCourseCatalog();
 		studentDirectory.newStudentDirectory();
+		facultyDirectory.newFacultyDirectory();
 	}
 
 	/**
@@ -213,11 +277,9 @@ public class RegistrationManager {
 	    }
 	    try {
 	        Student s = (Student)currentUser;
-	        Schedule schedule = s.getSchedule();
 	        CourseRoll roll = c.getCourseRoll();
 	        
 	        if (s.canAdd(c) && roll.canEnroll(s)) {
-	            schedule.addCourseToSchedule(c);
 	            roll.enroll(s);
 	            return true;
 	        }
