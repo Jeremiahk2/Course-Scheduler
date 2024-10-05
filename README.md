@@ -1,77 +1,15 @@
-# csc217-LR3-223-01
+# Course Scheduler
 
-Lab 9:
+This is a project I completed while apart of three separate teams working in three separate repos. For viewing convenience I have ported it over to this github and combined them all into one repository, with the entire commit history included. Unfortunately, PR's, issues, and our wiki pages cannot be automatically ported, so you'll have to use your imagination for that part.
 
+This project is a course scheduling application, where my teams were responsible for writing almost the entirety of the backend Java code. To put it into more design based terms, we were responsible for the Model and the Controllers but not the View. The view was done using Java's Swing library and communicated with our code directly, rather than through an API (That comes later in my projects).
 
-- Task: Test ArrayStack --> Owner: Austin Due: 11/14 Status: Finished
-- Task: Test LinkedStack --> Owner: Austin  Due: 11/14 Status: Finished
-- Task: Implemenet ArrayQueue --> Owner: Jeremiah Due: 11/14 Status: Finished
-- Task: Implement LinkedQueue --> Owner: Jeremiah Due: 11/14 Status: Finished
-- Task: Test ArrayQueue --> Owner: Allie Due: 11/14 Status: Finished
-- Task: Test LinkedQueue --> Owner: Allie Due: 11/14 Status: Finished
-- Task: Analyze Runtime Efficiency --> Owner: Jeremiah  Due: 11/14 Status: Finished
-- Task: add back field --> Owner: Jeremiah Due: 11/14 Status: Finished
-- Task: update add(idx, element) --> Owner: Jeremiah Due: 11/14 Status: Finished
-- Task: update remove(idx) --> Owner: Jeremiah Due: 11/14 Status: Finished
-- Task: update size() --> Owner: N/A Due: 11/14 Status: Was done last week
-- Task: add waitlist field to courseRoll --> Owner: Austin Due: 11/14 Status: Completed
-- Task: Update Courseroll constructor --> Owner: Austin Due: 11/14 Status: Completed
-- Task: Update Courseroll.enroll --> Owner: Austin Due: 11/14 Status: Completed
-- Task: Update Courseroll.drop --> Owner: Austin Due: 11/14 Status: Completed
-- Task: Update CourseRoll.canEnroll --> Owner: Austin Due: 11/14 Status: Completed
-- Task: Implement CourseRoll.getNumberOnWaitList --> Owner: Austin Due: 11/14 Status: Completed
-- Task: Update Tests and Ensure Coverage is met --> Owner: Allie Due: 11/14 Status: Completed
-- Task: Update GUI (if needed) --> Owner: Allie Due: 11/14 Status: Completed
-- Task: System testing for new functionality --> Owner: Allie Due: 11/14 Status: Completed
-- Task: Generate javadoc --> Owner: Allie Due: 11/14 Status: Completed
+In terms of scope, this application will allow administrators to add classrooms, student and teacher accounts, timeslots, events, etc. Teachers can add students, accept classes, manage their timeslots and events. Students can add classes to their schedule, enroll in courses, view information about all the classes in a GUI, and make decisions based on that.
 
-Lab 10:
+In short, it works just like how you would apply for college courses, in fact much of the data we used is directly from our school's courses and is publicly available.
 
-- Task: Create FacultyTest --> Owner: Jeremiah Due: 11/28 Status: Complete
-- Task: Implement Faculty --> Owner: Jeremiah Due: 11/28 Status: Complete
-- Task: Javadoc Faculty --> Owner: Jeremiah Due: 11/28 Status: Complete
-- Task: Create FacultyRecordIOTest --> Owner: Austin Due: 11/28 Status: Complete
-- Task: implement readFacultyRecords(String) --> Owner: Austin Due: 11/28 Status: Complete
-- Task: implement writeFacultyRecords(String, LinkedList<Faculty>) --> Owner: Austin Due: 11/28 Status: Complete
-- Task: Javadoc FacultyRecordIO --> Owner: Austin Due: 11/28 Status: Complete
-- Task: Create FacultyDirectoryTest --> Owner: Austin Due: 11/28 Status: Complete
-- Task: Implement FacultyDirectory state --> Owner: Austin Due: 11/28 Status: Complete
-- Task: Implement FacultyDirectory Constructor --> Owner: Austin Due: 11/28 Status: Complete
-- Task: Implement FacultyDirectory newFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
-- Task: Implement FacultyDirectory loadFacultyFromFile --> Owner: Austin Due: 11/28 Status: Complete
-- Task: implement addFaculty --> Owner: Austin Due: 11/28 Status: Complete
-- Task: implement removeFaculty --> Owner: Austin Due: 11/28 Status: Complete
-- Task: implement getFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
-- Task: implement saveFacultyDirectory --> Owner: Austin Due: 11/28 Status: Complete
-- Task: javadoc update RegistrationManager state --> Owner: Allie Due: 11/28 Status: Complete
-- Task: javadoc implement RegistrationManager.getFacultyDirectory --> Owner: Allie Due: 11/28 Status: Complete
-- Task: javadoc update RegistrationManager.login --> Owner: Allie Due: 11/28 Status: Complete
-- Task: javadoc update RegistrationManagerTest --> Owner: Allie Due: 11/28 Status: Complete
-- Task: javadoc Update GUI classes --> Owner: Allie Due: 11/28 Status: Complete
-- Task: javadoc Ensure coverage and passing tests --> Owner: Allie Due: 11/28 Status: Complete
-- Task: javadoc System test --> Owner: Allie Due: 11/28 Status: Complete
-- Task: javadoc Generate javadoc --> Owner: Allie Due: 11/28 Status: Complete
-  
- Lab 11:
-- Task: test LinkedListRecursive --> Owner: Austin Due: 12/3 Status: Finished
-- Task: Create FacultySchedule --> Owner: Austin Due: 12/3 Status: Finished
-- Task: Create FacultyScheduleTest --> Owner: Austin Due: 12/3 Status: Finished
-- Task: Create FacultySchedule --> Owner: Austin Due: 12/3 Status: Finished
-- Task: Test FacultySchedule --> Owner: Austin Due: 12/3 Status: Finished
-- Task: Add FacultySchedule state --> Owner: Austin Due: 12/3 Status: Finished
-- Task: Add Faculty.getSchedule method --> Owner: Austin Due: 12/3 Status: Finished
-- Task: Add Faculty.isOverloaded method --> Owner: Austin Due: 12/3 Status: Finished
-- Task: Test the new functionality --> Owner: Austin Due: 12/3 Status: Finished
-- Task: Javadoc new stuff --> Owner: Austin Due: 12/3 Status: Finished
-- Task: update CourseRecordIO.readCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
-- Task: test new functionality --> Owner: Jeremiah Due: 12/3 Status: Finished
-- Task: javadoc new stuff --> Owner: Jeremiah Due: 12/3 Status: Finished
-- Task: Implement RegistrationManager.addFacultyToCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
-- Task: Implement RegistrationManager.removeFacultyFromCourse --> Owner: Jeremiah Due: 12/3 Status: Finished
-- Task: Implement RegistrationManager.resetFacultySchedule --> Owner: Jeremiah Due: 12/3 Status: Finished
-- Task: update RegistrationManagerTest --> Owner: Allie Due: 12/3 Status: Finished
-- Task: Update GUI --> Owner: Allie Due: 12/3 Status: Finished
-- Task: Ensure coverage --> Owner: Allie Due: 12/3 Status: Finished
-- Task: System test --> Owner: Allie Due: 12/3 Status: Finished
-- Task: Generate javadoc --> Owner: Allie Due: 12/3 Status: Finished 
- 
+# Development
+
+This was developed in Eclipse in teams of 2-3. I focused heavily on implementation and test rather than design. 
+
+To run this project, I would suggest importing it into eclipse and running it from there using eclipse's runner.
